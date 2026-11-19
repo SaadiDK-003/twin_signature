@@ -1,0 +1,45 @@
+{% assign current = product.selected_or_first_available_variant %}
+{% assign current_image = current.featured_image | default: product.featured_image %}
+<div class="container product-detail" data-product-detail>
+ {% render 'ts-product-gallery', product: product, current_image: current_image %}
+ <div class="product-detail__info"><p class="product-breadcrumb"><a href="{{ routes.root_url }}">Home</a> / {{ product.title | escape }}</p>{% if current.sku != blank %}<p class="product-sku" data-product-sku>SKU: {{ current.sku | escape }}</p>{% endif %}{% if product.metafields.custom.demo_rating.value != blank %}<div class="rating" role="img" aria-label="Demo rating: {{ product.metafields.custom.demo_rating.value }} out of 5"><span aria-hidden="true">★★★★★</span><small aria-hidden="true">({{ product.metafields.custom.demo_rating_count.value | default: 1 }})</small></div>{% endif %}<h1>{{ product.title | escape }}</h1><div data-product-price aria-live="polite" aria-atomic="true">{% render 'ts-price', product: product, variant: current %}</div>{% render 'ts-product-stock', variant: current, section: section %}
+ {% render 'ts-variant-picker', product: product, section: section %}
+ {% assign product_form_id = 'ProductForm-' | append: section.id %}{% form 'product', product, id: product_form_id, class: 'product-form', data-cart-form: true %}<input type="hidden" name="id" value="{{ current.id }}" data-variant-id><label class="product-quantity-label" for="Quantity-{{ section.id }}">Quantity</label><div class="product-buy-row"><div class="quantity"><button type="button" data-quantity-step="-1" aria-label="Decrease quantity">−</button><input type="number" id="Quantity-{{ section.id }}" name="quantity" min="1" value="1" step="1"><button type="button" data-quantity-step="1" aria-label="Increase quantity">+</button></div><button type="submit" class="button" data-add-to-cart {% unless current.available %}disabled{% endunless %}>{% if current.available %}Add to cart{% else %}Sold out{% endif %}</button></div><p class="form-error" role="alert"></p>{{ form | payment_button }}{% endform %}
+ <button type="button" class="text-link product-wishlist" data-wishlist-toggle="{{ product.handle }}" aria-pressed="false">{% render 'ts-icon', name: 'heart' %} Add to wishlist</button>
+ <details class="product-accordion"><summary>Product Description</summary><div class="rte">{{ product.description }}</div></details><details class="product-accordion"><summary>Shipping & Returns</summary><div class="rte"><p>Find delivery and return information for your order.</p><a href="{{ routes.root_url }}pages/shipping-returns">Read our shipping and returns information</a></div></details><details class="product-accordion"><summary>Our Privacy Policy</summary><div class="rte"><p>We respect your privacy and handle your details with care.</p><a href="{{ routes.root_url }}pages/privacy-policy">View privacy policy</a></div></details><div class="product-share"><a href="https://www.facebook.com/sharer/sharer.php?u={{ canonical_url | url_encode }}" target="_blank" rel="noopener">Facebook ↗</a><a href="https://pinterest.com/pin/create/button/?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener">Pinterest ↗</a></div>
+ </div><script type="application/json" data-product-inventory>{ {% for variant in product.variants %}"{{ variant.id }}":{"quantity":{{ variant.inventory_quantity | json }},"tracked":{% if variant.inventory_management %}true{% else %}false{% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %} }</script><script type="application/json" data-product-json>{{ product.variants | json }}</script>
+</div>
+{% schema %}
+{
+  "name": "Product information",
+  "settings": [
+    {
+      "type": "product_list",
+      "id": "plain_swatch_products",
+      "label": "Products with plain color swatches",
+      "limit": 16
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stock_quantity",
+      "label": "Show exact quantity when stock is low",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "low_stock_threshold",
+      "label": "Low stock threshold",
+      "min": 1,
+      "max": 100,
+      "step": 1,
+      "default": 20,
+      "info": "Show the quantity for tracked variants at or below this number. The stock bar fills relative to this threshold."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product information"
+    }
+  ]
+}
+{% endschema %}

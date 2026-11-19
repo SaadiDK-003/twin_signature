@@ -1,0 +1,6 @@
+[environments.development]
+store = "twin-signature-4u8gmwse.myshopify.com"
+
+[environments.production]
+store = "twin-signature-4u8gmwse.myshopify.com"
+theme = "163227304038"

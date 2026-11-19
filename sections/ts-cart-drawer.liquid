@@ -1,0 +1,2 @@
+<dialog class="cart-drawer dialog" id="CartDrawer" aria-labelledby="CartDrawerHeading"><div class="drawer-heading"><h2 id="CartDrawerHeading">Your shopping cart <span data-cart-count>{{ cart.item_count }}</span></h2><button class="icon-button" data-dialog-close aria-label="Close cart" autofocus>{% render 'ts-icon', name: 'close' %}</button></div><div data-cart-content>{% render 'ts-cart-content', drawer: true %}</div></dialog>
+{% schema %}{"name":"Cart drawer","settings":[]}{% endschema %}

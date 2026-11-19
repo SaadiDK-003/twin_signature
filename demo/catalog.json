@@ -1,0 +1,675 @@
+[
+  {
+    "handle": "love-edition-for-her",
+    "title": "Love Edition For Her",
+    "price": 3000.0,
+    "compare_at_price": 6000.0,
+    "images": [
+      "ref-11.jpg",
+      "ref-16.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-8.jpg",
+      "ref-7.jpg",
+      "ref-12.jpg"
+    ],
+    "available": true,
+    "rating": 5.0,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "red",
+          "green",
+          "blue",
+          "yellow"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100ML",
+          "200ML",
+          "500ML"
+        ]
+      }
+    ],
+    "notes": "Jasmine",
+    "gender": "Women",
+    "longevity": "Moderate",
+    "collections": [
+      "women-perfumes",
+      "gift-sets",
+      "best-sellers",
+      "sale"
+    ],
+    "rating_count": 1,
+    "variant_images": {
+      "red": "ref-8.jpg",
+      "green": "ref-7.jpg",
+      "blue": "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "yellow": "ref-12.jpg"
+    }
+  },
+  {
+    "handle": "arome-le-parfum",
+    "title": "Arome  Le Parfum",
+    "price": 7900.0,
+    "compare_at_price": null,
+    "images": [
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-7.jpg",
+      "ref-8.jpg"
+    ],
+    "available": true,
+    "rating": 4.7,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Red",
+          "Green",
+          "Blue"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100ML",
+          "200ML",
+          "500ML"
+        ]
+      }
+    ],
+    "notes": "Bergamot",
+    "gender": "Men",
+    "longevity": "Strong",
+    "collections": [
+      "men-colognes",
+      "gift-sets",
+      "best-sellers",
+      "popular-perfumes"
+    ],
+    "rating_count": 2,
+    "variant_images": {
+      "Black": "ref-8.jpg",
+      "Red": "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "Green": "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "Blue": "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg"
+    }
+  },
+  {
+    "handle": "aersace-for-men",
+    "title": "Aersace For Men",
+    "price": 5099.0,
+    "compare_at_price": null,
+    "images": [
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-7.jpg",
+      "ref-8.jpg"
+    ],
+    "available": true,
+    "rating": 5.0,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "Green",
+          "Blue",
+          "Red",
+          "Black"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100ML",
+          "200ML",
+          "300ML"
+        ]
+      }
+    ],
+    "notes": "Lavender",
+    "gender": "Men",
+    "longevity": "8\u201312 hours",
+    "collections": [
+      "men-colognes",
+      "gift-sets",
+      "best-sellers",
+      "popular-perfumes"
+    ],
+    "rating_count": 1,
+    "variant_images": {
+      "Green": "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "Blue": "ref-7.jpg",
+      "Red": "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "Black": "ref-8.jpg"
+    }
+  },
+  {
+    "handle": "million-gold-for-her",
+    "title": "Million Gold for Her",
+    "price": 5000.0,
+    "compare_at_price": null,
+    "images": [
+      "ref-10.jpg",
+      "ref-12.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-14.jpg",
+      "ref-16.jpg",
+      "ref-13.jpg"
+    ],
+    "available": true,
+    "rating": 4.5,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "green",
+          "red",
+          "black"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100ML",
+          "200ML",
+          "500ML"
+        ]
+      }
+    ],
+    "notes": "Vanilla",
+    "gender": "Men",
+    "longevity": "Moderate",
+    "collections": [
+      "men-colognes",
+      "gift-sets",
+      "best-sellers"
+    ],
+    "rating_count": 2,
+    "variant_images": {
+      "green": "ref-14.jpg",
+      "red": "ref-16.jpg",
+      "black": "ref-13.jpg"
+    }
+  },
+  {
+    "handle": "arome-virtual-flower",
+    "title": "Arome  Virtual Flower",
+    "price": 20000.0,
+    "compare_at_price": 30000.0,
+    "images": [
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-7.jpg",
+      "ref-8.jpg"
+    ],
+    "available": true,
+    "rating": 5.0,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "Black"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "500ML",
+          "300ML",
+          "200ML",
+          "100ML"
+        ]
+      }
+    ],
+    "notes": "Sandalwood",
+    "gender": "Unisex",
+    "longevity": "Strong",
+    "collections": [
+      "women-perfumes",
+      "men-colognes",
+      "gift-sets",
+      "best-sellers",
+      "popular-perfumes",
+      "sale"
+    ],
+    "rating_count": 1
+  },
+  {
+    "handle": "black-wild-fragrance",
+    "title": "Black Wild Fragrance",
+    "price": 3000.0,
+    "compare_at_price": 6000.0,
+    "images": [
+      "ref-16.jpg",
+      "ref-14.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-8.jpg",
+      "ref-13.jpg",
+      "ref-15_f375956d-5b0d-444e-8cb5-a20dbc65bee3.jpg"
+    ],
+    "available": true,
+    "rating": 4.0,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "red",
+          "green",
+          "blue",
+          "yellow"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100g",
+          "200g",
+          "500g"
+        ]
+      }
+    ],
+    "notes": "Leather",
+    "gender": "Unisex",
+    "longevity": "8\u201312 hours",
+    "collections": [
+      "women-perfumes",
+      "men-colognes",
+      "gift-sets",
+      "best-sellers",
+      "popular-perfumes",
+      "sale"
+    ],
+    "rating_count": 2,
+    "variant_images": {
+      "red": "ref-8.jpg",
+      "green": "ref-13.jpg",
+      "blue": "ref-15_f375956d-5b0d-444e-8cb5-a20dbc65bee3.jpg",
+      "yellow": "ref-16.jpg"
+    }
+  },
+  {
+    "handle": "brown-devotion-man",
+    "title": "Brown Devotion Man",
+    "price": 5000.0,
+    "compare_at_price": null,
+    "images": [
+      "ref-13.jpg",
+      "ref-8.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg"
+    ],
+    "available": true,
+    "rating": 5.0,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Green",
+          "Blue",
+          "Red"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100g",
+          "200g",
+          "300g"
+        ]
+      }
+    ],
+    "notes": "Jasmine",
+    "gender": "Men",
+    "longevity": "Moderate",
+    "collections": [
+      "men-colognes",
+      "gift-sets",
+      "best-sellers",
+      "popular-perfumes"
+    ],
+    "rating_count": 1
+  },
+  {
+    "handle": "essence-pour-home",
+    "title": "Essence Pour Home",
+    "price": 5000.0,
+    "compare_at_price": 6000.0,
+    "images": [
+      "ref-7.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-8.jpg"
+    ],
+    "available": false,
+    "rating": 3.0,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Blue",
+          "Green",
+          "Red"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100ML",
+          "200ML",
+          "500ML"
+        ]
+      }
+    ],
+    "notes": "Bergamot",
+    "gender": "Men",
+    "longevity": "Strong",
+    "collections": [
+      "men-colognes",
+      "gift-sets",
+      "best-sellers",
+      "popular-perfumes",
+      "sale"
+    ],
+    "rating_count": 2,
+    "variant_images": {
+      "Black": "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "Blue": "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "Green": "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "Red": "ref-8.jpg"
+    }
+  },
+  {
+    "handle": "eau-de-toilette-for-men",
+    "title": "Eau De Toilette For Men",
+    "price": 7900.0,
+    "compare_at_price": null,
+    "images": [
+      "ref-8.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-7.jpg"
+    ],
+    "available": true,
+    "rating": 5.0,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Red",
+          "Green",
+          "Blue"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100ML",
+          "200ML",
+          "500ML"
+        ]
+      }
+    ],
+    "notes": "Lavender",
+    "gender": "Men",
+    "longevity": "8\u201312 hours",
+    "collections": [
+      "men-colognes",
+      "gift-sets"
+    ],
+    "rating_count": 1,
+    "variant_images": {
+      "Black": "ref-8.jpg",
+      "Red": "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "Green": "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "Blue": "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg"
+    }
+  },
+  {
+    "handle": "men-caramel-dream",
+    "title": "Men Caramel Dream",
+    "price": 5000.0,
+    "compare_at_price": 6000.0,
+    "images": [
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-10.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-7.jpg",
+      "ref-15_f375956d-5b0d-444e-8cb5-a20dbc65bee3.jpg"
+    ],
+    "available": false,
+    "rating": 5.0,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Blue",
+          "Green",
+          "Red"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100ML",
+          "200ML",
+          "500ML"
+        ]
+      }
+    ],
+    "notes": "Vanilla",
+    "gender": "Unisex",
+    "longevity": "Moderate",
+    "collections": [
+      "women-perfumes",
+      "men-colognes",
+      "gift-sets",
+      "popular-perfumes",
+      "sale"
+    ],
+    "rating_count": 2,
+    "variant_images": {
+      "Black": "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "Blue": "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "Green": "ref-15_f375956d-5b0d-444e-8cb5-a20dbc65bee3.jpg",
+      "Red": "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg"
+    }
+  },
+  {
+    "handle": "klein-women-spray",
+    "title": "Klein Women  Spray",
+    "price": 9900.0,
+    "compare_at_price": null,
+    "images": [
+      "ref-8.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-7.jpg"
+    ],
+    "available": true,
+    "rating": 5.0,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Blue",
+          "Red",
+          "Green"
+        ]
+      }
+    ],
+    "notes": "Sandalwood",
+    "gender": "Women",
+    "longevity": "Strong",
+    "collections": [
+      "women-perfumes",
+      "popular-perfumes"
+    ],
+    "rating_count": 1,
+    "variant_images": {
+      "Black": "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "Blue": "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "Red": "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "Green": "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg"
+    }
+  },
+  {
+    "handle": "orchid-flora-geous",
+    "title": "Orchid Flora Geous",
+    "price": 7500,
+    "compare_at_price": null,
+    "images": [
+      "ref-15_f375956d-5b0d-444e-8cb5-a20dbc65bee3.jpg",
+      "ref-11.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-16.jpg",
+      "ref-13.jpg",
+      "ref-10.jpg",
+      "ref-12.jpg"
+    ],
+    "available": true,
+    "rating": 5,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "Black",
+          "Blue",
+          "Green",
+          "Red"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100g",
+          "200g",
+          "500g"
+        ]
+      }
+    ],
+    "notes": "Leather",
+    "gender": "Women",
+    "longevity": "8\u201312 hours",
+    "collections": [
+      "women-perfumes"
+    ],
+    "rating_count": 2,
+    "variant_images": {
+      "Black": "ref-16.jpg",
+      "Blue": "ref-13.jpg",
+      "Green": "ref-10.jpg",
+      "Red": "ref-12.jpg"
+    }
+  },
+  {
+    "handle": "profondo-parfum-her",
+    "title": "Profondo Parfum Her",
+    "price": 5000,
+    "compare_at_price": 9900,
+    "images": [
+      "ref-18.jpg",
+      "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "ref-2_e3cd7c76-5530-4779-914d-aced9fc7bff6.jpg",
+      "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+      "ref-4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg",
+      "ref-6_97af0291-abf5-47ee-99ed-a00696fb134a.jpg",
+      "ref-7.jpg"
+    ],
+    "available": true,
+    "rating": 5,
+    "options": [
+      {
+        "name": "Color",
+        "values": [
+          "green",
+          "red",
+          "black"
+        ]
+      },
+      {
+        "name": "Weight",
+        "values": [
+          "100ML",
+          "200ML",
+          "500ML"
+        ]
+      }
+    ],
+    "notes": "Jasmine",
+    "gender": "Women",
+    "longevity": "Moderate",
+    "collections": [
+      "women-perfumes",
+      "sale"
+    ],
+    "rating_count": 1,
+    "variant_images": {
+      "green": "ref-5_3d766c86-88c7-466f-9a42-8969ff6e4ad8.jpg",
+      "red": "ref-1_08ff09db-b9b0-4781-8774-8c5872176160.jpg",
+      "black": "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg"
+    }
+  }
+]

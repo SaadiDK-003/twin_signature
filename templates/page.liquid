@@ -1,0 +1,7 @@
+{% case page.handle %}
+  {% when 'about-us' %}{% section 'ts-about' %}{% section 'ts-faq' %}
+  {% when 'faq' %}{% section 'ts-faq' %}
+  {% when 'contact-us' or 'contact' %}{% section 'ts-contact' %}
+  {% when 'wishlist' %}{% section 'ts-wishlist' %}
+  {% else %}{% section 'page' %}
+{% endcase %}

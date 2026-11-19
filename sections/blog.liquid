@@ -1,0 +1,12 @@
+{% render 'ts-breadcrumbs', title: blog.title %}<div class="container section-space"><h1 class="page-heading">{{ blog.title | escape }}</h1>{% paginate blog.articles by 9 %}<div class="blog-grid">{% for entry in blog.articles %}<article class="blog-card"><a href="{{ entry.url }}">{% render 'ts-media', image: entry.image, alt: entry.title, width: 800, height: 550 %}</a><p>{{ entry.author | escape }}<span>{{ entry.published_at | date: '%b %d, %Y' }}</span></p><h2><a href="{{ entry.url }}">{{ entry.title | escape }}</a></h2><p>{{ entry.excerpt_or_content | strip_html | truncatewords: 24 }}</p></article>{% endfor %}</div>{% if paginate.pages > 1 %}<div class="pagination">{{ paginate | default_pagination }}</div>{% endif %}{% endpaginate %}</div>
+{% schema %}
+{
+  "name": "Fragrance journal listing",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Fragrance journal listing"
+    }
+  ]
+}
+{% endschema %}

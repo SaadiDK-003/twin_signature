@@ -1,0 +1,52 @@
+<div class="promotion full-width"><div class="container promotion__grid"><div class="promotion__image">{% render 'ts-media', image: section.settings.image, fallback: 'ref-1443.jpg', alt: section.settings.heading, width: 1000, height: 800, sizes: '(min-width: 750px) 50vw, 100vw' %}</div><div class="promotion__content"><p>{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.heading | escape | newline_to_br }}</h2>{% if section.settings.end_date != blank %}<div class="countdown" data-countdown="{{ section.settings.end_date | escape }}" aria-label="Time remaining in the promotion"></div>{% endif %}<p>{{ section.settings.text | escape }}</p><a href="{{ section.settings.link | default: routes.all_products_collection_url }}" class="button">{{ section.settings.label | escape }}</a></div></div></div>
+{% schema %}
+{
+  "name": "Featured promotion",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Featured Product Of This Week"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Only High Quality Is The\nCore Value For Us."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Discover a considered collection of memorable fragrances. Beautifully crafted scents, selected to become a part of your everyday story."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "end_date",
+      "label": "Countdown end (ISO date with timezone)"
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured promotion"
+    }
+  ]
+}
+{% endschema %}

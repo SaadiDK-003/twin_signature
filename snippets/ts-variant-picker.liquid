@@ -1,0 +1,36 @@
+{% assign use_product_images = true %}
+{% for plain_product in section.settings.plain_swatch_products %}{% if plain_product.id == product.id %}{% assign use_product_images = false %}{% break %}{% endif %}{% endfor %}
+{% unless product.has_only_default_variant %}
+  {% for option in product.options_with_values %}
+    {% assign option_index = option.position | minus: 1 %}
+    {% assign option_name = option.name | downcase %}
+    <fieldset class="variant-options{% if option_name == 'color' or option_name == 'colour' %} variant-options--color{% endif %}" data-option-index="{{ option_index }}">
+      <legend><span>{{ option.name | escape }}:</span> <strong data-option-label>{{ option.selected_value | escape }}</strong></legend>
+      <div class="variant-values">
+        {% for value in option.values %}
+          {% assign option_value = value.name | default: value %}
+          {% assign swatch_image = value.swatch.image %}
+          {% if swatch_image == blank %}
+            {% for candidate in product.variants %}
+              {% if candidate.options[option_index] == option_value and candidate.featured_image != blank %}
+                {% assign swatch_image = candidate.featured_image %}
+                {% break %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+          <label class="variant-choice{% if option_name == 'color' or option_name == 'colour' %} variant-choice--swatch{% endif %}">
+            <input type="radio" name="option-{{ section.id }}-{{ option.position }}" value="{{ option_value | escape }}" aria-label="{{ option_value | escape }}" {% if option.selected_value == option_value %}checked{% endif %} {% if swatch_image %}data-option-image="{{ swatch_image | image_url: width: 1400 }}"{% endif %}>
+            {% if option_name == 'color' or option_name == 'colour' %}
+              <span class="variant-swatch" style="--swatch:{{ value.swatch.color | default: option_value | downcase | escape }}">
+                {% if swatch_image and use_product_images %}{{ swatch_image | image_url: width: 100 | image_tag: width: 30, height: 30, alt: '', loading: 'eager' }}{% endif %}
+                <span class="variant-tooltip" aria-hidden="true">{{ option_value | escape }}</span>
+              </span>
+            {% else %}
+              <span class="variant-button">{{ option_value | escape }}</span>
+            {% endif %}
+          </label>
+        {% endfor %}
+      </div>
+    </fieldset>
+  {% endfor %}
+{% endunless %}

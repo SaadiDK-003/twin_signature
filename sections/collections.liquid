@@ -1,0 +1,12 @@
+{% render 'ts-breadcrumbs', title: 'Collections' %}<div class="container section-space"><h1 class="page-heading">Find Your Signature</h1><div class="collection-directory">{% for group in collections %}{% unless group.handle == 'all' %}<a href="{{ group.url }}" class="collection-banner">{% assign picture = group.image | default: group.products.first.featured_image %}{% render 'ts-media', image: picture, alt: group.title, width: 800, height: 800 %}<div><h2>{{ group.title | escape }}</h2><span>({{ group.products_count }})</span></div></a>{% endunless %}{% endfor %}</div></div>
+{% schema %}
+{
+  "name": "Collection directory",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Collection directory"
+    }
+  ]
+}
+{% endschema %}

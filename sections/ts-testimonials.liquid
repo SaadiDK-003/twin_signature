@@ -1,0 +1,44 @@
+<div class="testimonials full-width"><div class="container"><h2 class="section-title">{{ section.settings.heading | escape | newline_to_br }}</h2><div class="testimonial-grid">{% for block in section.blocks %}<figure {{ block.shopify_attributes }}><div class="quote-mark" aria-hidden="true">“</div><blockquote>{{ block.settings.quote | escape }}</blockquote><div class="rating" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div><figcaption><strong>{{ block.settings.author | escape }}</strong><small>{{ block.settings.caption | escape }}</small></figcaption></figure>{% endfor %}</div></div></div>
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A Signature To Remember.\nStories From Our Community."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials"
+    }
+  ],
+  "max_blocks": 6,
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "caption",
+          "label": "Caption",
+          "default": "Fragrance enthusiast"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

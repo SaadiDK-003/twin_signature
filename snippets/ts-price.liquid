@@ -1,0 +1,6 @@
+<span class="price" data-price>
+  {% if product.price_varies and variant == blank %}<span class="price-from">From </span>{% endif %}
+  {% assign price_item = variant | default: product %}
+  <span>{{ price_item.price | money }}</span>
+  {% if price_item.compare_at_price > price_item.price %}<s>{{ price_item.compare_at_price | money }}</s>{% endif %}
+</span>

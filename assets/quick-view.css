@@ -1,0 +1,111 @@
+.quick-view {
+  --quick-view-height: min(88dvh, 760px);
+  width: 1040px;
+  max-width: calc(100vw - 40px);
+  max-height: var(--quick-view-height);
+  overflow: hidden;
+  border-radius: 16px;
+}
+.quick-view[open] {
+  display: flex;
+  flex-direction: column;
+  animation: quick-view-in .22s cubic-bezier(.22,1,.36,1) both;
+}
+.quick-view::backdrop { animation: quick-view-backdrop-in .22s ease-out both; }
+.quick-view__header {
+  display: flex;
+  flex: 0 0 60px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px 8px 28px;
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+.quick-view__header > span {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.quick-view .dialog-close {
+  position: static;
+  background: #f5f2ed;
+  box-shadow: none;
+}
+.quick-view .dialog-close:hover { background: #eae3d8; }
+.quick-view__content {
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: calc(var(--quick-view-height) - 60px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  scrollbar-color: #b6a991 transparent;
+}
+.quick-view__content::-webkit-scrollbar { width: 6px; }
+.quick-view__content::-webkit-scrollbar-track { background: transparent; }
+.quick-view__content::-webkit-scrollbar-thumb { background: #b6a991; border: 1px solid #fff; border-radius: 8px; }
+.quick-view__content::-webkit-scrollbar-thumb:hover { background: #8b7b61; }
+.quick-view__content[data-state="loading"],
+.quick-view__content[data-state="error"] {
+  display: grid;
+  place-content: center;
+  gap: 16px;
+  min-height: min(360px, calc(var(--quick-view-height) - 60px));
+  padding: 28px;
+  text-align: center;
+}
+.quick-view__status { margin: 0; color: var(--muted); }
+.quick-view__content[data-state="loading"] .quick-view__status::before {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin: 0 auto 16px;
+  border: 2px solid #e9e2d6;
+  border-top-color: var(--plum);
+  border-radius: 50%;
+  animation: signature-spin .7s linear infinite;
+}
+.quick-view .product-detail {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 28px;
+  grid-template-columns: minmax(0,1fr) minmax(0,1fr);
+  gap: 32px;
+  align-items: start;
+}
+.quick-view .product-gallery { position: sticky; top: 28px; align-self: start; }
+.quick-view .product-gallery__main { width: 100%; height: auto; max-height: none; aspect-ratio: 1; object-fit: contain; border-radius: 12px; }
+.quick-view .product-gallery__navigation { display: none; }
+.quick-view .product-detail__info { min-width: 0; padding: 0; }
+.quick-view .product-sku { margin-bottom: 8px; font-size: 12px; }
+.quick-view .quick-view__title { margin: 0 0 12px; font-size: 28px; line-height: 1.2; overflow-wrap: anywhere; }
+.quick-view .product-detail__info [data-product-price] { margin-bottom: 16px; }
+.quick-view .stock-message { font-size: 14px; }
+.quick-view .variant-options { margin-bottom: 16px; }
+.quick-view .product-wishlist { margin-top: 18px; }
+.quick-view__details-link { display: flex; width: fit-content; gap: 8px; margin-top: 16px; font-size: 14px; }
+@media (max-width: 989px) and (min-width: 750px) {
+  .quick-view .product-detail { gap: 24px; padding: 24px; }
+  .quick-view .quick-view__title { font-size: 24px; }
+}
+@media (max-width: 749px) {
+  .quick-view { --quick-view-height: 92dvh; max-width: calc(100vw - 24px); border-radius: 12px; }
+  .quick-view__header { padding-inline: 20px 12px; }
+  .quick-view__content { scrollbar-gutter: auto; }
+  .quick-view .product-detail { grid-template-columns: minmax(0,1fr); gap: 24px; padding: 20px; }
+  .quick-view .product-gallery { position: static; width: min(100%,260px); margin-inline: auto; }
+  .quick-view .product-gallery__main { aspect-ratio: 1; max-height: none; }
+  .quick-view .quick-view__title { font-size: 24px; }
+  .quick-view .product-detail__info [data-product-price] .price { font-size: 20px; }
+}
+@keyframes quick-view-in { from { opacity: 0; transform: translateY(8px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes quick-view-backdrop-in { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) {
+  .quick-view[open],.quick-view::backdrop,.quick-view__content[data-state="loading"] .quick-view__status::before { animation: none; }
+}

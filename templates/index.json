@@ -1,0 +1,321 @@
+{
+  "sections": {
+    "hero": {
+      "type": "ts-hero",
+      "settings": {
+        "autoplay": true
+      },
+      "blocks": {
+        "0": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "FRAGRANCES DEFINE YOU",
+            "heading": "Explore Your\nSignature Scent",
+            "fallback": "ref-s4.jpg",
+            "mobile_fallback": "ref-smx1.jpg",
+            "label": "Shop now",
+            "link": "/collections/all"
+          }
+        },
+        "1": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "UNVEIL YOUR SCENT",
+            "heading": "Finest Perfumes\nShop For Women",
+            "fallback": "ref-s1_8f554bb3-d45a-45f9-8c3e-cd63a7ebe0b2.jpg",
+            "mobile_fallback": "ref-smx12.jpg",
+            "label": "Shop now",
+            "link": "/collections/women-perfumes"
+          }
+        },
+        "2": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "TIMELESS ELEGANCE",
+            "heading": "Fragrance For\nEvery Occasion",
+            "fallback": "ref-s5.jpg",
+            "mobile_fallback": "ref-smx123_copy.jpg",
+            "label": "Shop now",
+            "link": "/collections/gift-sets"
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "categories": {
+      "type": "ts-collection-banners",
+      "settings": {},
+      "blocks": {
+        "0": {
+          "type": "collection",
+          "settings": {
+            "title": "Women Perfumes",
+            "collection": "women-perfumes",
+            "fallback": "ref-259.jpg",
+            "link": "/collections/women-perfumes"
+          }
+        },
+        "1": {
+          "type": "collection",
+          "settings": {
+            "title": "Men Colognes",
+            "collection": "men-colognes",
+            "fallback": "ref-11.jpg",
+            "link": "/collections/men-colognes"
+          }
+        },
+        "2": {
+          "type": "collection",
+          "settings": {
+            "title": "Gift Sets",
+            "collection": "gift-sets",
+            "fallback": "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
+            "link": "/collections/gift-sets"
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "bestsellers": {
+      "type": "ts-product-tabs",
+      "settings": {},
+      "blocks": {
+        "0": {
+          "type": "tab",
+          "settings": {
+            "label": "Women",
+            "handle": "best-sellers",
+            "products": [
+              "love-edition-for-her",
+              "arome-le-parfum",
+              "aersace-for-men",
+              "million-gold-for-her",
+              "arome-virtual-flower",
+              "black-wild-fragrance",
+              "brown-devotion-man",
+              "essence-pour-home"
+            ]
+          }
+        },
+        "1": {
+          "type": "tab",
+          "settings": {
+            "label": "Men",
+            "handle": "men-colognes",
+            "products": [
+              "eau-de-toilette-for-men",
+              "arome-le-parfum",
+              "black-wild-fragrance",
+              "brown-devotion-man",
+              "aersace-for-men",
+              "million-gold-for-her",
+              "men-caramel-dream",
+              "love-edition-for-her"
+            ]
+          }
+        },
+        "2": {
+          "type": "tab",
+          "settings": {
+            "label": "Kid's",
+            "handle": "gift-sets",
+            "products": [
+              "love-edition-for-her",
+              "arome-le-parfum",
+              "aersace-for-men",
+              "million-gold-for-her",
+              "arome-virtual-flower",
+              "black-wild-fragrance",
+              "brown-devotion-man",
+              "essence-pour-home"
+            ]
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "film": {
+      "type": "ts-video",
+      "settings": {}
+    },
+    "popular": {
+      "type": "ts-featured-collection",
+      "settings": {
+        "products": [
+          "aersace-for-men",
+          "black-wild-fragrance",
+          "men-caramel-dream",
+          "klein-women-spray",
+          "arome-le-parfum",
+          "brown-devotion-man",
+          "essence-pour-home",
+          "arome-virtual-flower"
+        ]
+      }
+    },
+    "brands": {
+      "type": "ts-logos",
+      "settings": {},
+      "blocks": {
+        "0": {
+          "type": "logo",
+          "settings": {
+            "fallback": "ref-1_1a75a670-d20b-4c32-9a4a-0b1bb6765be3.png",
+            "name": "Fragrance house"
+          }
+        },
+        "1": {
+          "type": "logo",
+          "settings": {
+            "fallback": "ref-2_81cd4fee-ddb0-41d0-8daf-a6234a2bf0d3.png",
+            "name": "Fragrance house"
+          }
+        },
+        "2": {
+          "type": "logo",
+          "settings": {
+            "fallback": "ref-3_6eafa36f-77f8-4d13-a1fd-bc848acf2935.png",
+            "name": "Fragrance house"
+          }
+        },
+        "3": {
+          "type": "logo",
+          "settings": {
+            "fallback": "ref-4_89e55b27-e895-4dd6-aace-f0a2e7189a46.png",
+            "name": "Fragrance house"
+          }
+        },
+        "4": {
+          "type": "logo",
+          "settings": {
+            "fallback": "ref-1_1a75a670-d20b-4c32-9a4a-0b1bb6765be3.png",
+            "name": "Fragrance house"
+          }
+        },
+        "5": {
+          "type": "logo",
+          "settings": {
+            "fallback": "ref-6.png",
+            "name": "Fragrance house"
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1",
+        "2",
+        "3",
+        "4",
+        "5"
+      ]
+    },
+    "promotion": {
+      "type": "ts-promotion",
+      "settings": {
+        "end_date": "2027-07-03T00:00:00+05:00",
+        "label": "Shop now at Rs.9,900",
+        "link": "/products/klein-women-spray",
+        "eyebrow": "Features Product Of This Week",
+        "heading": "Only High Quality is The\nCore Value For Us."
+      }
+    },
+    "lookbook": {
+      "type": "ts-lookbook",
+      "settings": {},
+      "blocks": {
+        "0": {
+          "type": "product",
+          "settings": {
+            "handle": "arome-virtual-flower",
+            "x": 48,
+            "y": 41
+          }
+        },
+        "1": {
+          "type": "product",
+          "settings": {
+            "handle": "arome-le-parfum",
+            "x": 18,
+            "y": 78
+          }
+        },
+        "2": {
+          "type": "product",
+          "settings": {
+            "handle": "men-caramel-dream",
+            "x": 74,
+            "y": 59
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "testimonials": {
+      "type": "ts-testimonials",
+      "settings": {},
+      "blocks": {
+        "0": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "A beautiful fragrance with a soft, elegant finish. It has become the scent I reach for every morning.",
+            "author": "Emma Richardson",
+            "caption": "Fragrance enthusiast"
+          }
+        },
+        "1": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "Thoughtfully chosen perfumes and a wonderful selection. I found a scent that feels completely my own.",
+            "author": "Olivor Brown",
+            "caption": "Fragrance enthusiast"
+          }
+        },
+        "2": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "The gift set was beautifully presented. A lovely way to discover a new favourite fragrance.",
+            "author": "Sophia Martinez",
+            "caption": "Fragrance enthusiast"
+          }
+        }
+      },
+      "block_order": [
+        "0",
+        "1",
+        "2"
+      ]
+    },
+    "journal": {
+      "type": "ts-blog",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "categories",
+    "bestsellers",
+    "film",
+    "popular",
+    "brands",
+    "promotion",
+    "lookbook",
+    "testimonials",
+    "journal"
+  ]
+}

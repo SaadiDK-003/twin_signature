@@ -1,0 +1,12 @@
+{% render 'ts-breadcrumbs', title: article.title %}<article class="container section-space article-page"><h1>{{ article.title | escape }}</h1><p class="article-meta">{{ article.author | escape }} · {{ article.published_at | date: '%b %d, %Y' }}</p>{% if article.image %}{% render 'ts-media', image: article.image, alt: article.title, width: 1600, height: 1000, loading: 'eager', class: 'article-cover' %}{% endif %}<div class="rte">{{ article.content }}</div><div class="center"><a href="{{ blog.url }}" class="text-link">Back to the journal</a></div></article>
+{% schema %}
+{
+  "name": "Journal article",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Journal article"
+    }
+  ]
+}
+{% endschema %}

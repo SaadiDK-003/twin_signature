@@ -1,0 +1,81 @@
+/* Client logo trial. Toggle in Theme settings > Twin Signature. */
+.client-branding {
+  --plum: #765825;
+  --brand-gold: #dbb66e;
+}
+.client-branding .announcement {
+  background: #111;
+  color: #eddbb7;
+}
+.client-branding .site-header {
+  background: #fffdf9;
+  border-bottom-color: #eadfc9;
+}
+.client-branding .site-header__inner {
+  min-height: 94px;
+  padding-block: 14px;
+}
+.client-branding .site-header .wordmark {
+  justify-self: center;
+}
+.client-branding .site-header .wordmark > img {
+  display: block;
+  width: 185px;
+  height: 66px;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+}
+.client-branding .site-footer {
+  background: #000;
+  color: #c9c2b6;
+}
+.client-branding .footer-logo {
+  margin: -24px 0 18px;
+}
+.client-branding .site-footer h2 {
+  color: #eddbb7;
+}
+.client-branding .site-footer a:hover {
+  color: var(--brand-gold);
+}
+.client-branding .site-footer .email-input {
+  border-color: #7b6a47;
+  background: #ffffff08;
+}
+.client-branding .site-footer .email-input input {
+  color: #fff;
+}
+.client-branding .site-footer .email-input input::placeholder {
+  color: #c9c2b6;
+}
+.client-branding .site-footer .email-input button {
+  color: var(--brand-gold);
+}
+.client-branding .social-links a,
+.client-branding .social-links button {
+  background: #191610;
+  color: var(--brand-gold);
+  border: 1px solid #4e4026;
+}
+.client-branding .social-links a:hover,
+.client-branding .social-links button:hover {
+  background: var(--brand-gold);
+  color: #111;
+}
+.client-branding .footer-bottom-wrap {
+  border-color: #dbb66e30;
+}
+@media (max-width: 749px) {
+  .client-branding .site-header__inner {
+    min-height: 70px;
+    padding-block: 12px;
+  }
+  .client-branding .site-header .wordmark > img {
+    width: 129px;
+    height: 46px;
+  }
+  .client-branding .footer-logo {
+    margin-top: -16px;
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "current": {
+    "sections": {
+      "ts-faq": {
+        "type": "ts-faq",
+        "blocks": {
+          "faq_0": {
+            "type": "question",
+            "settings": {
+              "question": "How do I choose the right perfume?",
+              "answer": "Start with notes you already love: fresh citrus, soft florals, or warm woods. Explore our fragrance collections and contact us if you would like help narrowing down your favourites."
+            }
+          },
+          "faq_1": {
+            "type": "question",
+            "settings": {
+              "question": "How should I store my perfume?",
+              "answer": "Keep your perfume in a cool, dry place away from direct sunlight and heat. Close the cap after each use to help preserve the fragrance."
+            }
+          },
+          "faq_2": {
+            "type": "question",
+            "settings": {
+              "question": "What is the difference between perfume sizes?",
+              "answer": "The fragrance stays the same; choose a smaller bottle for travel or a larger bottle for your everyday signature. Available sizes are shown on each product page."
+            }
+          },
+          "faq_3": {
+            "type": "question",
+            "settings": {
+              "question": "Where can I find delivery and return information?",
+              "answer": "Visit our Shipping & Returns page for current information, or send us a message with your order details."
+            }
+          }
+        },
+        "block_order": [
+          "faq_0",
+          "faq_1",
+          "faq_2",
+          "faq_3"
+        ],
+        "settings": {}
+      },
+      "ts-about": {
+        "type": "ts-about",
+        "blocks": {
+          "about_0": {
+            "type": "stat",
+            "settings": {
+              "value": "01",
+              "label": "Your unique signature"
+            }
+          },
+          "about_1": {
+            "type": "stat",
+            "settings": {
+              "value": "03",
+              "label": "Fragrance collections"
+            }
+          },
+          "about_2": {
+            "type": "stat",
+            "settings": {
+              "value": "\u221e",
+              "label": "Moments to remember"
+            }
+          },
+          "about_3": {
+            "type": "stat",
+            "settings": {
+              "value": "100%",
+              "label": "A personal expression"
+            }
+          }
+        },
+        "block_order": [
+          "about_0",
+          "about_1",
+          "about_2",
+          "about_3"
+        ],
+        "settings": {}
+      }
+    },
+    "client_branding": true
+  }
+}

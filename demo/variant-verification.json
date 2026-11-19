@@ -1,0 +1,1978 @@
+{
+  "love-edition-for-her": {
+    "images": 11,
+    "inventory": {
+      "68127045156966": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045189734": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045222502": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045255270": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045288038": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045320806": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045353574": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045386342": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045419110": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045451878": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045484646": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127045517414": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 4,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127045156966,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_1ea1e1a2-1289-4278-b47c-52a482bc8862.jpg?v=1794938127",
+        "options": [
+          "red",
+          "100ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045189734,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_1ea1e1a2-1289-4278-b47c-52a482bc8862.jpg?v=1794938127",
+        "options": [
+          "red",
+          "200ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045222502,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_1ea1e1a2-1289-4278-b47c-52a482bc8862.jpg?v=1794938127",
+        "options": [
+          "red",
+          "500ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045255270,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/7_02c35eb8-4411-4875-8021-d08f798933d7.jpg?v=1794938127",
+        "options": [
+          "green",
+          "100ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045288038,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/7_02c35eb8-4411-4875-8021-d08f798933d7.jpg?v=1794938127",
+        "options": [
+          "green",
+          "200ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045320806,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/7_02c35eb8-4411-4875-8021-d08f798933d7.jpg?v=1794938127",
+        "options": [
+          "green",
+          "500ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045353574,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg?v=1794938127",
+        "options": [
+          "blue",
+          "100ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045386342,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg?v=1794938127",
+        "options": [
+          "blue",
+          "200ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045419110,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_c34c39eb-5494-4ff8-966d-15b7e484c7ca.jpg?v=1794938127",
+        "options": [
+          "blue",
+          "500ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045451878,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/12_ffc36e16-e8f9-4e0b-8ef7-de73732efc96.jpg?v=1794938127",
+        "options": [
+          "yellow",
+          "100ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045484646,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/12_ffc36e16-e8f9-4e0b-8ef7-de73732efc96.jpg?v=1794938127",
+        "options": [
+          "yellow",
+          "200ML"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127045517414,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/12_ffc36e16-e8f9-4e0b-8ef7-de73732efc96.jpg?v=1794938127",
+        "options": [
+          "yellow",
+          "500ML"
+        ],
+        "price": 300000
+      }
+    ]
+  },
+  "arome-le-parfum": {
+    "images": 8,
+    "inventory": {
+      "68127046500454": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046533222": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046565990": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046598758": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046631526": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046664294": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046697062": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046729830": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046762598": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046795366": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046828134": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127046860902": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 4,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127046500454,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8.jpg?v=1794938128",
+        "options": [
+          "Black",
+          "100ML"
+        ],
+        "price": 790000
+      },
+      {
+        "available": true,
+        "id": 68127046533222,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8.jpg?v=1794938128",
+        "options": [
+          "Black",
+          "200ML"
+        ],
+        "price": 1185000
+      },
+      {
+        "available": true,
+        "id": 68127046565990,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8.jpg?v=1794938128",
+        "options": [
+          "Black",
+          "500ML"
+        ],
+        "price": 1580000
+      },
+      {
+        "available": true,
+        "id": 68127046598758,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_73fcbabd-ed99-49e8-9864-6f67aa3209d2.jpg?v=1794938128",
+        "options": [
+          "Red",
+          "100ML"
+        ],
+        "price": 790000
+      },
+      {
+        "available": true,
+        "id": 68127046631526,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_73fcbabd-ed99-49e8-9864-6f67aa3209d2.jpg?v=1794938128",
+        "options": [
+          "Red",
+          "200ML"
+        ],
+        "price": 1185000
+      },
+      {
+        "available": true,
+        "id": 68127046664294,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_73fcbabd-ed99-49e8-9864-6f67aa3209d2.jpg?v=1794938128",
+        "options": [
+          "Red",
+          "500ML"
+        ],
+        "price": 1580000
+      },
+      {
+        "available": true,
+        "id": 68127046697062,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_63a7e6ee-2d5d-4359-9906-e387c6fb9983.jpg?v=1794938128",
+        "options": [
+          "Green",
+          "100ML"
+        ],
+        "price": 790000
+      },
+      {
+        "available": true,
+        "id": 68127046729830,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_63a7e6ee-2d5d-4359-9906-e387c6fb9983.jpg?v=1794938128",
+        "options": [
+          "Green",
+          "200ML"
+        ],
+        "price": 1185000
+      },
+      {
+        "available": true,
+        "id": 68127046762598,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_63a7e6ee-2d5d-4359-9906-e387c6fb9983.jpg?v=1794938128",
+        "options": [
+          "Green",
+          "500ML"
+        ],
+        "price": 1580000
+      },
+      {
+        "available": true,
+        "id": 68127046795366,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/2_80cf0fa5-2a3c-4e8d-93d0-7a73fa74f925.jpg?v=1794938128",
+        "options": [
+          "Blue",
+          "100ML"
+        ],
+        "price": 790000
+      },
+      {
+        "available": true,
+        "id": 68127046828134,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/2_80cf0fa5-2a3c-4e8d-93d0-7a73fa74f925.jpg?v=1794938128",
+        "options": [
+          "Blue",
+          "200ML"
+        ],
+        "price": 1185000
+      },
+      {
+        "available": true,
+        "id": 68127046860902,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/2_80cf0fa5-2a3c-4e8d-93d0-7a73fa74f925.jpg?v=1794938128",
+        "options": [
+          "Blue",
+          "500ML"
+        ],
+        "price": 1580000
+      }
+    ]
+  },
+  "aersace-for-men": {
+    "images": 8,
+    "inventory": {
+      "68127047352422": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047385190": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047417958": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047450726": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047483494": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047516262": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047549030": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047581798": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047614566": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047647334": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047680102": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047712870": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 4,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127047352422,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_3c87c18c-aa8a-45f5-ac04-50b76c4de1a7.jpg?v=1794938129",
+        "options": [
+          "Green",
+          "100ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047385190,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_3c87c18c-aa8a-45f5-ac04-50b76c4de1a7.jpg?v=1794938129",
+        "options": [
+          "Green",
+          "200ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047417958,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_3c87c18c-aa8a-45f5-ac04-50b76c4de1a7.jpg?v=1794938129",
+        "options": [
+          "Green",
+          "300ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047450726,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/7_94d204a9-d333-42b0-bdcc-41751608b1dc.jpg?v=1794938129",
+        "options": [
+          "Blue",
+          "100ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047483494,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/7_94d204a9-d333-42b0-bdcc-41751608b1dc.jpg?v=1794938129",
+        "options": [
+          "Blue",
+          "200ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047516262,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/7_94d204a9-d333-42b0-bdcc-41751608b1dc.jpg?v=1794938129",
+        "options": [
+          "Blue",
+          "300ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047549030,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_eed17d10-056c-4efd-bd73-b975590184b3.jpg?v=1794938129",
+        "options": [
+          "Red",
+          "100ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047581798,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_eed17d10-056c-4efd-bd73-b975590184b3.jpg?v=1794938129",
+        "options": [
+          "Red",
+          "200ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047614566,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_eed17d10-056c-4efd-bd73-b975590184b3.jpg?v=1794938129",
+        "options": [
+          "Red",
+          "300ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047647334,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_83e82131-504a-47df-ab95-ea2a9850b520.jpg?v=1794938129",
+        "options": [
+          "Black",
+          "100ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047680102,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_83e82131-504a-47df-ab95-ea2a9850b520.jpg?v=1794938129",
+        "options": [
+          "Black",
+          "200ML"
+        ],
+        "price": 509900
+      },
+      {
+        "available": true,
+        "id": 68127047712870,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_83e82131-504a-47df-ab95-ea2a9850b520.jpg?v=1794938129",
+        "options": [
+          "Black",
+          "300ML"
+        ],
+        "price": 509900
+      }
+    ]
+  },
+  "million-gold-for-her": {
+    "images": 11,
+    "inventory": {
+      "68127047778406": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047811174": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047843942": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047876710": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047909478": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047942246": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127047975014": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127048007782": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127048040550": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 3,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127047778406,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/14_1a0597a5-ecfc-4797-ba36-ddd8b022368b.jpg?v=1794938130",
+        "options": [
+          "green",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127047811174,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/14_1a0597a5-ecfc-4797-ba36-ddd8b022368b.jpg?v=1794938130",
+        "options": [
+          "green",
+          "200ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127047843942,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/14_1a0597a5-ecfc-4797-ba36-ddd8b022368b.jpg?v=1794938130",
+        "options": [
+          "green",
+          "500ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127047876710,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/16_8a6019e7-bdae-4f97-9370-c1a8af84a04b.jpg?v=1794938130",
+        "options": [
+          "red",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127047909478,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/16_8a6019e7-bdae-4f97-9370-c1a8af84a04b.jpg?v=1794938130",
+        "options": [
+          "red",
+          "200ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127047942246,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/16_8a6019e7-bdae-4f97-9370-c1a8af84a04b.jpg?v=1794938130",
+        "options": [
+          "red",
+          "500ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127047975014,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13_4e52a068-b174-405e-933a-343199ccde90.jpg?v=1794938130",
+        "options": [
+          "black",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127048007782,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13_4e52a068-b174-405e-933a-343199ccde90.jpg?v=1794938130",
+        "options": [
+          "black",
+          "200ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127048040550,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13_4e52a068-b174-405e-933a-343199ccde90.jpg?v=1794938130",
+        "options": [
+          "black",
+          "500ML"
+        ],
+        "price": 500000
+      }
+    ]
+  },
+  "arome-virtual-flower": {
+    "images": 8,
+    "inventory": {
+      "68127048532070": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127048564838": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127048597606": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127048630374": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 1,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127048532070,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_6451c2a3-048d-4700-9c77-50d1cc5b44b1.jpg?v=1794920084",
+        "options": [
+          "Black",
+          "500ML"
+        ],
+        "price": 8000000
+      },
+      {
+        "available": true,
+        "id": 68127048564838,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_6451c2a3-048d-4700-9c77-50d1cc5b44b1.jpg?v=1794920084",
+        "options": [
+          "Black",
+          "300ML"
+        ],
+        "price": 6000000
+      },
+      {
+        "available": true,
+        "id": 68127048597606,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_6451c2a3-048d-4700-9c77-50d1cc5b44b1.jpg?v=1794920084",
+        "options": [
+          "Black",
+          "200ML"
+        ],
+        "price": 4000000
+      },
+      {
+        "available": true,
+        "id": 68127048630374,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_6451c2a3-048d-4700-9c77-50d1cc5b44b1.jpg?v=1794920084",
+        "options": [
+          "Black",
+          "100ML"
+        ],
+        "price": 2000000
+      }
+    ]
+  },
+  "black-wild-fragrance": {
+    "images": 11,
+    "inventory": {
+      "68127049154662": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049187430": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049220198": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049252966": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049285734": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049318502": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049351270": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049384038": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049416806": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049449574": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049482342": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127049515110": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 4,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127049154662,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_13f91c8c-c75b-4751-9449-8745c66f7074.jpg?v=1794938131",
+        "options": [
+          "red",
+          "100g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049187430,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_13f91c8c-c75b-4751-9449-8745c66f7074.jpg?v=1794938131",
+        "options": [
+          "red",
+          "200g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049220198,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_13f91c8c-c75b-4751-9449-8745c66f7074.jpg?v=1794938131",
+        "options": [
+          "red",
+          "500g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049252966,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13_26d2b477-66e3-4e44-9165-a9ae1cb2bb6c.jpg?v=1794938131",
+        "options": [
+          "green",
+          "100g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049285734,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13_26d2b477-66e3-4e44-9165-a9ae1cb2bb6c.jpg?v=1794938131",
+        "options": [
+          "green",
+          "200g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049318502,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13_26d2b477-66e3-4e44-9165-a9ae1cb2bb6c.jpg?v=1794938131",
+        "options": [
+          "green",
+          "500g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049351270,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/15_75da3f4f-7521-44d7-8cdc-d732bc0630e5.jpg?v=1794938131",
+        "options": [
+          "blue",
+          "100g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049384038,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/15_75da3f4f-7521-44d7-8cdc-d732bc0630e5.jpg?v=1794938131",
+        "options": [
+          "blue",
+          "200g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049416806,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/15_75da3f4f-7521-44d7-8cdc-d732bc0630e5.jpg?v=1794938131",
+        "options": [
+          "blue",
+          "500g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049449574,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/16_4b251d31-41ec-4609-a2ae-99a50a8ebb74.jpg?v=1794938131",
+        "options": [
+          "yellow",
+          "100g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049482342,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/16_4b251d31-41ec-4609-a2ae-99a50a8ebb74.jpg?v=1794938131",
+        "options": [
+          "yellow",
+          "200g"
+        ],
+        "price": 300000
+      },
+      {
+        "available": true,
+        "id": 68127049515110,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/16_4b251d31-41ec-4609-a2ae-99a50a8ebb74.jpg?v=1794938131",
+        "options": [
+          "yellow",
+          "500g"
+        ],
+        "price": 300000
+      }
+    ]
+  },
+  "brown-devotion-man": {
+    "images": 8,
+    "inventory": {
+      "68127050006630": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050039398": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050072166": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050104934": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050137702": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050170470": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050203238": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050236006": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050268774": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050301542": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050334310": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127050367078": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 4,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127050006630,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13.jpg?v=1794920087",
+        "options": [
+          "Black",
+          "100g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050039398,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13.jpg?v=1794920087",
+        "options": [
+          "Black",
+          "200g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050072166,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13.jpg?v=1794920087",
+        "options": [
+          "Black",
+          "300g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050104934,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_2df5fe1b-77ab-4c7c-a864-c0b6a615a24e.jpg?v=1794920087",
+        "options": [
+          "Green",
+          "100g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050137702,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_2df5fe1b-77ab-4c7c-a864-c0b6a615a24e.jpg?v=1794920087",
+        "options": [
+          "Green",
+          "200g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050170470,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_2df5fe1b-77ab-4c7c-a864-c0b6a615a24e.jpg?v=1794920087",
+        "options": [
+          "Green",
+          "300g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050203238,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_993168b7-2375-4d53-834f-4d68a43b06a3.jpg?v=1794920087",
+        "options": [
+          "Blue",
+          "100g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050236006,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_993168b7-2375-4d53-834f-4d68a43b06a3.jpg?v=1794920087",
+        "options": [
+          "Blue",
+          "200g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050268774,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_993168b7-2375-4d53-834f-4d68a43b06a3.jpg?v=1794920087",
+        "options": [
+          "Blue",
+          "300g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050301542,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_e969eca5-b097-4b6a-9af7-256e010b441c.jpg?v=1794920087",
+        "options": [
+          "Red",
+          "100g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050334310,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_e969eca5-b097-4b6a-9af7-256e010b441c.jpg?v=1794920087",
+        "options": [
+          "Red",
+          "200g"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127050367078,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_e969eca5-b097-4b6a-9af7-256e010b441c.jpg?v=1794920087",
+        "options": [
+          "Red",
+          "300g"
+        ],
+        "price": 500000
+      }
+    ]
+  },
+  "essence-pour-home": {
+    "images": 8,
+    "inventory": {
+      "68127050858598": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127050891366": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127050924134": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127050956902": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127050989670": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127051022438": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127051055206": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127051087974": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127051120742": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127051153510": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127051186278": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127051219046": {
+        "quantity": 0,
+        "tracked": true
+      }
+    },
+    "swatches": 4,
+    "variants": [
+      {
+        "available": false,
+        "id": 68127050858598,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/6_033a1b00-8df0-4c5a-be8f-aae2dc09fa9c.jpg?v=1794938132",
+        "options": [
+          "Black",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127050891366,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/6_033a1b00-8df0-4c5a-be8f-aae2dc09fa9c.jpg?v=1794938132",
+        "options": [
+          "Black",
+          "200ML"
+        ],
+        "price": 750000
+      },
+      {
+        "available": false,
+        "id": 68127050924134,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/6_033a1b00-8df0-4c5a-be8f-aae2dc09fa9c.jpg?v=1794938132",
+        "options": [
+          "Black",
+          "500ML"
+        ],
+        "price": 1000000
+      },
+      {
+        "available": false,
+        "id": 68127050956902,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/3_8fa632b8-9f58-4cc6-b6b9-d7364462fef1.jpg?v=1794938132",
+        "options": [
+          "Blue",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127050989670,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/3_8fa632b8-9f58-4cc6-b6b9-d7364462fef1.jpg?v=1794938132",
+        "options": [
+          "Blue",
+          "200ML"
+        ],
+        "price": 750000
+      },
+      {
+        "available": false,
+        "id": 68127051022438,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/3_8fa632b8-9f58-4cc6-b6b9-d7364462fef1.jpg?v=1794938132",
+        "options": [
+          "Blue",
+          "500ML"
+        ],
+        "price": 1000000
+      },
+      {
+        "available": false,
+        "id": 68127051055206,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/2_933e1cdd-0f8a-40ae-9b8f-27a186b47c2a.jpg?v=1794938132",
+        "options": [
+          "Green",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127051087974,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/2_933e1cdd-0f8a-40ae-9b8f-27a186b47c2a.jpg?v=1794938132",
+        "options": [
+          "Green",
+          "200ML"
+        ],
+        "price": 750000
+      },
+      {
+        "available": false,
+        "id": 68127051120742,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/2_933e1cdd-0f8a-40ae-9b8f-27a186b47c2a.jpg?v=1794938132",
+        "options": [
+          "Green",
+          "500ML"
+        ],
+        "price": 1000000
+      },
+      {
+        "available": false,
+        "id": 68127051153510,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_cd856168-1d04-4061-a55d-313cffe3c4b6.jpg?v=1794938132",
+        "options": [
+          "Red",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127051186278,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_cd856168-1d04-4061-a55d-313cffe3c4b6.jpg?v=1794938132",
+        "options": [
+          "Red",
+          "200ML"
+        ],
+        "price": 750000
+      },
+      {
+        "available": false,
+        "id": 68127051219046,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_cd856168-1d04-4061-a55d-313cffe3c4b6.jpg?v=1794938132",
+        "options": [
+          "Red",
+          "500ML"
+        ],
+        "price": 1000000
+      }
+    ]
+  },
+  "eau-de-toilette-for-men": {
+    "images": 8,
+    "inventory": {
+      "68127051743334": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127051776102": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127051808870": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127051841638": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127051874406": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127051907174": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127051939942": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127051972710": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127052005478": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127052038246": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127052071014": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127052103782": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 4,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127051743334,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_5df3c5af-2607-4984-907e-990f00b12384.jpg?v=1794938133",
+        "options": [
+          "Black",
+          "100ML"
+        ],
+        "price": 790000
+      },
+      {
+        "available": true,
+        "id": 68127051776102,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_5df3c5af-2607-4984-907e-990f00b12384.jpg?v=1794938133",
+        "options": [
+          "Black",
+          "200ML"
+        ],
+        "price": 1185000
+      },
+      {
+        "available": true,
+        "id": 68127051808870,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/8_5df3c5af-2607-4984-907e-990f00b12384.jpg?v=1794938133",
+        "options": [
+          "Black",
+          "500ML"
+        ],
+        "price": 1580000
+      },
+      {
+        "available": true,
+        "id": 68127051841638,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_dbc724dd-8d90-4348-a627-3d3ccf331462.jpg?v=1794938133",
+        "options": [
+          "Red",
+          "100ML"
+        ],
+        "price": 790000
+      },
+      {
+        "available": true,
+        "id": 68127051874406,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_dbc724dd-8d90-4348-a627-3d3ccf331462.jpg?v=1794938133",
+        "options": [
+          "Red",
+          "200ML"
+        ],
+        "price": 1185000
+      },
+      {
+        "available": true,
+        "id": 68127051907174,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_dbc724dd-8d90-4348-a627-3d3ccf331462.jpg?v=1794938133",
+        "options": [
+          "Red",
+          "500ML"
+        ],
+        "price": 1580000
+      },
+      {
+        "available": true,
+        "id": 68127051939942,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_8a51ce62-31ce-4653-ab85-f9bf2485ebfa.jpg?v=1794938133",
+        "options": [
+          "Green",
+          "100ML"
+        ],
+        "price": 790000
+      },
+      {
+        "available": true,
+        "id": 68127051972710,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_8a51ce62-31ce-4653-ab85-f9bf2485ebfa.jpg?v=1794938133",
+        "options": [
+          "Green",
+          "200ML"
+        ],
+        "price": 1185000
+      },
+      {
+        "available": true,
+        "id": 68127052005478,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_8a51ce62-31ce-4653-ab85-f9bf2485ebfa.jpg?v=1794938133",
+        "options": [
+          "Green",
+          "500ML"
+        ],
+        "price": 1580000
+      },
+      {
+        "available": true,
+        "id": 68127052038246,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/2_a27c7ba7-53f7-4db4-9811-a3cff1ce668d.jpg?v=1794938133",
+        "options": [
+          "Blue",
+          "100ML"
+        ],
+        "price": 790000
+      },
+      {
+        "available": true,
+        "id": 68127052071014,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/2_a27c7ba7-53f7-4db4-9811-a3cff1ce668d.jpg?v=1794938133",
+        "options": [
+          "Blue",
+          "200ML"
+        ],
+        "price": 1185000
+      },
+      {
+        "available": true,
+        "id": 68127052103782,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/2_a27c7ba7-53f7-4db4-9811-a3cff1ce668d.jpg?v=1794938133",
+        "options": [
+          "Blue",
+          "500ML"
+        ],
+        "price": 1580000
+      }
+    ]
+  },
+  "men-caramel-dream": {
+    "images": 9,
+    "inventory": {
+      "68127052628070": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052660838": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052693606": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052726374": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052759142": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052791910": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052824678": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052857446": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052890214": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052922982": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052955750": {
+        "quantity": 0,
+        "tracked": true
+      },
+      "68127052988518": {
+        "quantity": 0,
+        "tracked": true
+      }
+    },
+    "swatches": 4,
+    "variants": [
+      {
+        "available": false,
+        "id": 68127052628070,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/3_beda0a01-e321-432f-b0ed-a468a656dee7.jpg?v=1794938134",
+        "options": [
+          "Black",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052660838,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/3_beda0a01-e321-432f-b0ed-a468a656dee7.jpg?v=1794938134",
+        "options": [
+          "Black",
+          "200ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052693606,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/3_beda0a01-e321-432f-b0ed-a468a656dee7.jpg?v=1794938134",
+        "options": [
+          "Black",
+          "500ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052726374,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_c0835d56-9acb-4e9d-bb70-950414e2734a.jpg?v=1794938134",
+        "options": [
+          "Blue",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052759142,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_c0835d56-9acb-4e9d-bb70-950414e2734a.jpg?v=1794938134",
+        "options": [
+          "Blue",
+          "200ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052791910,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_c0835d56-9acb-4e9d-bb70-950414e2734a.jpg?v=1794938134",
+        "options": [
+          "Blue",
+          "500ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052824678,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/15_29c4a961-f966-402f-a0c4-27f1d7cb0e99.jpg?v=1794938134",
+        "options": [
+          "Green",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052857446,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/15_29c4a961-f966-402f-a0c4-27f1d7cb0e99.jpg?v=1794938134",
+        "options": [
+          "Green",
+          "200ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052890214,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/15_29c4a961-f966-402f-a0c4-27f1d7cb0e99.jpg?v=1794938134",
+        "options": [
+          "Green",
+          "500ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052922982,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_74bfb791-c036-4428-92f3-b65348d97c52.jpg?v=1794938134",
+        "options": [
+          "Red",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052955750,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_74bfb791-c036-4428-92f3-b65348d97c52.jpg?v=1794938134",
+        "options": [
+          "Red",
+          "200ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": false,
+        "id": 68127052988518,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_74bfb791-c036-4428-92f3-b65348d97c52.jpg?v=1794938134",
+        "options": [
+          "Red",
+          "500ML"
+        ],
+        "price": 500000
+      }
+    ]
+  },
+  "klein-women-spray": {
+    "images": 8,
+    "inventory": {
+      "68127053480038": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053512806": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053545574": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053578342": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 4,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127053480038,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/2_c84d6b40-d44f-4e04-ba2f-828f528b04e5.jpg?v=1794938135",
+        "options": [
+          "Black"
+        ],
+        "price": 990000
+      },
+      {
+        "available": true,
+        "id": 68127053512806,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_ed403d45-362a-4a60-96f0-cc918f051af9.jpg?v=1794938135",
+        "options": [
+          "Blue"
+        ],
+        "price": 990000
+      },
+      {
+        "available": true,
+        "id": 68127053545574,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_2d2df0fb-7bd4-48f4-a220-94c5f23962a0.jpg?v=1794938135",
+        "options": [
+          "Red"
+        ],
+        "price": 990000
+      },
+      {
+        "available": true,
+        "id": 68127053578342,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/4_800b8c65-eda5-4607-a5c6-6e3fb4581f27.jpg?v=1794938135",
+        "options": [
+          "Green"
+        ],
+        "price": 990000
+      }
+    ]
+  },
+  "orchid-flora-geous": {
+    "images": 12,
+    "inventory": {
+      "68127053643878": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053676646": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053709414": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053742182": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053774950": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053807718": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053840486": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053873254": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053906022": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053938790": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127053971558": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127054004326": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 4,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127053643878,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/16_cf4c0387-07d5-4dea-968c-3c034b830cc9.jpg?v=1794938136",
+        "options": [
+          "Black",
+          "100g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127053676646,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/16_cf4c0387-07d5-4dea-968c-3c034b830cc9.jpg?v=1794938136",
+        "options": [
+          "Black",
+          "200g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127053709414,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/16_cf4c0387-07d5-4dea-968c-3c034b830cc9.jpg?v=1794938136",
+        "options": [
+          "Black",
+          "500g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127053742182,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13_01b8d1a8-0118-4e15-85d6-1470d9642c3b.jpg?v=1794938136",
+        "options": [
+          "Blue",
+          "100g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127053774950,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13_01b8d1a8-0118-4e15-85d6-1470d9642c3b.jpg?v=1794938136",
+        "options": [
+          "Blue",
+          "200g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127053807718,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/13_01b8d1a8-0118-4e15-85d6-1470d9642c3b.jpg?v=1794938136",
+        "options": [
+          "Blue",
+          "500g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127053840486,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/10_6280296a-d42a-438d-ad1a-65360cff13ca.jpg?v=1794938136",
+        "options": [
+          "Green",
+          "100g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127053873254,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/10_6280296a-d42a-438d-ad1a-65360cff13ca.jpg?v=1794938136",
+        "options": [
+          "Green",
+          "200g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127053906022,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/10_6280296a-d42a-438d-ad1a-65360cff13ca.jpg?v=1794938136",
+        "options": [
+          "Green",
+          "500g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127053938790,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/12.jpg?v=1794938136",
+        "options": [
+          "Red",
+          "100g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127053971558,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/12.jpg?v=1794938136",
+        "options": [
+          "Red",
+          "200g"
+        ],
+        "price": 750000
+      },
+      {
+        "available": true,
+        "id": 68127054004326,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/12.jpg?v=1794938136",
+        "options": [
+          "Red",
+          "500g"
+        ],
+        "price": 750000
+      }
+    ]
+  },
+  "profondo-parfum-her": {
+    "images": 8,
+    "inventory": {
+      "68127054528614": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127054561382": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127054594150": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127054626918": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127054659686": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127054692454": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127054725222": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127054757990": {
+        "quantity": 15,
+        "tracked": true
+      },
+      "68127054790758": {
+        "quantity": 15,
+        "tracked": true
+      }
+    },
+    "swatches": 3,
+    "variants": [
+      {
+        "available": true,
+        "id": 68127054528614,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_5075caa3-c3af-4f5d-ad9e-947cc966cd71.jpg?v=1794938137",
+        "options": [
+          "green",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127054561382,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_5075caa3-c3af-4f5d-ad9e-947cc966cd71.jpg?v=1794938137",
+        "options": [
+          "green",
+          "200ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127054594150,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/5_5075caa3-c3af-4f5d-ad9e-947cc966cd71.jpg?v=1794938137",
+        "options": [
+          "green",
+          "500ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127054626918,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_bfc0941d-0a9e-4110-b154-39b6a9727b79.jpg?v=1794938137",
+        "options": [
+          "red",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127054659686,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_bfc0941d-0a9e-4110-b154-39b6a9727b79.jpg?v=1794938137",
+        "options": [
+          "red",
+          "200ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127054692454,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/1_bfc0941d-0a9e-4110-b154-39b6a9727b79.jpg?v=1794938137",
+        "options": [
+          "red",
+          "500ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127054725222,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/3_af979c51-09d8-4ea1-9a52-826c13d18fb8.jpg?v=1794938137",
+        "options": [
+          "black",
+          "100ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127054757990,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/3_af979c51-09d8-4ea1-9a52-826c13d18fb8.jpg?v=1794938137",
+        "options": [
+          "black",
+          "200ML"
+        ],
+        "price": 500000
+      },
+      {
+        "available": true,
+        "id": 68127054790758,
+        "image": "//twin-signature-4u8gmwse.myshopify.com/cdn/shop/files/3_af979c51-09d8-4ea1-9a52-826c13d18fb8.jpg?v=1794938137",
+        "options": [
+          "black",
+          "500ML"
+        ],
+        "price": 500000
+      }
+    ]
+  }
+}

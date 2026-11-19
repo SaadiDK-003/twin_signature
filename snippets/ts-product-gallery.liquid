@@ -1,0 +1,22 @@
+<div class="product-gallery">
+  <button class="product-gallery__zoom" type="button" data-image-zoom aria-label="Zoom product image">
+    {% render 'ts-media', image: current_image, alt: product.title, width: 1400, loading: 'eager', class: 'product-gallery__main', sizes: '(min-width: 750px) 50vw, 100vw' %}
+  </button>
+  {% if product.images.size > 1 %}
+    <div class="product-gallery__navigation" data-gallery-navigation role="group" aria-label="Product image thumbnails">
+      <button type="button" class="product-gallery__step product-gallery__step--previous" data-gallery-step="-1" aria-label="Previous thumbnails" disabled>
+        {% render 'ts-icon', name: 'chevron' %}
+      </button>
+      <div class="product-gallery__thumbs" data-gallery-track>
+        {% for image in product.images %}
+          <button type="button" data-gallery-image="{{ image | image_url: width: 1400 }}" data-image-id="{{ image.id }}" aria-label="View image {{ forloop.index }} of {{ product.title | escape }}" aria-pressed="{% if image.id == current_image.id %}true{% else %}false{% endif %}">
+            {{ image | image_url: width: 260 | image_tag: widths: '100, 160, 200, 260', sizes: '(min-width: 900px) 110px, (min-width: 750px) 90px, 30vw', loading: 'lazy', alt: product.title }}
+          </button>
+        {% endfor %}
+      </div>
+      <button type="button" class="product-gallery__step product-gallery__step--next" data-gallery-step="1" aria-label="Next thumbnails">
+        {% render 'ts-icon', name: 'chevron' %}
+      </button>
+    </div>
+  {% endif %}
+</div>

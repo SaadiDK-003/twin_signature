@@ -1,0 +1,37 @@
+<div class="logo-strip full-width"><div class="container">{% for block in section.blocks %}<div {{ block.shopify_attributes }}>{% render 'ts-media', image: block.settings.image, fallback: block.settings.fallback, alt: block.settings.name, width: 220, height: 100 %}</div>{% endfor %}</div></div>
+{% schema %}
+{
+  "name": "Brand logo strip",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Brand logo strip"
+    }
+  ],
+  "max_blocks": 8,
+  "blocks": [
+    {
+      "type": "logo",
+      "name": "Brand logo",
+      "settings": [
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Brand name",
+          "default": "Perfume collection"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Logo"
+        },
+        {
+          "type": "text",
+          "id": "fallback",
+          "label": "Default asset"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

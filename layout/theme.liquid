@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="{{ request.locale.iso_code }}">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="{{ settings.accent_color | default: '#5d3754' }}">
+    <link rel="preload" href="{{ 'ref-playfairdisplay_n7.592b3435e0fff3f50b26d410c73ae7ec893f6910.woff2' | asset_url }}" as="font" type="font/woff2" crossorigin>
+    {% # Inlined CSS Variables %}
+    {% render 'css-variables' %}
+
+    {% # Load and preload the critical CSS %}
+    {{ 'critical.css' | asset_url | stylesheet_tag: preload: true }}
+    {{ 'signature.css' | asset_url | stylesheet_tag }}
+    {{ 'homepage.css' | asset_url | stylesheet_tag }}
+    {{ 'quick-view.css' | asset_url | stylesheet_tag }}
+    {% if settings.client_branding %}{{ 'client-branding.css' | asset_url | stylesheet_tag }}{% endif %}
+    <style>:root{--plum:{{ settings.accent_color | default: '#5d3754' }};--page-width:1410px;--page-margin:16px}</style>
+    <script src="{{ 'signature.js' | asset_url }}" defer="defer"></script>
+
+    {% # Social, title, etc. %}
+    {% render 'meta-tags' %}
+
+    {{ content_for_header }}
+  </head>
+
+  <body class="template-{{ template.name }}{% if settings.client_branding %} client-branding{% endif %}">
+    <a class="skip-link" href="#MainContent">Skip to content</a>
+    {% sections 'header-group' %}
+
+    <main id="MainContent" tabindex="-1">{{ content_for_layout }}</main>
+
+    {% sections 'footer-group' %}
+    {% section 'ts-cart-drawer' %}
+    <dialog class="quick-view dialog" id="QuickView" aria-label="Product quick view">
+      <div class="quick-view__header"><span>Quick view</span><button type="button" class="dialog-close icon-button" data-dialog-close aria-label="Close quick view">{% render 'ts-icon', name: 'close' %}</button></div>
+      <div class="quick-view__content" data-quick-view-content data-state="idle"></div>
+    </dialog>
+    <div class="toast" role="status" aria-live="polite" data-toast></div>
+    {% if settings.newsletter_popup %}{% render 'ts-newsletter-popup' %}{% endif %}
+    <script type="application/json" id="SignatureConfig">{"root":{{ routes.root_url | json }},"currency":{{ cart.currency.iso_code | default: shop.currency | json }},"locale":{{ request.locale.iso_code | json }}}</script>
+  </body>
+</html>

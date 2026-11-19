@@ -1,0 +1,12 @@
+{% render 'ts-breadcrumbs', title: page.title %}<div class="container section-space policy-page"><h1>{{ page.title | escape }}</h1><div class="rte">{{ page.content }}</div></div>
+{% schema %}
+{
+  "name": "Page content",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Page content"
+    }
+  ]
+}
+{% endschema %}

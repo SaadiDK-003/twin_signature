@@ -1,0 +1,42 @@
+<div class="video-feature full-width"><div class="container"><div class="video-feature__content"><p>{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.heading | escape | newline_to_br }}</h2></div><div class="video-feature__poster"><div class="video-feature__image">{% render 'ts-media', image: section.settings.image, fallback: section.settings.fallback, width: 1600, height: 550, alt: section.settings.heading, sizes: '(min-width: 990px) 76vw, 100vw' %}</div>{% if section.settings.video_url != blank %}<button class="play-button" data-video-url="{{ section.settings.video_url | escape }}" aria-label="Play fragrance film" aria-expanded="false" aria-controls="VideoPlayer-{{ section.id }}" data-video-player-id="VideoPlayer-{{ section.id }}">{% render 'ts-icon', name: 'play' %}</button>{% endif %}</div></div></div>
+{% schema %}
+{
+  "name": "Signature video",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Your Signature Scent"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find The Perfect Perfume To\nExpress Your Unique Style."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Poster"
+    },
+    {
+      "type": "text",
+      "id": "fallback",
+      "label": "Default poster asset",
+      "default": "ref-Untitled-1.png"
+    },
+    {
+      "type": "text",
+      "id": "video_url",
+      "label": "YouTube or Vimeo embed URL",
+      "default": "https://www.youtube-nocookie.com/embed/_9VUPq3SxOc"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Signature video"
+    }
+  ]
+}
+{% endschema %}

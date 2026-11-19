@@ -1,0 +1,55 @@
+{% render 'ts-breadcrumbs', title: page.title %}<div class="container section-space"><div class="about-intro"><div>{% render 'ts-media', image: section.settings.image, fallback: 'ref-259.jpg', alt: 'The Twin Signature fragrance story', width: 1000, height: 900 %}</div><div><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p><h1>{{ section.settings.heading | escape }}</h1><div class="rte">{{ section.settings.text }}</div><a href="{{ routes.all_products_collection_url }}" class="button">Shop now</a></div></div><div class="about-stats">{% for block in section.blocks %}<div {{ block.shopify_attributes }}><strong>{{ block.settings.value | escape }}</strong><span>{{ block.settings.label | escape }}</span></div>{% endfor %}</div></div>
+{% schema %}
+{
+  "name": "Our fragrance story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "WHO WE ARE"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Perfume is more than a finishing touch. It\u2019s your signature."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Story",
+      "default": "<p>We believe the right fragrance can make an ordinary moment feel extraordinary. Twin Signature brings together considered scents for every mood, memory, and occasion.</p><p>Explore delicate florals, warm woods, and fresh everyday favourites. Your next signature is waiting.</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Story image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Our fragrance story"
+    }
+  ],
+  "max_blocks": 4,
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Brand value",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

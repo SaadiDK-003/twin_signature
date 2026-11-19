@@ -1,0 +1,23 @@
+{% liquid
+  assign threshold = section.settings.low_stock_threshold | default: 20 | at_least: 1
+  assign has_tracked_stock = false
+  assign stock_percent = 0
+  if variant.available and variant.inventory_management and variant.inventory_quantity > 0
+    assign has_tracked_stock = true
+    assign stock_percent = variant.inventory_quantity | times: 100.0 | divided_by: threshold | at_most: 100
+  endif
+%}
+<p class="stock-message" data-stock-message data-stock-threshold="{{ threshold }}" data-show-stock-quantity="{{ section.settings.show_stock_quantity }}" role="status" aria-atomic="true">
+  {%- if variant.available == false -%}
+    Out of stock!
+  {%- elsif variant.inventory_management and variant.inventory_quantity <= 0 -%}
+    Available to order
+  {%- elsif has_tracked_stock and section.settings.show_stock_quantity and variant.inventory_quantity <= threshold -%}
+    Only {{ variant.inventory_quantity }} {% if variant.inventory_quantity == 1 %}item{% else %}items{% endif %} in stock!
+  {%- else -%}
+    In stock · Ready to find your signature
+  {%- endif -%}
+</p>
+<div class="stock-progress" data-stock-progress-track aria-hidden="true" {% unless has_tracked_stock %}hidden{% endunless %}>
+  <span data-stock-progress style="width:{{ stock_percent }}%"></span>
+</div>

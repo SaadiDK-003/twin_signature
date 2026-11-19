@@ -1,0 +1,27 @@
+{% render 'ts-breadcrumbs', title: collection.title %}
+<div class="container section-space" data-collection-section="{{ section.id }}"><div class="collection-toolbar"><button class="mobile-filter-button" data-filter-open>{% render 'ts-icon', name: 'filter' %} Filter</button><div class="grid-controls" aria-label="Product grid columns"><button data-grid-columns="2" aria-label="Two columns" aria-pressed="false">Ⅱ</button><button data-grid-columns="3" aria-label="Three columns" aria-pressed="true">Ⅲ</button><button data-grid-columns="4" aria-label="Four columns" aria-pressed="false">Ⅳ</button></div><div><label for="CollectionSort">Sort by:</label><select id="CollectionSort" name="sort_by" form="CollectionFilters">{% assign current_sort = collection.sort_by | default: collection.default_sort_by %}{% for option in collection.sort_options %}<option value="{{ option.value }}" {% if option.value == current_sort %}selected{% endif %}>{{ option.name | escape }}</option>{% endfor %}</select><span class="product-count">{{ collection.products_count }} products</span></div></div>
+<div class="collection-layout"><aside class="collection-sidebar" aria-label="Filter products"><button class="icon-button filter-close" data-filter-close aria-label="Close filters">{% render 'ts-icon', name: 'close' %}</button><form id="CollectionFilters" class="filter-form" action="{{ collection.url }}" method="get">
+{% for filter in collection.filters %}<details open><summary>{{ filter.label | escape }}</summary>{% case filter.type %}{% when 'list' or 'boolean' %}{% for value in filter.values %}<label><input type="checkbox" name="{{ value.param_name }}" value="{{ value.value | escape }}" {% if value.active %}checked{% endif %} {% if value.count == 0 and value.active == false %}disabled{% endif %}><span>{{ value.label | escape }}</span><span>({{ value.count }})</span></label>{% endfor %}{% when 'price_range' %}<div class="price-filter"><label>From<input name="{{ filter.min_value.param_name }}" type="number" min="0" step="1" {% if filter.min_value.value %}value="{{ filter.min_value.value | divided_by: 100.0 }}"{% endif %} placeholder="0"></label><label>To<input name="{{ filter.max_value.param_name }}" type="number" min="0" step="1" {% if filter.max_value.value %}value="{{ filter.max_value.value | divided_by: 100.0 }}"{% endif %} placeholder="{{ filter.range_max | divided_by: 100.0 }}"></label></div>{% endcase %}</details>{% endfor %}
+<button type="submit" class="button button--outline">Apply filters</button><a class="text-link" href="{{ collection.url }}">Clear all</a></form></aside>
+<div><div class="active-filters">{% for filter in collection.filters %}{% for value in filter.active_values %}<a href="{{ value.url_to_remove }}">{{ value.label | escape }} ×</a>{% endfor %}{% if filter.type == 'price_range' %}{% if filter.min_value.value != nil or filter.max_value.value != nil %}<a href="{{ filter.url_to_remove }}">Price ×</a>{% endif %}{% endif %}{% endfor %}</div>{% paginate collection.products by section.settings.products_per_page %}<div class="product-grid">{% for item in collection.products %}{% render 'ts-product-card', product: item %}{% else %}<div class="empty-state"><h2>No fragrances found</h2><p>Try removing a filter to discover more perfumes.</p><a class="button" href="{{ collection.url }}">Clear filters</a></div>{% endfor %}</div>{% if paginate.pages > 1 %}<div class="pagination">{{ paginate | default_pagination }}</div>{% endif %}{% endpaginate %}{% if collection.description != blank %}<div class="rte collection-description">{{ collection.description }}</div>{% endif %}</div></div></div>
+{% schema %}
+{
+  "name": "Collection products",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 8,
+      "max": 32,
+      "step": 4,
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collection products"
+    }
+  ]
+}
+{% endschema %}
