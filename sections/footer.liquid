@@ -1,6 +1,8 @@
-<footer class="site-footer full-width">
-  <div class="container footer-grid">
-    <div class="footer-brand">
+{% assign useful_menu_block = section.blocks | where: 'type', 'useful_links_menu' | first %}
+{% assign useful_menu = useful_menu_block.settings.menu | default: section.settings.useful_menu %}
+{% assign footer_columns = 0 %}
+{% capture columns %}
+{% if section.settings.show_brand %}    <div class="footer-brand">
       {% if section.settings.logo != blank %}
         <a class="footer-logo" href="{{ routes.root_url }}" aria-label="{{ shop.name | escape }} home">{{ section.settings.logo | image_url: width: 480 | image_tag: widths: '240, 480', sizes: '220px', alt: shop.name, loading: 'lazy' }}</a>
       {% elsif settings.client_branding %}
@@ -8,35 +10,51 @@
       {% else %}
         <a class="wordmark" href="{{ routes.root_url }}">{% render 'ts-icon', name: 'bottle' %}<span>TWIN SIGNATURE<small>PERFUME SHOP</small></span></a>
       {% endif %}
-      <p>{{ section.settings.description | escape }}</p>
+      {% if section.settings.description != blank %}<p>{{ section.settings.description | escape }}</p>{% endif %}
       {% assign share_url = shop.url | url_encode %}
-      <div class="social-links" aria-label="Share Twin Signature">
+{% if section.settings.show_social %}      <div class="social-links" aria-label="Share Twin Signature">
         <a href="https://twitter.com/intent/tweet?url={{ share_url }}" target="_blank" rel="noopener" aria-label="Share on X">{% render 'ts-icon', name: 'x-social' %}</a>
         {% if section.settings.instagram != blank %}<a href="{{ section.settings.instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'ts-icon', name: 'instagram' %}</a>{% else %}<button type="button" data-copy-store-link="{{ shop.url | escape }}" aria-label="Copy store link">{% render 'ts-icon', name: 'link' %}</button>{% endif %}
         <a href="{% if section.settings.facebook != blank %}{{ section.settings.facebook }}{% else %}https://www.facebook.com/sharer/sharer.php?u={{ share_url }}{% endif %}" target="_blank" rel="noopener" aria-label="Facebook">{% render 'ts-icon', name: 'facebook' %}</a>
         <a href="https://pinterest.com/pin/create/button/?url={{ share_url }}" target="_blank" rel="noopener" aria-label="Share on Pinterest">{% render 'ts-icon', name: 'pinterest' %}</a>
         <a href="mailto:?subject=Twin%20Signature&amp;body={{ share_url }}" aria-label="Share by email">{% render 'ts-icon', name: 'mail' %}</a>
-      </div>
+      </div>{% endif %}
     </div>
-    <div><h2>Useful Links</h2><ul><li><a href="{{ routes.account_url }}">My Account</a></li><li><a href="{{ routes.cart_url }}">Shopping Cart</a></li><li><a href="{{ routes.root_url }}pages/wishlist">My Wishlist</a></li><li><a href="{{ routes.root_url }}pages/about-us">Our Store Info</a></li></ul></div>
-    <div><h2>Information</h2><ul>{% if section.settings.information_menu != blank %}{% for link in section.settings.information_menu.links %}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{% endfor %}{% else %}<li><a href="{{ routes.account_url }}">Order Tracking</a></li><li><a href="{{ routes.root_url }}pages/shipping-returns">Shipping & Returns</a></li><li><a href="{{ routes.root_url }}pages/privacy-policy">Privacy Policy</a></li><li><a href="{{ routes.root_url }}pages/terms-conditions">Terms of Service</a></li>{% endif %}</ul></div>
-    <div class="footer-newsletter"><h2>Newsletter</h2><p>{{ section.settings.newsletter_text | escape }}</p>{% form 'customer', id: 'FooterNewsletter', class: 'newsletter-form' %}<input type="hidden" name="contact[tags]" value="newsletter"><div class="email-input"><label class="visually-hidden" for="FooterEmail">Email address</label><input id="FooterEmail" type="email" name="contact[email]" placeholder="Enter your email" required autocomplete="email"><button type="submit" aria-label="Subscribe">{% render 'ts-icon', name: 'arrow' %}</button></div>{% if form.posted_successfully? %}<p role="status">Thank you for subscribing.</p>{% endif %}{{ form.errors | default_errors }}{% endform %}</div>
-  </div>
-  <div class="footer-bottom-wrap"><div class="container footer-bottom">
+{% assign footer_columns = footer_columns | plus: 1 %}{% endif %}
+{% if section.settings.show_useful_links %}<div>{% if section.settings.useful_heading != blank %}<h2>{{ section.settings.useful_heading | escape }}</h2>{% endif %}<ul>{% if useful_menu != blank %}{% for link in useful_menu.links %}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{% endfor %}{% else %}<li><a href="{{ routes.account_url }}">My Account</a></li><li><a href="{{ routes.cart_url }}">Shopping Cart</a></li><li><a href="{{ routes.root_url }}pages/wishlist">My Wishlist</a></li><li><a href="{{ routes.root_url }}pages/about-us">Our Store Info</a></li>{% endif %}</ul></div>{% assign footer_columns = footer_columns | plus: 1 %}{% endif %}
+{% if section.settings.show_information %}<div>{% if section.settings.information_heading != blank %}<h2>{{ section.settings.information_heading | escape }}</h2>{% endif %}<ul>{% if section.settings.information_menu != blank %}{% for link in section.settings.information_menu.links %}<li><a href="{{ link.url }}">{{ link.title | escape }}</a></li>{% endfor %}{% else %}<li><a href="{{ routes.account_url }}">Order Tracking</a></li><li><a href="{{ routes.root_url }}pages/shipping-returns">Shipping & Returns</a></li><li><a href="{{ routes.root_url }}pages/privacy-policy">Privacy Policy</a></li><li><a href="{{ routes.root_url }}pages/terms-conditions">Terms of Service</a></li>{% endif %}</ul></div>{% assign footer_columns = footer_columns | plus: 1 %}{% endif %}
+{% if section.settings.show_newsletter %}{% capture newsletter %}{% if section.settings.newsletter_heading != blank %}<h2>{{ section.settings.newsletter_heading | escape }}</h2>{% endif %}{% if section.settings.newsletter_text != blank %}<p>{{ section.settings.newsletter_text | escape }}</p>{% endif %}{% if section.settings.subscribe_label != blank %}{% form 'customer', id: 'FooterNewsletter', class: 'newsletter-form' %}<input type="hidden" name="contact[tags]" value="newsletter"><div class="email-input"><label class="visually-hidden" for="FooterEmail">Email address</label><input id="FooterEmail" type="email" name="contact[email]" placeholder="Enter your email" required autocomplete="email"><button type="submit" aria-label="{{ section.settings.subscribe_label | escape }}">{% render 'ts-icon', name: 'arrow' %}</button></div>{% if form.posted_successfully? %}<p role="status">Thank you for subscribing.</p>{% endif %}{{ form.errors | default_errors }}{% endform %}{% endif %}{% endcapture %}{% assign newsletter = newsletter | strip %}{% if newsletter != blank %}<div class="footer-newsletter">{{ newsletter }}</div>{% assign footer_columns = footer_columns | plus: 1 %}{% endif %}{% endif %}
+{% endcapture %}
+{% capture footer_bottom %}
     {% if section.settings.show_payment_icons %}<div class="payment-icons" aria-label="{% if shop.enabled_payment_types == empty %}Sample payment icons{% else %}Payment methods{% endif %}">{% assign payment_types = shop.enabled_payment_types %}{% if payment_types == empty and section.settings.show_sample_payment_icons %}{% assign payment_types = 'visa,master,american_express,paypal,diners_club,discover' | split: ',' %}{% endif %}{% for type in payment_types %}{{ type | payment_type_svg_tag }}{% endfor %}</div>{% endif %}
-    <p>© {{ 'now' | date: '%Y' }}, Twin Signature. All rights reserved.</p>
-    <div class="footer-locale">
+    {% if section.settings.copyright_text != blank %}<p>© {{ 'now' | date: '%Y' }}, {{ shop.name | escape }}. {{ section.settings.copyright_text | escape }}</p>{% endif %}
+    {% if section.settings.show_localization %}<div class="footer-locale">
       {% form 'localization', id: 'FooterLocalization' %}
         <label class="visually-hidden" for="FooterCountry">Country and currency</label><select id="FooterCountry" name="country_code" data-localization-select>{% for country in localization.available_countries %}<option value="{{ country.iso_code }}" {% if country.iso_code == localization.country.iso_code %}selected{% endif %}>{{ country.currency.iso_code }} {{ country.currency.symbol }}</option>{% endfor %}</select>
         <label class="visually-hidden" for="FooterLanguage">Language</label><select id="FooterLanguage" name="locale_code" data-localization-select>{% for language in localization.available_languages %}<option value="{{ language.iso_code }}" {% if language.iso_code == localization.language.iso_code %}selected{% endif %}>{{ language.endonym_name | upcase }}</option>{% endfor %}</select><noscript><button type="submit">Update</button></noscript>
       {% endform %}
-    </div>
-  </div></div>
+    </div>{% endif %}
+  {% endcapture %}{% assign footer_bottom = footer_bottom | strip %}
+{% if footer_columns > 0 or footer_bottom != blank %}
+<footer class="site-footer full-width{% if footer_columns == 0 %} site-footer--bottom-only{% endif %}">
+{% if footer_columns > 0 %}<div class="container footer-grid" style="--footer-columns:{{ footer_columns }}">{{ columns }}</div>{% endif %}
+
+{% if footer_bottom != blank %}<div class="footer-bottom-wrap"><div class="container footer-bottom">{{ footer_bottom }}</div></div>{% endif %}
 </footer>
-{% schema %}{
+{% endif %}
+{% assign giveaway_block = section.blocks | where: 'type', 'giveaway' | first %}
+{% capture giveaway_app_content %}{% for block in section.blocks %}{% if block.type == '@app' %}{% render block %}{% endif %}{% endfor %}{% endcapture %}
+{% if giveaway_block != blank %}{% render 'ts-giveaway-popup', section: section, block: giveaway_block, app_content: giveaway_app_content %}{% endif %}
+{% if giveaway_block == blank %}{{ giveaway_app_content }}{% endif %}
+{% schema %}
+{
   "name": "Footer",
   "settings": [
-    {"type": "image_picker", "id": "logo", "label": "Footer logo"},
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Footer logo"
+    },
     {
       "type": "link_list",
       "id": "information_menu",
@@ -75,6 +93,315 @@
       "id": "show_sample_payment_icons",
       "label": "Show sample payment icons until payment methods are configured",
       "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_brand",
+      "label": "Show brand column",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_social",
+      "label": "Show social links",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_useful_links",
+      "label": "Show useful links",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "useful_heading",
+      "label": "Useful links heading",
+      "default": "Useful Links"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_information",
+      "label": "Show information links",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "information_heading",
+      "label": "Information heading",
+      "default": "Information"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show newsletter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter heading",
+      "default": "Newsletter"
+    },
+    {
+      "type": "text",
+      "id": "subscribe_label",
+      "label": "Newsletter submit label",
+      "default": "Subscribe"
+    },
+    {
+      "type": "text",
+      "id": "copyright_text",
+      "label": "Copyright text",
+      "default": "All rights reserved."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_localization",
+      "label": "Show country and language selectors",
+      "default": true
+    }
+  ],
+  "max_blocks": 3,
+  "blocks": [
+    {
+      "type": "giveaway",
+      "name": "Giveaway popup",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "header",
+          "content": "Giveaway popup"
+        },
+        {
+          "type": "paragraph",
+          "content": "Design and manage the giveaway here. Enable it after replacing the sample copy with your prize and rules. Email signups are saved in Customers with giveaway and campaign tags; winner selection is managed separately."
+        },
+        {
+          "type": "checkbox",
+          "id": "giveaway_enabled",
+          "label": "Enable giveaway",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "giveaway_preview",
+          "label": "Preview giveaway in editor",
+          "default": false,
+          "info": "Editor only. Opens the popup even while the campaign is disabled. Turn off to inspect the page."
+        },
+        {
+          "type": "select",
+          "id": "giveaway_form_source",
+          "label": "Signup form",
+          "default": "native",
+          "options": [
+            {
+              "value": "native",
+              "label": "Theme email form"
+            },
+            {
+              "value": "shopify_forms",
+              "label": "Shopify Forms app"
+            }
+          ],
+          "info": "For Shopify Forms, add its Forms app block to Footer. Manage form fields, copy, consent and confirmation in Apps \u2192 Forms. The theme controls the popup image and display timing."
+        },
+        {
+          "type": "paragraph",
+          "content": "Edit entry text, fields, consent and the confirmation message in Apps \u2192 Forms. Use the Forms block in Footer for its Form ID, colors and alignment.",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'shopify_forms' }}"
+        },
+        {
+          "type": "text",
+          "id": "giveaway_campaign",
+          "label": "Campaign ID",
+          "default": "signature-giveaway",
+          "info": "Use a new unique ID for each giveaway. This separates customer tags and resets the display history."
+        },
+        {
+          "type": "checkbox",
+          "id": "giveaway_home_only",
+          "label": "Show on homepage only",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "giveaway_mobile",
+          "label": "Show on mobile",
+          "default": true
+        },
+        {
+          "type": "range",
+          "id": "giveaway_delay",
+          "label": "Show after",
+          "min": 0,
+          "max": 60,
+          "step": 1,
+          "unit": "s",
+          "default": 8
+        },
+        {
+          "type": "select",
+          "id": "giveaway_repeat_days",
+          "label": "Show again after dismissal",
+          "options": [
+            {
+              "value": "1",
+              "label": "1 day"
+            },
+            {
+              "value": "7",
+              "label": "7 days"
+            },
+            {
+              "value": "30",
+              "label": "30 days"
+            },
+            {
+              "value": "0",
+              "label": "Never for this campaign"
+            }
+          ],
+          "default": "7"
+        },
+        {
+          "type": "checkbox",
+          "id": "giveaway_teaser",
+          "label": "Show reopen tab",
+          "default": true,
+          "info": "A small gift tab lets visitors reopen the popup after dismissing it."
+        },
+        {
+          "type": "text",
+          "id": "giveaway_teaser_label",
+          "label": "Reopen tab text",
+          "default": "Win your signature"
+        },
+        {
+          "type": "text",
+          "id": "giveaway_eyebrow",
+          "label": "Eyebrow",
+          "default": "THE SIGNATURE GIVEAWAY",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "text",
+          "id": "giveaway_heading",
+          "label": "Giveaway heading",
+          "default": "Your next signature, on us.",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "textarea",
+          "id": "giveaway_text",
+          "label": "Giveaway description",
+          "default": "A beautiful fragrance. A little everyday luxury. Enter for a chance to find your new signature scent.",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "text",
+          "id": "giveaway_prize",
+          "label": "Prize highlight",
+          "default": "A signature scent, just for you.",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "text",
+          "id": "giveaway_end",
+          "label": "Closing date and time",
+          "info": "Optional. Use 2026-12-31T23:59:00+05:00 (Pakistan time), replacing the date. Shows a real countdown and stops entries after this time."
+        },
+        {
+          "type": "text",
+          "id": "giveaway_button",
+          "label": "Entry button text",
+          "default": "Enter the giveaway",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "text",
+          "id": "giveaway_success_heading",
+          "label": "Success heading",
+          "default": "You\u2019re on the list.",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "textarea",
+          "id": "giveaway_success_text",
+          "label": "Success message",
+          "default": "Thank you for joining us. Look out for giveaway updates in your inbox.",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "text",
+          "id": "giveaway_success_button",
+          "label": "Success button text",
+          "default": "Continue shopping",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "text",
+          "id": "giveaway_decline",
+          "label": "Dismiss button text",
+          "default": "Maybe next time",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "textarea",
+          "id": "giveaway_consent",
+          "label": "Email consent text",
+          "default": "I agree to receive giveaway updates and marketing emails from Twin Signature. I can unsubscribe at any time.",
+          "info": "Displayed beside a required, unchecked consent checkbox because this form subscribes the email to marketing. Clearing it hides the signup form.",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "url",
+          "id": "giveaway_terms_url",
+          "label": "Giveaway rules link",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "text",
+          "id": "giveaway_terms_label",
+          "label": "Rules link text",
+          "default": "View giveaway rules",
+          "visible_if": "{{ block.settings.giveaway_form_source == 'native' }}"
+        },
+        {
+          "type": "checkbox",
+          "id": "giveaway_show_image",
+          "label": "Show giveaway image",
+          "default": true
+        },
+        {
+          "type": "image_picker",
+          "id": "giveaway_image",
+          "label": "Giveaway image",
+          "info": "Use a portrait image of your prize. An included fragrance photo is shown until you select one."
+        },
+        {
+          "type": "text",
+          "id": "giveaway_image_caption",
+          "label": "Image caption",
+          "default": "Beyond fragrance."
+        }
+      ]
+    },
+    {
+      "type": "@app"
+    },
+    {
+      "type": "useful_links_menu",
+      "name": "Useful links menu",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Useful links menu"
+        }
+      ]
     }
   ]
-}{% endschema %}
+}
+{% endschema %}

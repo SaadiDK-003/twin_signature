@@ -1,0 +1,7 @@
+{% if heading != blank or subtitle != blank or eyebrow != blank %}
+  <div class="{{ class | default: 'section-heading' }}">
+    {% if eyebrow != blank %}<p class="{{ eyebrow_class | default: 'eyebrow' }}">{{ eyebrow | escape }}</p>{% endif %}
+    {% if heading != blank %}<h2>{{ heading | escape | newline_to_br }}</h2>{% endif %}
+    {% if subtitle != blank %}<p>{{ subtitle | escape }}</p>{% endif %}
+  </div>
+{% endif %}

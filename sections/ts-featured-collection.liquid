@@ -1,5 +1,12 @@
-{% assign group = section.settings.collection %}{% if group == blank %}{% assign group = collections[section.settings.handle] %}{% endif %}
-<div class="container section-space popular-section" data-carousel><div class="section-heading"><h2>{{ section.settings.heading | escape }}</h2><p>{{ section.settings.subtitle | escape }}</p></div><div class="carousel-wrap"><div class="product-carousel" data-carousel-track>{% assign selected_products = section.settings.products | default: group.products %}{% for item in selected_products limit: section.settings.limit %}{% render 'ts-product-card', product: item %}{% endfor %}</div><button class="carousel-arrow previous" data-carousel-step="-1" aria-label="Previous products">{% render 'ts-icon', name: 'chevron' %}</button><button class="carousel-arrow next" data-carousel-step="1" aria-label="Next products">{% render 'ts-icon', name: 'chevron' %}</button></div>{% if group != blank %}<div class="center"><a class="button" href="{{ group.url }}">View all</a></div>{% endif %}</div>
+{% assign group = section.settings.collection %}
+{% assign selected_products = section.settings.products | default: group.products %}
+{% if selected_products != blank %}
+<div class="container section-space popular-section" data-carousel>
+  {% render 'ts-section-heading', heading: section.settings.heading, subtitle: section.settings.subtitle %}
+  <div class="carousel-wrap"><div class="product-carousel" data-carousel-track>{% for item in selected_products limit: section.settings.limit %}{% render 'ts-product-card', product: item %}{% endfor %}</div>{% if selected_products.size > 1 %}<button class="carousel-arrow previous" data-carousel-step="-1" aria-label="Previous products">{% render 'ts-icon', name: 'chevron' %}</button><button class="carousel-arrow next" data-carousel-step="1" aria-label="Next products">{% render 'ts-icon', name: 'chevron' %}</button>{% endif %}</div>
+  {% if group != blank and section.settings.view_all_label != blank %}<div class="center"><a class="button" href="{{ group.url }}">{{ section.settings.view_all_label | escape }}</a></div>{% endif %}
+</div>
+{% elsif request.design_mode %}<div class="container editor-placeholder">Choose products or a collection for this carousel.</div>{% endif %}
 {% schema %}
 {
   "name": "Perfume carousel",
@@ -22,12 +29,6 @@
       "label": "Collection"
     },
     {
-      "type": "text",
-      "id": "handle",
-      "label": "Default collection handle",
-      "default": "popular-perfumes"
-    },
-    {
       "type": "range",
       "id": "limit",
       "label": "Products",
@@ -41,6 +42,12 @@
       "id": "products",
       "label": "Featured products (optional)",
       "limit": 16
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all button text",
+      "default": "View all"
     }
   ],
   "presets": [

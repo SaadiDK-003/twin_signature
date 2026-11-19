@@ -1,0 +1,303 @@
+{
+  "sections": {
+    "heroimage": {
+      "type": "ts-hero",
+      "settings": {
+        "autoplay": true,
+        "show_navigation": true
+      },
+      "blocks": {
+        "image": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "",
+            "heading": "",
+            "label": "",
+            "image": "",
+            "mobile_image": "",
+            "fallback": "ref-s4.jpg",
+            "mobile_fallback": "ref-smx1.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "image"
+      ]
+    },
+    "heroempty": {
+      "type": "ts-hero",
+      "settings": {
+        "autoplay": true
+      },
+      "blocks": {
+        "empty": {
+          "type": "slide",
+          "settings": {
+            "eyebrow": "",
+            "heading": "",
+            "label": "",
+            "image": "",
+            "mobile_image": "",
+            "fallback": "",
+            "mobile_fallback": ""
+          }
+        }
+      },
+      "block_order": [
+        "empty"
+      ]
+    },
+    "promotext": {
+      "type": "ts-promotion",
+      "settings": {
+        "use_starter_image": false,
+        "eyebrow": "",
+        "heading": "",
+        "text": "This paragraph fits without a heading, image, or button.",
+        "label": "",
+        "end_date": ""
+      }
+    },
+    "promoempty": {
+      "type": "ts-promotion",
+      "settings": {
+        "use_starter_image": false,
+        "eyebrow": "",
+        "heading": "",
+        "text": "",
+        "label": "",
+        "end_date": ""
+      }
+    },
+    "carousel": {
+      "type": "ts-featured-collection",
+      "settings": {
+        "heading": "",
+        "subtitle": "",
+        "view_all_label": "",
+        "collection": "popular-perfumes",
+        "limit": 4
+      }
+    },
+    "video": {
+      "type": "ts-video",
+      "settings": {
+        "heading": "",
+        "eyebrow": "",
+        "fallback": "ref-Untitled-1.png",
+        "video_url": ""
+      }
+    },
+    "lookbook": {
+      "type": "ts-lookbook",
+      "settings": {
+        "heading": "",
+        "subtitle": "",
+        "use_starter_image": false
+      },
+      "blocks": {
+        "first": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "x": 30,
+            "y": 40
+          }
+        },
+        "second": {
+          "type": "product",
+          "settings": {
+            "product": "arome-le-parfum",
+            "x": 48,
+            "y": 41
+          }
+        }
+      },
+      "block_order": [
+        "first",
+        "second"
+      ]
+    },
+    "quotes": {
+      "type": "ts-testimonials",
+      "settings": {
+        "heading": ""
+      },
+      "blocks": {
+        "empty": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "",
+            "author": "",
+            "caption": "",
+            "rating": 0
+          }
+        },
+        "quote": {
+          "type": "testimonial",
+          "settings": {
+            "quote": "A quote without a heading, stars, name, or caption.",
+            "author": "",
+            "caption": "",
+            "rating": 0
+          }
+        }
+      },
+      "block_order": [
+        "empty",
+        "quote"
+      ]
+    },
+    "faq": {
+      "type": "ts-faq",
+      "settings": {
+        "heading": "",
+        "eyebrow": "",
+        "show_help": false
+      },
+      "blocks": {
+        "empty": {
+          "type": "question",
+          "settings": {
+            "question": "",
+            "answer": ""
+          }
+        },
+        "question": {
+          "type": "question",
+          "settings": {
+            "question": "An optional answer can be left blank.",
+            "answer": ""
+          }
+        }
+      },
+      "block_order": [
+        "empty",
+        "question"
+      ]
+    },
+    "tabs": {
+      "type": "ts-product-tabs",
+      "settings": {
+        "heading": "",
+        "limit": 4
+      },
+      "blocks": {
+        "empty": {
+          "type": "tab",
+          "settings": {
+            "label": "",
+            "collection": ""
+          }
+        },
+        "valid": {
+          "type": "tab",
+          "settings": {
+            "label": "Fragrances",
+            "collection": "best-sellers"
+          }
+        }
+      },
+      "block_order": [
+        "empty",
+        "valid"
+      ]
+    },
+    "categories": {
+      "type": "ts-collection-banners",
+      "settings": {
+        "show_count": false
+      },
+      "blocks": {
+        "empty": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "",
+            "image": "",
+            "fallback": ""
+          }
+        },
+        "image": {
+          "type": "collection",
+          "settings": {
+            "title": "",
+            "collection": "",
+            "image": "",
+            "fallback": "ref-259.jpg"
+          }
+        }
+      },
+      "block_order": [
+        "empty",
+        "image"
+      ]
+    },
+    "logos": {
+      "type": "ts-logos",
+      "settings": {},
+      "blocks": {
+        "empty": {
+          "type": "logo",
+          "settings": {
+            "name": "",
+            "image": "",
+            "fallback": ""
+          }
+        },
+        "valid": {
+          "type": "logo",
+          "settings": {
+            "name": "Selected brand",
+            "image": "",
+            "fallback": "ref-6.png"
+          }
+        }
+      },
+      "block_order": [
+        "empty",
+        "valid"
+      ]
+    },
+    "disabled": {
+      "type": "ts-promotion",
+      "settings": {
+        "heading": "DISABLED_SECTION_SHOULD_NOT_APPEAR",
+        "eyebrow": "",
+        "text": "",
+        "label": "",
+        "use_starter_image": false
+      },
+      "disabled": true
+    },
+    "footerempty": {
+      "type": "footer",
+      "settings": {
+        "show_brand": false,
+        "show_useful_links": false,
+        "show_information": false,
+        "show_newsletter": false,
+        "show_payment_icons": false,
+        "copyright_text": "",
+        "show_localization": false
+      }
+    }
+  },
+  "order": [
+    "heroimage",
+    "heroempty",
+    "promotext",
+    "promoempty",
+    "carousel",
+    "video",
+    "lookbook",
+    "quotes",
+    "faq",
+    "tabs",
+    "categories",
+    "logos",
+    "disabled",
+    "footerempty"
+  ]
+}
+

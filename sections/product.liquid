@@ -6,7 +6,10 @@
  {% render 'ts-variant-picker', product: product, section: section %}
  {% assign product_form_id = 'ProductForm-' | append: section.id %}{% form 'product', product, id: product_form_id, class: 'product-form', data-cart-form: true %}<input type="hidden" name="id" value="{{ current.id }}" data-variant-id><label class="product-quantity-label" for="Quantity-{{ section.id }}">Quantity</label><div class="product-buy-row"><div class="quantity"><button type="button" data-quantity-step="-1" aria-label="Decrease quantity">−</button><input type="number" id="Quantity-{{ section.id }}" name="quantity" min="1" value="1" step="1"><button type="button" data-quantity-step="1" aria-label="Increase quantity">+</button></div><button type="submit" class="button" data-add-to-cart {% unless current.available %}disabled{% endunless %}>{% if current.available %}Add to cart{% else %}Sold out{% endif %}</button></div><p class="form-error" role="alert"></p>{{ form | payment_button }}{% endform %}
  <button type="button" class="text-link product-wishlist" data-wishlist-toggle="{{ product.handle }}" aria-pressed="false">{% render 'ts-icon', name: 'heart' %} Add to wishlist</button>
- <details class="product-accordion"><summary>Product Description</summary><div class="rte">{{ product.description }}</div></details><details class="product-accordion"><summary>Shipping & Returns</summary><div class="rte"><p>Find delivery and return information for your order.</p><a href="{{ routes.root_url }}pages/shipping-returns">Read our shipping and returns information</a></div></details><details class="product-accordion"><summary>Our Privacy Policy</summary><div class="rte"><p>We respect your privacy and handle your details with care.</p><a href="{{ routes.root_url }}pages/privacy-policy">View privacy policy</a></div></details><div class="product-share"><a href="https://www.facebook.com/sharer/sharer.php?u={{ canonical_url | url_encode }}" target="_blank" rel="noopener">Facebook ↗</a><a href="https://pinterest.com/pin/create/button/?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener">Pinterest ↗</a></div>
+ {% if section.settings.description_heading != blank and product.description != blank %}<details class="product-accordion"><summary>{{ section.settings.description_heading | escape }}</summary><div class="rte">{{ product.description }}</div></details>{% endif %}
+ {% assign shipping = section.settings.shipping_page %}{% if section.settings.shipping_heading != blank and shipping.content != blank %}<details class="product-accordion"><summary>{{ section.settings.shipping_heading | escape }}</summary><div class="rte">{{ shipping.content }}</div></details>{% endif %}
+ {% assign privacy = section.settings.privacy_page %}{% if section.settings.privacy_heading != blank and privacy.content != blank %}<details class="product-accordion"><summary>{{ section.settings.privacy_heading | escape }}</summary><div class="rte">{{ privacy.content }}</div></details>{% endif %}
+ <div class="product-share"><a href="https://www.facebook.com/sharer/sharer.php?u={{ canonical_url | url_encode }}" target="_blank" rel="noopener">Facebook ↗</a><a href="https://pinterest.com/pin/create/button/?url={{ canonical_url | url_encode }}" target="_blank" rel="noopener">Pinterest ↗</a></div>
  </div><script type="application/json" data-product-inventory>{ {% for variant in product.variants %}"{{ variant.id }}":{"quantity":{{ variant.inventory_quantity | json }},"tracked":{% if variant.inventory_management %}true{% else %}false{% endif %}}{% unless forloop.last %},{% endunless %}{% endfor %} }</script><script type="application/json" data-product-json>{{ product.variants | json }}</script>
 </div>
 {% schema %}
@@ -34,6 +37,34 @@
       "step": 1,
       "default": 20,
       "info": "Show the quantity for tracked variants at or below this number. The stock bar fills relative to this threshold."
+    },
+    {
+      "type": "text",
+      "id": "description_heading",
+      "label": "Description heading",
+      "default": "Product Description"
+    },
+    {
+      "type": "text",
+      "id": "shipping_heading",
+      "label": "Shipping heading",
+      "default": "Shipping & Returns"
+    },
+    {
+      "type": "page",
+      "id": "shipping_page",
+      "label": "Shipping information page"
+    },
+    {
+      "type": "text",
+      "id": "privacy_heading",
+      "label": "Privacy heading",
+      "default": "Our Privacy Policy"
+    },
+    {
+      "type": "page",
+      "id": "privacy_page",
+      "label": "Privacy policy page"
     }
   ],
   "presets": [

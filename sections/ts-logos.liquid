@@ -1,4 +1,5 @@
-<div class="logo-strip full-width"><div class="container">{% for block in section.blocks %}<div {{ block.shopify_attributes }}>{% render 'ts-media', image: block.settings.image, fallback: block.settings.fallback, alt: block.settings.name, width: 220, height: 100 %}</div>{% endfor %}</div></div>
+{% assign logo_count = 0 %}{% capture logos %}{% for block in section.blocks %}{% capture image %}{% render 'ts-media', image: block.settings.image, fallback: block.settings.fallback, alt: block.settings.name, width: 220, height: 100 %}{% endcapture %}{% assign image = image | strip %}{% if image != blank %}{% assign logo_count = logo_count | plus: 1 %}<div {{ block.shopify_attributes }}>{{ image }}</div>{% endif %}{% endfor %}{% endcapture %}{% assign logos = logos | strip %}
+{% if logos != blank %}<div class="logo-strip full-width" style="--logo-columns:{{ logo_count | at_most: 6 }};--logo-columns-mobile:{{ logo_count | at_most: 3 }}"><div class="container">{{ logos }}</div></div>{% elsif request.design_mode %}<div class="container editor-placeholder">Add a brand image to show this section.</div>{% endif %}
 {% schema %}
 {
   "name": "Brand logo strip",

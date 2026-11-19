@@ -1,4 +1,4 @@
-<div class="announcement full-width"><div class="announcement__inner"><p>{{ section.settings.announcement | escape }}</p><div><a href="{{ routes.root_url }}pages/contact-us">{% render 'ts-icon', name: 'pin' %} Find a Store</a>{% if section.settings.email != blank %}<a href="mailto:{{ section.settings.email | escape }}">{% render 'ts-icon', name: 'mail' %} {{ section.settings.email | escape }}</a>{% endif %}</div></div></div>
+{% if section.settings.show_announcement %}{% if section.settings.announcement != blank or section.settings.store_label != blank or section.settings.email != blank %}<div class="announcement full-width"><div class="announcement__inner">{% if section.settings.announcement != blank %}<p>{{ section.settings.announcement | escape }}</p>{% endif %}{% if section.settings.store_label != blank or section.settings.email != blank %}<div>{% if section.settings.store_label != blank %}<a href="{{ section.settings.store_link | default: '/pages/contact-us' }}">{% render 'ts-icon', name: 'pin' %} {{ section.settings.store_label | escape }}</a>{% endif %}{% if section.settings.email != blank %}<a href="mailto:{{ section.settings.email | escape }}">{% render 'ts-icon', name: 'mail' %} {{ section.settings.email | escape }}</a>{% endif %}</div>{% endif %}</div></div>{% endif %}{% endif %}
 <header class="site-header full-width"><div class="site-header__inner">
 <button type="button" class="icon-button mobile-menu-button" data-open-dialog="MobileMenu" aria-controls="MobileMenu" aria-label="Open menu">{% render 'ts-icon', name: 'menu' %}</button>
 <nav class="desktop-nav" aria-label="Main navigation">{% render 'ts-navigation', menu: section.settings.menu %}</nav>
@@ -8,4 +8,48 @@
 </div></header>
 <dialog class="mobile-search-dialog dialog" id="MobileSearchDialog" aria-label="Search our store"><div class="drawer-heading"><h2>Search our store</h2><button class="icon-button" data-dialog-close aria-label="Close search">{% render 'ts-icon', name: 'close' %}</button></div><div class="predictive-search"><form action="{{ routes.search_url }}" method="get" role="search"><label class="visually-hidden" for="MobilePredictiveSearch">Search our store</label><input id="MobilePredictiveSearch" type="search" name="q" placeholder="Search our store" autocomplete="off" data-predictive-search role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="MobilePredictiveResults" autofocus><input type="hidden" name="type" value="product"><button aria-label="Search">{% render 'ts-icon', name: 'search' %}</button></form><div id="MobilePredictiveResults" class="predictive-results" role="region" aria-label="Search suggestions" hidden></div></div></dialog>
 <dialog class="mobile-menu dialog" id="MobileMenu" aria-label="Navigation"><div class="drawer-heading"><h2>Explore Twin Signature</h2><button class="icon-button" data-dialog-close aria-label="Close menu">{% render 'ts-icon', name: 'close' %}</button></div><form action="{{ routes.search_url }}" method="get" role="search" class="mobile-search"><label class="visually-hidden" for="MobileSearch">Search our store</label><input id="MobileSearch" type="search" name="q" placeholder="Search our store" required><button aria-label="Search">{% render 'ts-icon', name: 'search' %}</button></form><nav aria-label="Mobile navigation">{% render 'ts-navigation', menu: section.settings.menu %}</nav><a class="button button--outline" href="{{ routes.account_url }}">My account</a></dialog>
-{% schema %}{"name":"Header and announcement","settings":[{"type":"text","id":"announcement","label":"Announcement","default":"Order Online · Discover Your Signature Scent"},{"type":"text","id":"email","label":"Contact email"},{"type":"image_picker","id":"logo","label":"Logo"},{"type":"link_list","id":"menu","label":"Navigation menu"}]}{% endschema %}
+{% schema %}
+{
+  "name": "Header and announcement",
+  "settings": [
+    {
+      "type": "text",
+      "id": "announcement",
+      "label": "Announcement",
+      "default": "Order Online \u00b7 Discover Your Signature Scent"
+    },
+    {
+      "type": "text",
+      "id": "email",
+      "label": "Contact email"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Navigation menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement bar",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "store_label",
+      "label": "Store link text",
+      "default": "Find a Store"
+    },
+    {
+      "type": "url",
+      "id": "store_link",
+      "label": "Store link"
+    }
+  ]
+}
+{% endschema %}

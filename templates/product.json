@@ -6,18 +6,23 @@
         "plain_swatch_products": [
           "brown-devotion-man",
           "arome-virtual-flower"
-        ]
+        ],
+        "shipping_page": "shipping-returns",
+        "privacy_page": "privacy-policy"
       }
     },
     "film": {
       "type": "ts-video",
       "settings": {
-        "heading": "A Fragrance That Feels Like You",
-        "eyebrow": "Why Choose Twin Signature?"
+        "eyebrow": "Why Choose Twin Signature?",
+        "heading": "A Fragrance That Feels Like You"
       }
     },
     "related": {
-      "type": "ts-recommendations"
+      "type": "ts-recommendations",
+      "settings": {
+        "collection": "popular-perfumes"
+      }
     },
     "faq": {
       "type": "ts-faq",
@@ -56,7 +61,8 @@
         "1",
         "2",
         "3"
-      ]
+      ],
+      "settings": {}
     }
   },
   "order": [

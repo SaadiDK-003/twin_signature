@@ -1,4 +1,32 @@
-{% if cart.empty? %}<div class="empty-state">{% render 'ts-icon', name: 'bag' %}<h2>Your cart is empty</h2><p>Find a fragrance that feels like you.</p><a href="{{ routes.all_products_collection_url }}" class="button">Explore perfumes</a></div>{% else %}
-<form action="{{ routes.cart_url }}" method="post" class="cart-form"><div class="cart-lines">{% for item in cart.items %}<article class="cart-line"><a href="{{ item.url }}">{% render 'ts-media', image: item.image, alt: item.product.title, width: 200, height: 250 %}</a><div><h3><a href="{{ item.url }}">{{ item.product.title | escape }}</a></h3>{% unless item.product.has_only_default_variant %}<p>{{ item.variant.title | escape }}</p>{% endunless %}<p>{{ item.final_price | money }}</p><div class="quantity"><button type="button" data-quantity-step="-1" aria-label="Decrease quantity for {{ item.product.title | escape }}">−</button><input name="updates[]" type="number" value="{{ item.quantity }}" min="0" data-cart-quantity="{{ item.key }}" aria-label="Quantity for {{ item.product.title | escape }}"><button type="button" data-quantity-step="1" aria-label="Increase quantity for {{ item.product.title | escape }}">+</button></div><a href="{{ item.url_to_remove }}" class="text-link" data-cart-remove="{{ item.key }}">Remove</a></div><strong>{{ item.final_line_price | money }}</strong></article>{% endfor %}</div>
-<div class="cart-summary"><div><h3>Subtotal</h3><strong>{{ cart.total_price | money }}</strong></div>{% for discount in cart.cart_level_discount_applications %}<p>{{ discount.title | escape }} −{{ discount.total_allocated_amount | money }}</p>{% endfor %}<p>Taxes and shipping calculated at checkout.</p><p class="form-error" role="alert" data-cart-error></p><noscript><button type="submit" class="button button--outline">Update cart</button></noscript><div class="cart-summary__actions">{% if drawer %}<a href="{{ routes.cart_url }}" class="button button--outline">View cart</a>{% endif %}<button type="submit" name="checkout" class="button">Check out</button></div></div></form>
+{% liquid
+  assign empty_collection = settings.cart_drawer_collection
+  assign continue_url = empty_collection.url | default: routes.all_products_collection_url
+  assign cart_note_id = 'CartNote-page'
+  if drawer
+    assign cart_note_id = 'CartNote-drawer'
+  endif
+%}
+{% if cart.empty? %}
+  <div class="empty-state">
+    {% render 'ts-icon', name: 'bag' %}
+    {% if settings.cart_empty_heading != blank %}<h2>{{ settings.cart_empty_heading | escape }}</h2>{% endif %}
+    {% if settings.cart_empty_text != blank %}<p>{{ settings.cart_empty_text | escape | newline_to_br }}</p>{% endif %}
+    {% if settings.cart_empty_button != blank %}<a href="{{ continue_url }}" class="button">{{ settings.cart_empty_button | escape }}</a>{% endif %}
+    {% if drawer and empty_collection != blank %}
+      <a class="cart-empty-collection" href="{{ empty_collection.url }}">
+        {% if empty_collection.featured_image %}{% render 'ts-media', image: empty_collection.featured_image, width: 640, alt: empty_collection.title %}{% endif %}
+        <span>{{ empty_collection.title | escape }} {% render 'ts-icon', name: 'arrow' %}</span>
+      </a>
+    {% endif %}
+  </div>
+{% else %}
+<form action="{{ routes.cart_url }}" method="post" class="cart-form"><div class="cart-lines">{% for item in cart.items %}<article class="cart-line"><a href="{{ item.url }}">{% render 'ts-media', image: item.image, alt: item.product.title, width: 200, height: 250 %}</a><div><h3><a href="{{ item.url }}">{{ item.product.title | escape }}</a></h3>{% if settings.show_vendor and item.product.vendor != blank %}<p class="cart-line__vendor">{{ item.product.vendor | escape }}</p>{% endif %}{% unless item.product.has_only_default_variant %}<p class="cart-line__variant">{{ item.variant.title | escape }}</p>{% endunless %}<p class="cart-line__price">{{ item.final_price | money }}</p><div class="quantity"><button type="button" data-quantity-step="-1" aria-label="Decrease quantity for {{ item.product.title | escape }}">−</button><input name="updates[]" type="number" value="{{ item.quantity }}" min="0" data-cart-quantity="{{ item.key }}" aria-label="Quantity for {{ item.product.title | escape }}"><button type="button" data-quantity-step="1" aria-label="Increase quantity for {{ item.product.title | escape }}">+</button></div><a href="{{ item.url_to_remove }}" class="text-link" data-cart-remove="{{ item.key }}">Remove</a></div><strong>{{ item.final_line_price | money }}</strong></article>{% endfor %}</div>
+<div class="cart-summary"><div><h3>Subtotal</h3><strong>{{ cart.total_price | money }}</strong></div>{% for discount in cart.cart_level_discount_applications %}<p>{{ discount.title | escape }} −{{ discount.total_allocated_amount | money }}</p>{% endfor %}<p>Taxes and shipping calculated at checkout.</p>{% if settings.show_cart_note %}
+  <details class="cart-note"{% if cart.note != blank %} open{% endif %}>
+    <summary>Order instructions</summary>
+    <label class="visually-hidden" for="{{ cart_note_id }}">Order instructions</label>
+    <textarea id="{{ cart_note_id }}" name="note" rows="3" data-cart-note placeholder="Add a note to your order">{{ cart.note | escape }}</textarea>
+    <span class="cart-note__status" role="status" data-cart-note-status></span>
+  </details>
+{% endif %}<p class="form-error" role="alert" data-cart-error></p><noscript><button type="submit" class="button button--outline">Update cart</button></noscript><div class="cart-summary__actions">{% if drawer %}<a href="{{ routes.cart_url }}" class="button button--outline">View cart</a>{% endif %}<button type="submit" name="checkout" class="button">Check out</button></div></div></form>
 {% endif %}

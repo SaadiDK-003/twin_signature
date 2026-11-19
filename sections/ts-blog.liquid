@@ -1,4 +1,10 @@
-{% assign journal = section.settings.blog | default: blogs.news %}<div class="container section-space journal-section"><div class="journal-heading"><div><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p><h2>{{ section.settings.heading | escape }}</h2></div><a class="text-link" href="{{ journal.url | default: '/blogs/news' }}">View All</a></div><div class="blog-grid">{% for entry in journal.articles limit: 3 %}<article class="blog-card"><a href="{{ entry.url }}">{% render 'ts-media', image: entry.image, alt: entry.title, width: 800, height: 550, sizes: '(min-width: 750px) 33vw, 100vw' %}</a><p class="blog-meta"><span>{% render 'ts-icon', name: 'user' %}{{ entry.author | escape }}</span><span>{% render 'ts-icon', name: 'calendar' %}<time datetime="{{ entry.published_at | date: '%Y-%m-%d' }}">{{ entry.published_at | date: '%b %d, %Y' }}</time></span></p><h3><a href="{{ entry.url }}">{{ entry.title | escape }}</a></h3></article>{% endfor %}</div></div>
+{% assign journal = section.settings.blog %}
+{% if journal != blank and journal.articles_count > 0 %}
+<div class="container section-space journal-section">
+  {% capture header %}{% render 'ts-section-heading', heading: section.settings.heading, eyebrow: section.settings.eyebrow, class: 'journal-heading__text' %}{% if section.settings.view_all_label != blank %}<a class="text-link" href="{{ journal.url }}">{{ section.settings.view_all_label | escape }}</a>{% endif %}{% endcapture %}{% assign header = header | strip %}
+  {% if header != blank %}<div class="journal-heading">{{ header }}</div>{% endif %}
+  <div class="blog-grid">{% for entry in journal.articles limit: section.settings.limit %}<article class="blog-card">{% if entry.image != blank %}<a href="{{ entry.url }}">{% render 'ts-media', image: entry.image, alt: entry.title, width: 800, height: 550, sizes: '(min-width: 750px) 33vw, 100vw' %}</a>{% endif %}{% if section.settings.show_author or section.settings.show_date %}<p class="blog-meta">{% if section.settings.show_author and entry.author != blank %}<span>{% render 'ts-icon', name: 'user' %}{{ entry.author | escape }}</span>{% endif %}{% if section.settings.show_date %}<span>{% render 'ts-icon', name: 'calendar' %}<time datetime="{{ entry.published_at | date: '%Y-%m-%d' }}">{{ entry.published_at | date: '%b %d, %Y' }}</time></span>{% endif %}</p>{% endif %}<h3><a href="{{ entry.url }}">{{ entry.title | escape }}</a></h3></article>{% endfor %}</div>
+</div>{% elsif request.design_mode %}<div class="container editor-placeholder">Choose a blog with published articles.</div>{% endif %}
 {% schema %}
 {
   "name": "Fragrance journal",
@@ -19,6 +25,33 @@
       "type": "blog",
       "id": "blog",
       "label": "Blog"
+    },
+    {
+      "type": "text",
+      "id": "view_all_label",
+      "label": "View all link text",
+      "default": "View All"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "label": "Articles",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "label": "Show author",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "label": "Show date",
+      "default": true
     }
   ],
   "presets": [

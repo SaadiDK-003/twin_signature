@@ -261,3 +261,7 @@ html:has(dialog:modal){overflow:hidden}
 }
 
 .footer-logo{display:block;width:min(220px,100%);margin:0 0 20px}.footer-logo img{display:block;width:100%;height:auto;object-fit:contain}
+
+/* Header controls retain their dimensions when the editor loads other sections. */
+.site-header .header-tools>.icon-button{flex-shrink:0}
+@media(min-width:750px){.site-header .header-tools .icon{width:24px;height:24px;flex:none}}

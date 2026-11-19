@@ -1,26 +1,20 @@
+{% assign starter_image = '' %}{% if section.settings.use_starter_image %}{% assign starter_image = 'ref-perfume-flowers-colored-background.jpg' %}{% endif %}
+{% capture image %}{% render 'ts-media', image: section.settings.image, fallback: starter_image, alt: 'Fragrance lookbook', width: 1500, height: 1000, sizes: '(min-width: 750px) 50vw, 100vw' %}{% endcapture %}{% assign image = image | strip %}
+{% assign item_count = 0 %}{% for block in section.blocks %}{% if block.settings.product != blank %}{% assign item_count = item_count | plus: 1 %}{% endif %}{% endfor %}
+{% if image != blank or item_count > 0 %}
 <div class="container section-space lookbook-section">
-  <div class="section-heading"><h2>{{ section.settings.heading | escape }}</h2><p>{{ section.settings.subtitle | escape }}</p></div>
+  {% render 'ts-section-heading', heading: section.settings.heading, subtitle: section.settings.subtitle %}
   <div class="lookbook" data-lookbook>
-    <div class="lookbook__image">
-      {% render 'ts-media', image: section.settings.image, fallback: 'ref-perfume-flowers-colored-background.jpg', alt: 'Fragrance lookbook', width: 1500, height: 1000, sizes: '(min-width: 750px) 50vw, 100vw' %}
-      {% for block in section.blocks %}
-        {% assign item = block.settings.product %}{% if item == blank %}{% assign item = all_products[block.settings.handle] %}{% endif %}
+    {% if image != blank %}<div class="lookbook__image">{{ image }}
+      {% assign item_index = 0 %}{% for block in section.blocks %}{% assign item = block.settings.product %}{% if item != blank %}
         <div class="lookbook__spot{% if block.settings.x < 25 %} lookbook__spot--left{% elsif block.settings.x > 70 %} lookbook__spot--right{% endif %}" style="--x:{{ block.settings.x }}%;--y:{{ block.settings.y }}%">
-          <button class="hotspot" data-lookbook-index="{{ forloop.index0 }}" aria-label="Show {{ item.title | escape }}" aria-describedby="LookbookPreview-{{ section.id }}-{{ forloop.index }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"><span aria-hidden="true"></span></button>
-          <div class="lookbook__preview" id="LookbookPreview-{{ section.id }}-{{ forloop.index }}">
-            <a href="{{ item.url }}">{{ item.title | escape }}</a>
-            {% render 'ts-price', product: item %}
-            <button class="text-link" data-quick-view="{{ item.url }}" aria-label="Select options for {{ item.title | escape }}">Select options {% render 'ts-icon', name: 'bag' %}</button>
-          </div>
-        </div>
-      {% endfor %}
-    </div>
-    <div class="lookbook__products">
-      <div class="lookbook__track" data-lookbook-track>{% for block in section.blocks %}{% assign item = block.settings.product %}{% if item == blank %}{% assign item = all_products[block.settings.handle] %}{% endif %}<div data-lookbook-product {{ block.shopify_attributes }}>{% render 'ts-product-card', product: item %}</div>{% endfor %}</div>
-      <div class="lookbook-dots">{% for block in section.blocks %}<button data-lookbook-index="{{ forloop.index0 }}" aria-label="Lookbook product {{ forloop.index }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"></button>{% endfor %}</div>
-    </div>
+          <button type="button" class="hotspot" data-lookbook-index="{{ item_index }}" aria-label="Show {{ item.title | escape }}" aria-describedby="LookbookPreview-{{ section.id }}-{{ block.id }}" aria-pressed="{% if item_index == 0 %}true{% else %}false{% endif %}"><span aria-hidden="true"></span></button>
+          <div class="lookbook__preview" id="LookbookPreview-{{ section.id }}-{{ block.id }}"><a href="{{ item.url }}">{{ item.title | escape }}</a>{% render 'ts-price', product: item %}<button type="button" class="text-link" data-quick-view="{{ item.url }}" aria-label="Select options for {{ item.title | escape }}">Select options {% render 'ts-icon', name: 'bag' %}</button></div>
+        </div>{% assign item_index = item_index | plus: 1 %}{% endif %}{% endfor %}
+    </div>{% endif %}
+    {% if item_count > 0 %}<div class="lookbook__products"><div class="lookbook__track" data-lookbook-track>{% for block in section.blocks %}{% if block.settings.product != blank %}<div data-lookbook-product {{ block.shopify_attributes }}>{% render 'ts-product-card', product: block.settings.product %}</div>{% endif %}{% endfor %}</div>{% if item_count > 1 %}<div class="lookbook-dots">{% assign item_index = 0 %}{% for block in section.blocks %}{% if block.settings.product != blank %}<button type="button" data-lookbook-index="{{ item_index }}" aria-label="Lookbook product {{ item_index | plus: 1 }}" aria-pressed="{% if item_index == 0 %}true{% else %}false{% endif %}"></button>{% assign item_index = item_index | plus: 1 %}{% endif %}{% endfor %}</div>{% endif %}</div>{% endif %}
   </div>
-</div>
+</div>{% elsif request.design_mode %}<div class="container editor-placeholder">Choose a lookbook image or product.</div>{% endif %}
 {% schema %}
 {
   "name": "Shop the lookbook",
@@ -41,6 +35,12 @@
       "type": "image_picker",
       "id": "image",
       "label": "Lookbook image"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_starter_image",
+      "label": "Use included starter image when no image is selected",
+      "default": true
     }
   ],
   "presets": [
@@ -58,11 +58,6 @@
           "type": "product",
           "id": "product",
           "label": "Product"
-        },
-        {
-          "type": "text",
-          "id": "handle",
-          "label": "Default product handle"
         },
         {
           "type": "range",

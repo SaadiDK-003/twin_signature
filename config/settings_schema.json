@@ -107,6 +107,137 @@
         "id": "popup_heading",
         "label": "Newsletter popup heading",
         "default": "Discover your next signature."
+      },
+      {
+        "type": "textarea",
+        "id": "popup_text",
+        "label": "Newsletter popup text",
+        "default": "Sign up for our newsletter to be the first to learn about new arrivals, special promotions, and online exclusives."
+      },
+      {
+        "type": "text",
+        "id": "popup_button_label",
+        "label": "Newsletter popup button text",
+        "default": "Subscribe"
+      },
+      {
+        "type": "textarea",
+        "id": "popup_consent",
+        "label": "Newsletter popup consent text",
+        "default": "*By submitting this form, you agree to receive our emails."
+      },
+      {
+        "type": "text",
+        "id": "popup_decline_label",
+        "label": "Newsletter popup decline text",
+        "default": "No thanks!"
+      },
+      {
+        "type": "checkbox",
+        "id": "popup_show_image",
+        "label": "Show newsletter popup image",
+        "default": true
+      },
+      {
+        "type": "image_picker",
+        "id": "popup_image",
+        "label": "Newsletter popup image"
+      },
+      {
+        "type": "color",
+        "id": "brand_gold_color",
+        "label": "Brand gold highlight",
+        "default": "#dbb66e"
+      },
+      {
+        "type": "color",
+        "id": "brand_header_color",
+        "label": "Branded header background",
+        "default": "#fffdf9"
+      },
+      {
+        "type": "color",
+        "id": "brand_footer_color",
+        "label": "Branded footer background",
+        "default": "#000000"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart type",
+        "default": "drawer",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          }
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show product vendor",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "show_cart_note",
+        "label": "Enable cart note",
+        "default": false,
+        "info": "Customers can add order instructions. Notes are saved with the Shopify cart and passed to checkout."
+      },
+      {
+        "type": "header",
+        "content": "Empty cart"
+      },
+      {
+        "type": "text",
+        "id": "cart_empty_heading",
+        "label": "Heading",
+        "default": "Your cart is empty"
+      },
+      {
+        "type": "textarea",
+        "id": "cart_empty_text",
+        "label": "Text",
+        "default": "Find a fragrance that feels like you."
+      },
+      {
+        "type": "text",
+        "id": "cart_empty_button",
+        "label": "Button text",
+        "default": "Explore perfumes"
+      },
+      {
+        "type": "collection",
+        "id": "cart_drawer_collection",
+        "label": "Collection",
+        "info": "Shown in the empty cart drawer. The continue-shopping button also links to this collection."
+      },
+      {
+        "type": "header",
+        "content": "Drawer colors"
+      },
+      {
+        "type": "color",
+        "id": "cart_background",
+        "label": "Background",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "cart_text",
+        "label": "Text",
+        "default": "#181818"
       }
     ]
   }

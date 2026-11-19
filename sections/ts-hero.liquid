@@ -1,13 +1,33 @@
-<div class="hero full-width" data-slideshow data-autoplay="{{ section.settings.autoplay }}" aria-roledescription="carousel" aria-label="Featured fragrances">
- <div class="hero__slides">{% for block in section.blocks %}{% assign eager = 'lazy' %}{% if forloop.first %}{% assign eager = 'eager' %}{% endif %}
-  <div class="hero__slide{% if forloop.first %} is-active{% endif %}" data-slide role="group" aria-label="Slide {{ forloop.index }} of {{ section.blocks.size }}" {% unless forloop.first %}inert{% endunless %} {{ block.shopify_attributes }}>
-   <div class="hero__desktop">{% render 'ts-media', image: block.settings.image, fallback: block.settings.fallback, loading: eager, width: 1920, height: 750, alt: block.settings.heading, sizes: '100vw' %}</div>
-   <div class="hero__mobile">{% render 'ts-media', image: block.settings.mobile_image, fallback: block.settings.mobile_fallback, loading: eager, width: 750, height: 1050, alt: block.settings.heading, sizes: '100vw' %}</div>
-   <div class="container hero__content"><p class="eyebrow">{{ block.settings.eyebrow | escape }}</p>{% if forloop.first %}<h1 class="hero-title">{{ block.settings.heading | escape | newline_to_br }}</h1>{% else %}<h2 class="hero-title">{{ block.settings.heading | escape | newline_to_br }}</h2>{% endif %}<a class="button" href="{{ block.settings.link | default: routes.all_products_collection_url }}">{{ block.settings.label | escape }}</a></div>
-  </div>{% endfor %}</div>
- <button class="hero-arrow hero-arrow--previous" data-slide-step="-1" aria-label="Previous slide">{% render 'ts-icon', name: 'chevron' %}</button><button class="hero-arrow hero-arrow--next" data-slide-step="1" aria-label="Next slide">{% render 'ts-icon', name: 'chevron' %}</button>
- <div class="hero-dots">{% for block in section.blocks %}<button data-slide-to="{{ forloop.index0 }}" aria-label="Go to slide {{ forloop.index }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"></button>{% endfor %}<button class="slideshow-pause" data-slideshow-pause aria-label="Pause slideshow">Ⅱ</button></div>
-</div>
+{% assign slide_count = 0 %}{% assign has_heading = false %}
+{% capture slides %}{% for block in section.blocks %}
+  {% assign loading = 'lazy' %}{% if slide_count == 0 %}{% assign loading = 'eager' %}{% endif %}
+  {% assign mobile_image = block.settings.mobile_image | default: block.settings.image %}
+  {% assign mobile_fallback = block.settings.mobile_fallback | default: block.settings.fallback %}
+  {% capture desktop %}{% render 'ts-media', image: block.settings.image, fallback: block.settings.fallback, loading: loading, width: 1920, height: 750, alt: block.settings.heading, sizes: '100vw' %}{% endcapture %}{% assign desktop = desktop | strip %}
+  {% capture mobile %}{% render 'ts-media', image: mobile_image, fallback: mobile_fallback, loading: loading, width: 750, height: 1050, alt: block.settings.heading, sizes: '100vw' %}{% endcapture %}{% assign mobile = mobile | strip %}
+  {% capture content %}
+    {% if block.settings.eyebrow != blank %}<p class="eyebrow">{{ block.settings.eyebrow | escape }}</p>{% endif %}
+    {% if block.settings.heading != blank %}{% unless has_heading %}<h1 class="hero-title">{{ block.settings.heading | escape | newline_to_br }}</h1>{% assign has_heading = true %}{% else %}<h2 class="hero-title">{{ block.settings.heading | escape | newline_to_br }}</h2>{% endunless %}{% endif %}
+    {% if block.settings.label != blank %}<a class="button" href="{{ block.settings.link | default: routes.all_products_collection_url }}">{{ block.settings.label | escape }}</a>{% endif %}
+  {% endcapture %}{% assign content = content | strip %}
+  {% if desktop != blank or mobile != blank or content != blank %}
+    <div class="hero__slide{% if slide_count == 0 %} is-active{% endif %}{% if desktop == blank and mobile == blank %} hero__slide--text-only{% endif %}" data-slide role="group" aria-label="Slide {{ slide_count | plus: 1 }}" {% unless slide_count == 0 %}inert{% endunless %} {{ block.shopify_attributes }}>
+      {% if desktop != blank %}<div class="hero__desktop">{{ desktop }}</div>{% endif %}{% if mobile != blank %}<div class="hero__mobile">{{ mobile }}</div>{% endif %}
+      {% if content != blank %}<div class="container hero__content">{{ content }}</div>{% endif %}
+    </div>{% assign slide_count = slide_count | plus: 1 %}
+  {% endif %}
+{% endfor %}{% endcapture %}
+{% if slide_count > 0 %}
+<div class="hero full-width" data-slideshow data-autoplay="{{ section.settings.autoplay }}" data-slide-interval="{{ section.settings.interval }}" aria-roledescription="carousel" aria-label="Featured fragrances">
+  <div class="hero__slides">{{ slides }}</div>
+  {% if slide_count > 1 %}
+    {% if section.settings.show_navigation %}<button type="button" class="hero-arrow hero-arrow--previous" data-slide-step="-1" aria-label="Previous slide">{% render 'ts-icon', name: 'chevron' %}</button><button type="button" class="hero-arrow hero-arrow--next" data-slide-step="1" aria-label="Next slide">{% render 'ts-icon', name: 'chevron' %}</button>{% endif %}
+    {% if section.settings.show_navigation or section.settings.autoplay %}<div class="hero-dots">
+      {% if section.settings.show_navigation %}{% for number in (1..slide_count) %}<button type="button" data-slide-to="{{ forloop.index0 }}" aria-label="Go to slide {{ number }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"></button>{% endfor %}{% endif %}
+      {% if section.settings.autoplay %}<button type="button" class="slideshow-pause" data-slideshow-pause aria-label="Pause slideshow"><span data-slideshow-pause-icon>{% render 'ts-icon', name: 'pause' %}</span><span data-slideshow-play-icon hidden>{% render 'ts-icon', name: 'play' %}</span></button>{% endif %}
+    </div>{% endif %}
+  {% endif %}
+</div>{% elsif request.design_mode %}<div class="container editor-placeholder">Add an image or text to a slide.</div>{% endif %}
 {% schema %}
 {
   "name": "Signature slideshow",
@@ -16,6 +36,21 @@
       "type": "checkbox",
       "id": "autoplay",
       "label": "Automatically rotate slides",
+      "default": true
+    },
+    {
+      "type": "range",
+      "id": "interval",
+      "label": "Seconds between slides",
+      "min": 3,
+      "max": 10,
+      "step": 1,
+      "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation",
+      "label": "Show slide arrows and dots",
       "default": true
     }
   ],

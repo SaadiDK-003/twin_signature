@@ -1,4 +1,4 @@
-<div class="container section-space" data-recommendations="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related"><h2 class="section-title">{{ section.settings.heading | escape }}</h2><div class="product-grid">{% if recommendations.performed? and recommendations.products_count > 0 %}{% for item in recommendations.products %}{% render 'ts-product-card', product: item %}{% endfor %}{% else %}{% assign related = collections[section.settings.handle] %}{% for item in related.products limit: 5 %}{% unless item.id == product.id %}{% render 'ts-product-card', product: item %}{% endunless %}{% endfor %}{% endif %}</div></div>
+<div class="container section-space" data-recommendations="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=4&intent=related">{% if section.settings.heading != blank %}<h2 class="section-title">{{ section.settings.heading | escape }}</h2>{% endif %}<div class="product-grid">{% if recommendations.performed? and recommendations.products_count > 0 %}{% for item in recommendations.products %}{% render 'ts-product-card', product: item %}{% endfor %}{% else %}{% assign related = section.settings.collection %}{% for item in related.products limit: 5 %}{% unless item.id == product.id %}{% render 'ts-product-card', product: item %}{% endunless %}{% endfor %}{% endif %}</div></div>
 {% schema %}
 {
   "name": "Related perfumes",
@@ -10,10 +10,9 @@
       "default": "You May Also Like"
     },
     {
-      "type": "text",
-      "id": "handle",
-      "label": "Fallback collection handle",
-      "default": "popular-perfumes"
+      "type": "collection",
+      "id": "collection",
+      "label": "Fallback collection"
     }
   ],
   "presets": [

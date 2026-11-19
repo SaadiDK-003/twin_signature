@@ -1,8 +1,16 @@
-<div class="container section-space collection-banners">{% for block in section.blocks %}{% assign group = block.settings.collection %}<a class="collection-banner" href="{{ group.url | default: block.settings.link | default: routes.collections_url }}" {{ block.shopify_attributes }}>{% render 'ts-media', image: block.settings.image, fallback: block.settings.fallback, width: 1000, height: 1000, alt: block.settings.title, sizes: '(min-width: 990px) 50vw, 100vw' %}<div><h2>{{ block.settings.title | escape }}</h2>{% if group != blank %}<span>({{ group.products_count }} Items)</span>{% endif %}</div></a>{% endfor %}</div>
+{% capture banners %}{% for block in section.blocks %}{% assign group = block.settings.collection %}{% capture image %}{% render 'ts-media', image: block.settings.image, fallback: block.settings.fallback, width: 1000, height: 1000, alt: block.settings.title, sizes: '(min-width: 990px) 50vw, 100vw' %}{% endcapture %}{% assign image = image | strip %}{% if image != blank or block.settings.title != blank or group != blank %}<a class="collection-banner" href="{{ group.url | default: block.settings.link | default: routes.collections_url }}" aria-label="{{ block.settings.title | default: group.title | default: 'Browse collection' | escape }}" {{ block.shopify_attributes }}>{% if image != blank %}{{ image }}{% endif %}{% assign has_caption = false %}{% if block.settings.title != blank %}{% assign has_caption = true %}{% elsif group != blank and section.settings.show_count %}{% assign has_caption = true %}{% endif %}{% if has_caption %}<div>{% if block.settings.title != blank %}<h2>{{ block.settings.title | escape }}</h2>{% endif %}{% if group != blank and section.settings.show_count %}<span>({{ group.products_count }} Items)</span>{% endif %}</div>{% endif %}</a>{% endif %}{% endfor %}{% endcapture %}{% assign banners = banners | strip %}
+{% if banners != blank %}<div class="container section-space collection-banners">{{ banners }}</div>{% endif %}
 {% schema %}
 {
   "name": "Collection banners",
-  "settings": [],
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_count",
+      "label": "Show collection product counts",
+      "default": true
+    }
+  ],
   "presets": [
     {
       "name": "Collection banners"

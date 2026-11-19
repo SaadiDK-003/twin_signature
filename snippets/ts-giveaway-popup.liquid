@@ -1,0 +1,87 @@
+{% liquid
+  assign giveaway = block.settings
+  assign campaign = giveaway.giveaway_campaign | handleize | default: 'signature-giveaway'
+  assign popup_id = 'Giveaway-' | append: section.id
+  assign form_id = 'GiveawayForm-' | append: section.id
+  assign show_giveaway = giveaway.giveaway_enabled
+  if giveaway.giveaway_home_only and request.page_type != 'index'
+    assign show_giveaway = false
+  endif
+  if request.design_mode
+    assign show_giveaway = true
+  endif
+  assign app_mode = false
+  if giveaway.giveaway_form_source == 'shopify_forms'
+    assign app_mode = true
+  endif
+  assign has_content = false
+  if giveaway.giveaway_eyebrow != blank or giveaway.giveaway_heading != blank or giveaway.giveaway_text != blank or giveaway.giveaway_prize != blank or giveaway.giveaway_end != blank
+    assign has_content = true
+  endif
+  if giveaway.giveaway_button != blank and giveaway.giveaway_consent != blank
+    assign has_content = true
+  endif
+  if app_mode
+    assign has_content = true
+    assign app_content = app_content | strip
+    if app_content == blank and request.design_mode == false
+      assign show_giveaway = false
+    endif
+  endif
+  unless has_content or giveaway.giveaway_show_image
+    assign show_giveaway = false
+  endunless
+%}
+{% if show_giveaway %}
+  <ts-giveaway {{ block.shopify_attributes }} data-form-source="{{ giveaway.giveaway_form_source | default: 'native' }}" data-campaign="{{ campaign }}" data-giveaway-enabled="{{ giveaway.giveaway_enabled }}" data-preview="{{ giveaway.giveaway_preview }}" data-mobile="{{ giveaway.giveaway_mobile }}" data-delay="{{ giveaway.giveaway_delay }}" data-repeat-days="{{ giveaway.giveaway_repeat_days }}" data-end="{{ giveaway.giveaway_end | escape }}" data-editor="{{ request.design_mode }}">
+    {% if giveaway.giveaway_teaser and giveaway.giveaway_teaser_label != blank %}
+      <button type="button" class="giveaway-tab" data-giveaway-open aria-haspopup="dialog" aria-controls="{{ popup_id }}" hidden>{% render 'ts-icon', name: 'gift' %}<span>{{ giveaway.giveaway_teaser_label | escape }}</span></button>
+    {% endif %}
+    <dialog id="{{ popup_id }}" class="giveaway-popup{% if app_mode %} giveaway-popup--app{% endif %}{% unless giveaway.giveaway_show_image %} giveaway-popup--text-only{% endunless %}{% unless has_content %} giveaway-popup--visual-only{% endunless %}" aria-label="Giveaway"{% if giveaway.giveaway_heading != blank and app_mode == false %} aria-labelledby="{{ popup_id }}-heading"{% endif %}>
+      <button type="button" class="giveaway-close" data-giveaway-close aria-label="Close giveaway" autofocus>{% render 'ts-icon', name: 'close' %}</button>
+      <div class="giveaway-layout">
+        {% if giveaway.giveaway_show_image %}
+          <div class="giveaway-visual">
+            <img class="giveaway-logo" src="{{ 'twin-signature-header-gold.png' | asset_img_url: '440x' }}" alt="{{ shop.name | escape }}" width="440" height="157" loading="lazy">
+            <div class="giveaway-photo">{% if giveaway.giveaway_image != blank %}{% render 'ts-media', image: giveaway.giveaway_image, alt: giveaway.giveaway_image.alt, width: 900, height: 1200, sizes: '(min-width: 750px) 350px, 100vw' %}{% else %}<img src="{{ 'ref-perfume-flowers-colored-background.jpg' | asset_img_url: '800x' }}" srcset="{{ 'ref-perfume-flowers-colored-background.jpg' | asset_img_url: '400x' }} 400w, {{ 'ref-perfume-flowers-colored-background.jpg' | asset_img_url: '800x' }} 800w" sizes="(min-width: 750px) 350px, 100vw" alt="" width="800" height="533" loading="lazy">{% endif %}</div>
+            {% if giveaway.giveaway_image_caption != blank %}<p class="giveaway-caption">{{ giveaway.giveaway_image_caption | escape }}</p>{% endif %}
+          </div>
+        {% endif %}
+        {% if has_content %}<div class="giveaway-content">
+          {% if app_mode %}
+            <div class="giveaway-app" data-giveaway-app>{{ app_content }}{% if request.design_mode and app_content == blank %}<p>Add the Forms app block to Footer and enter your inline Form ID.</p>{% endif %}</div>
+          {% else %}
+          <div data-giveaway-intro>
+            {% if giveaway.giveaway_eyebrow != blank %}<p class="giveaway-eyebrow">{{ giveaway.giveaway_eyebrow | escape }}</p>{% endif %}
+            {% if giveaway.giveaway_heading != blank %}<h2 id="{{ popup_id }}-heading">{{ giveaway.giveaway_heading | escape }}</h2>{% endif %}
+            {% if giveaway.giveaway_text != blank %}<p class="giveaway-description">{{ giveaway.giveaway_text | escape | newline_to_br }}</p>{% endif %}
+            {% if giveaway.giveaway_prize != blank %}<p class="giveaway-prize">{% render 'ts-icon', name: 'gift' %}<span>{{ giveaway.giveaway_prize | escape }}</span></p>{% endif %}
+            <p class="giveaway-countdown" data-giveaway-countdown hidden aria-live="off"></p>
+          </div>
+          {% if giveaway.giveaway_button != blank and giveaway.giveaway_consent != blank %}
+            {% form 'customer', id: form_id, class: 'giveaway-form' %}
+              <input type="hidden" name="contact[tags]" value="newsletter,giveaway,giveaway-{{ campaign }}">
+              <div data-giveaway-fields>
+                <label class="giveaway-email-label" for="{{ popup_id }}-email">Email address</label>
+                <input id="{{ popup_id }}-email" class="giveaway-email" type="email" name="contact[email]" placeholder="Your email address" autocomplete="email" autocapitalize="off" required{% if form.errors %} aria-invalid="true" aria-describedby="{{ popup_id }}-errors"{% endif %}>
+                <label class="giveaway-consent" for="{{ popup_id }}-consent"><input id="{{ popup_id }}-consent" type="checkbox" required><span>{{ giveaway.giveaway_consent | escape }}</span></label>
+                <button type="submit" class="giveaway-submit">{{ giveaway.giveaway_button | escape }}{% render 'ts-icon', name: 'arrow' %}</button>
+              </div>
+              <div id="{{ popup_id }}-errors" class="giveaway-errors" role="alert" data-giveaway-errors{% unless form.errors %} hidden{% endunless %}>{{ form.errors | default_errors }}</div>
+              <div class="giveaway-success" role="status" tabindex="-1" data-giveaway-success data-posted="{{ form.posted_successfully? }}" hidden>
+                <span class="giveaway-success-icon">{% render 'ts-icon', name: 'check' %}</span>
+                {% if giveaway.giveaway_success_heading != blank %}<h3>{{ giveaway.giveaway_success_heading | escape }}</h3>{% endif %}
+                {% if giveaway.giveaway_success_text != blank %}<p>{{ giveaway.giveaway_success_text | escape | newline_to_br }}</p>{% endif %}
+                {% if giveaway.giveaway_success_button != blank %}<button type="button" class="giveaway-submit giveaway-success-action" data-giveaway-close>{{ giveaway.giveaway_success_button | escape }}{% render 'ts-icon', name: 'arrow' %}</button>{% endif %}
+              </div>
+              {% if request.design_mode %}<p class="giveaway-editor-note" data-giveaway-editor-note hidden>Preview only. No signup has been submitted.</p>{% endif %}
+            {% endform %}
+          {% endif %}
+          {% if giveaway.giveaway_terms_url != blank and giveaway.giveaway_terms_label != blank %}<a class="giveaway-rules" href="{{ giveaway.giveaway_terms_url }}">{{ giveaway.giveaway_terms_label | escape }}</a>{% endif %}
+          {% if giveaway.giveaway_decline != blank %}<button type="button" class="giveaway-decline" data-giveaway-decline data-giveaway-close>{{ giveaway.giveaway_decline | escape }}</button>{% endif %}
+          {% endif %}
+        </div>{% endif %}
+      </div>
+    </dialog>
+  </ts-giveaway>
+{% endif %}

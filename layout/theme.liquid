@@ -12,9 +12,13 @@
     {{ 'signature.css' | asset_url | stylesheet_tag }}
     {{ 'homepage.css' | asset_url | stylesheet_tag }}
     {{ 'quick-view.css' | asset_url | stylesheet_tag }}
+    {{ 'cart.css' | asset_url | stylesheet_tag }}
+    {{ 'giveaway.css' | asset_url | stylesheet_tag }}
+    {{ 'editor-content.css' | asset_url | stylesheet_tag }}
     {% if settings.client_branding %}{{ 'client-branding.css' | asset_url | stylesheet_tag }}{% endif %}
-    <style>:root{--plum:{{ settings.accent_color | default: '#5d3754' }};--page-width:1410px;--page-margin:16px}</style>
+    <style>:root{--plum:{{ settings.accent_color | default: '#5d3754' }};--brand-highlight:{{ settings.brand_gold_color | default: '#dbb66e' }};--brand-header:{{ settings.brand_header_color | default: '#fffdf9' }};--brand-footer:{{ settings.brand_footer_color | default: '#000000' }};--page-width:1410px;--page-margin:16px}</style>
     <script src="{{ 'signature.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'giveaway.js' | asset_url }}" defer="defer"></script>
 
     {% # Social, title, etc. %}
     {% render 'meta-tags' %}
@@ -36,6 +40,6 @@
     </dialog>
     <div class="toast" role="status" aria-live="polite" data-toast></div>
     {% if settings.newsletter_popup %}{% render 'ts-newsletter-popup' %}{% endif %}
-    <script type="application/json" id="SignatureConfig">{"root":{{ routes.root_url | json }},"currency":{{ cart.currency.iso_code | default: shop.currency | json }},"locale":{{ request.locale.iso_code | json }}}</script>
+    <script type="application/json" id="SignatureConfig">{"root":{{ routes.root_url | json }},"currency":{{ cart.currency.iso_code | default: shop.currency | json }},"locale":{{ request.locale.iso_code | json }},"cartType":{{ settings.cart_type | default: 'drawer' | json }},"cartUrl":{{ routes.cart_url | json }}}</script>
   </body>
 </html>

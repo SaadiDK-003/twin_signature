@@ -1,14 +1,13 @@
 /* Client logo trial. Toggle in Theme settings > Twin Signature. */
 .client-branding {
-  --plum: #765825;
-  --brand-gold: #dbb66e;
+  --brand-gold: var(--brand-highlight, #dbb66e);
 }
 .client-branding .announcement {
   background: #111;
   color: #eddbb7;
 }
 .client-branding .site-header {
-  background: #fffdf9;
+  background: var(--brand-header, #fffdf9);
   border-bottom-color: #eadfc9;
 }
 .client-branding .site-header__inner {
@@ -27,7 +26,7 @@
   object-fit: contain;
 }
 .client-branding .site-footer {
-  background: #000;
+  background: var(--brand-footer, #000);
   color: #c9c2b6;
 }
 .client-branding .footer-logo {

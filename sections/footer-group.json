@@ -1,21 +1,81 @@
-/*
- * ------------------------------------------------------------
- * IMPORTANT: The contents of this file are auto-generated.
- *
- * This file may be updated by the Shopify admin theme editor
- * or related systems. Please exercise caution as any changes
- * made to this file may be overwritten.
- * ------------------------------------------------------------
- */
 {
   "type": "footer",
   "name": "t:general.footer",
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "forms_inline_bNbyex": {
+          "type": "shopify://apps/forms/blocks/inline/8744a304-fcb1-4347-b211-bb6b4759a76a",
+          "settings": {
+            "form_id": "1264427",
+            "text_color": "#201c16",
+            "button_background_color": "#c49b56",
+            "button_label_color": "#241c10",
+            "links_color": "#8d6b31",
+            "errors_color": "#8a332d",
+            "text_alignment": "left",
+            "form_alignment": "left",
+            "padding_top": 4,
+            "padding_bottom": 4,
+            "padding_right": 6,
+            "padding_left": 6
+          }
+        },
+        "giveaway": {
+          "type": "giveaway",
+          "settings": {
+            "giveaway_enabled": true,
+            "giveaway_preview": false,
+            "giveaway_form_source": "shopify_forms",
+            "giveaway_campaign": "signature-giveaway",
+            "giveaway_home_only": true,
+            "giveaway_mobile": true,
+            "giveaway_delay": 8,
+            "giveaway_repeat_days": "7",
+            "giveaway_teaser": true,
+            "giveaway_teaser_label": "Win your signature",
+            "giveaway_eyebrow": "THE SIGNATURE GIVEAWAY",
+            "giveaway_heading": "Your next signature, on us.",
+            "giveaway_text": "A beautiful fragrance. A little everyday luxury. Enter for a chance to find your new signature scent.",
+            "giveaway_prize": "A signature scent, just for you.",
+            "giveaway_end": "",
+            "giveaway_button": "Enter the giveaway",
+            "giveaway_success_heading": "You\u2019re on the list.",
+            "giveaway_success_text": "Thank you for joining us. Look out for giveaway updates in your inbox.",
+            "giveaway_success_button": "Continue shopping",
+            "giveaway_decline": "Maybe next time",
+            "giveaway_consent": "I agree to receive giveaway updates and marketing emails from Twin Signature. I can unsubscribe at any time.",
+            "giveaway_terms_url": "",
+            "giveaway_terms_label": "View giveaway rules",
+            "giveaway_show_image": true,
+            "giveaway_image_caption": "Beyond fragrance."
+          }
+        }
+      },
+      "block_order": [
+        "forms_inline_bNbyex",
+        "giveaway"
+      ],
       "settings": {
         "information_menu": "twin-signature-information",
-        "show_payment_icons": true
+        "description": "Twin Signature was founded on the belief that perfume is more than a finishing touch\u2014it's a personal expression of who you are.",
+        "newsletter_text": "Subscribe to our newsletter for new arrivals, fragrance stories, and special offers.",
+        "instagram": "",
+        "facebook": "",
+        "show_payment_icons": true,
+        "show_sample_payment_icons": true,
+        "show_brand": true,
+        "show_social": true,
+        "show_useful_links": true,
+        "useful_heading": "Useful Links",
+        "show_information": true,
+        "information_heading": "Information",
+        "show_newsletter": true,
+        "newsletter_heading": "Newsletter",
+        "subscribe_label": "Subscribe",
+        "copyright_text": "All rights reserved.",
+        "show_localization": true
       }
     }
   },

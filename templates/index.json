@@ -92,7 +92,6 @@
           "type": "tab",
           "settings": {
             "label": "Women",
-            "handle": "best-sellers",
             "products": [
               "love-edition-for-her",
               "arome-le-parfum",
@@ -102,14 +101,14 @@
               "black-wild-fragrance",
               "brown-devotion-man",
               "essence-pour-home"
-            ]
+            ],
+            "collection": "best-sellers"
           }
         },
         "1": {
           "type": "tab",
           "settings": {
             "label": "Men",
-            "handle": "men-colognes",
             "products": [
               "eau-de-toilette-for-men",
               "arome-le-parfum",
@@ -119,14 +118,14 @@
               "million-gold-for-her",
               "men-caramel-dream",
               "love-edition-for-her"
-            ]
+            ],
+            "collection": "men-colognes"
           }
         },
         "2": {
           "type": "tab",
           "settings": {
             "label": "Kid's",
-            "handle": "gift-sets",
             "products": [
               "love-edition-for-her",
               "arome-le-parfum",
@@ -136,7 +135,8 @@
               "black-wild-fragrance",
               "brown-devotion-man",
               "essence-pour-home"
-            ]
+            ],
+            "collection": "gift-sets"
           }
         }
       },
@@ -162,7 +162,8 @@
           "brown-devotion-man",
           "essence-pour-home",
           "arome-virtual-flower"
-        ]
+        ],
+        "collection": "popular-perfumes"
       }
     },
     "brands": {
@@ -238,25 +239,25 @@
         "0": {
           "type": "product",
           "settings": {
-            "handle": "arome-virtual-flower",
             "x": 48,
-            "y": 41
+            "y": 41,
+            "product": "arome-virtual-flower"
           }
         },
         "1": {
           "type": "product",
           "settings": {
-            "handle": "arome-le-parfum",
             "x": 18,
-            "y": 78
+            "y": 78,
+            "product": "arome-le-parfum"
           }
         },
         "2": {
           "type": "product",
           "settings": {
-            "handle": "men-caramel-dream",
             "x": 74,
-            "y": 59
+            "y": 59,
+            "product": "men-caramel-dream"
           }
         }
       },
@@ -303,7 +304,9 @@
     },
     "journal": {
       "type": "ts-blog",
-      "settings": {}
+      "settings": {
+        "blog": "news"
+      }
     }
   },
   "order": [

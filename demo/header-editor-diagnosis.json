@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-19",
+  "page": "/",
+  "theme": "163227304038",
+  "tool": "shopify theme profile --environment production --url / --no-input --json",
+  "liquid_execution_ms": 175.34,
+  "scope": "One Liquid CPU profile. Excludes Admin startup, network transfer, asset loading, and browser rendering.",
+  "header_root_cause": "The unused hello-world section declared a global .icon width of 300px. Its compiled stylesheet was loaded by the theme editor and expanded header action icons to 300px, collapsing the search field.",
+  "fix": "Scope the starter icon rule to .welcome-content > .icon and explicitly size desktop header action icons.",
+  "verification": [
+    "Desktop Shopify editor preview",
+    "Mobile Shopify editor preview",
+    "Theme Check: 0 errors, 2 pre-existing warnings",
+    "Temporary diagnostics removed"
+  ]
+}

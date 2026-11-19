@@ -1,4 +1,4 @@
-{% render 'ts-breadcrumbs', title: page.title %}<div class="container section-space contact-layout"><div>{% form 'contact', id: 'ContactForm', class: 'ts-contact-form' %}{{ form.errors | default_errors }}{% if form.posted_successfully? %}<p role="status">Thank you for getting in touch. Our team will reply as soon as possible.</p>{% endif %}<div><div><label for="ContactName">Name</label><input type="text" name="contact[name]" id="ContactName" autocomplete="name" value="{{ form.name | escape }}"></div><div><label for="ContactEmail">Email *</label><input type="email" name="contact[email]" id="ContactEmail" autocomplete="email" required value="{{ form.email | escape }}"></div></div><label for="ContactPhone">Phone number</label><input type="tel" name="contact[phone]" id="ContactPhone" autocomplete="tel"><label for="ContactMessage">Message *</label><textarea id="ContactMessage" name="contact[body]" required>{{ form.body | escape }}</textarea><button class="button" type="submit">Send now</button>{% endform %}</div><div class="contact-info"><h1>{{ section.settings.heading | escape }}</h1><p>{{ section.settings.description | escape }}</p><dl>{% if section.settings.address != blank %}<dt>Visit us</dt><dd>{{ section.settings.address | escape | newline_to_br }}</dd>{% endif %}{% if section.settings.email != blank %}<dt>Email us</dt><dd><a href="mailto:{{ section.settings.email | escape }}">{{ section.settings.email | escape }}</a></dd>{% endif %}{% if section.settings.phone != blank %}<dt>Call us</dt><dd>{{ section.settings.phone | escape }}</dd>{% endif %}<dt>We are here to help</dt><dd>{{ section.settings.hours | escape }}</dd></dl><a href="{{ routes.root_url }}pages/faq" class="text-link">Explore frequently asked questions</a></div></div>
+{% render 'ts-breadcrumbs', title: page.title %}<div class="container section-space contact-layout"><div>{% form 'contact', id: 'ContactForm', class: 'ts-contact-form' %}{{ form.errors | default_errors }}{% if form.posted_successfully? %}<p role="status">Thank you for getting in touch. Our team will reply as soon as possible.</p>{% endif %}<div><div><label for="ContactName">Name</label><input type="text" name="contact[name]" id="ContactName" autocomplete="name" value="{{ form.name | escape }}"></div><div><label for="ContactEmail">Email *</label><input type="email" name="contact[email]" id="ContactEmail" autocomplete="email" required value="{{ form.email | escape }}"></div></div><label for="ContactPhone">Phone number</label><input type="tel" name="contact[phone]" id="ContactPhone" autocomplete="tel"><label for="ContactMessage">Message *</label><textarea id="ContactMessage" name="contact[body]" required>{{ form.body | escape }}</textarea>{% if section.settings.submit_label != blank %}<button class="button" type="submit">{{ section.settings.submit_label | escape }}</button>{% endif %}{% endform %}</div>{% capture contact_info %}{% if section.settings.heading != blank %}<h1>{{ section.settings.heading | escape }}</h1>{% endif %}{% if section.settings.description != blank %}<p>{{ section.settings.description | escape }}</p>{% endif %}{% if section.settings.address != blank or section.settings.email != blank or section.settings.phone != blank or section.settings.hours != blank %}<dl>{% if section.settings.address != blank %}<dt>Visit us</dt><dd>{{ section.settings.address | escape | newline_to_br }}</dd>{% endif %}{% if section.settings.email != blank %}<dt>Email us</dt><dd><a href="mailto:{{ section.settings.email | escape }}">{{ section.settings.email | escape }}</a></dd>{% endif %}{% if section.settings.phone != blank %}<dt>Call us</dt><dd>{{ section.settings.phone | escape }}</dd>{% endif %}{% if section.settings.hours != blank %}<dt>We are here to help</dt><dd>{{ section.settings.hours | escape }}</dd>{% endif %}</dl>{% endif %}{% if section.settings.faq_label != blank %}<a href="{{ routes.root_url }}pages/faq" class="text-link">{{ section.settings.faq_label | escape }}</a>{% endif %}{% endcapture %}{% assign contact_info = contact_info | strip %}{% if contact_info != blank %}<div class="contact-info">{{ contact_info }}</div>{% endif %}</div>
 {% schema %}
 {
   "name": "Contact us",
@@ -35,6 +35,18 @@
       "id": "hours",
       "label": "Hours",
       "default": "Monday \u2013 Friday, 9:00\u201318:00 PKT"
+    },
+    {
+      "type": "text",
+      "id": "submit_label",
+      "label": "Submit button text",
+      "default": "Send now"
+    },
+    {
+      "type": "text",
+      "id": "faq_label",
+      "label": "FAQ link text",
+      "default": "Explore frequently asked questions"
     }
   ],
   "presets": [

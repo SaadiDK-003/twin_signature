@@ -1,5 +1,21 @@
-<div class="container section-space best-sellers-section" data-tabs><h2 class="section-title">{{ section.settings.heading | escape }}</h2><div class="product-tabs" role="tablist" aria-label="{{ section.settings.heading | escape }}">{% for block in section.blocks %}<button role="tab" id="Tab-{{ section.id }}-{{ forloop.index }}" aria-controls="Panel-{{ section.id }}-{{ forloop.index }}" aria-selected="{% if forloop.first %}true{% else %}false{% endif %}" tabindex="{% if forloop.first %}0{% else %}-1{% endif %}">{{ block.settings.label | escape }}</button>{% endfor %}</div>
-{% for block in section.blocks %}{% assign group = block.settings.collection %}{% if group == blank %}{% assign group = collections[block.settings.handle] %}{% endif %}<div class="product-grid" role="tabpanel" id="Panel-{{ section.id }}-{{ forloop.index }}" aria-labelledby="Tab-{{ section.id }}-{{ forloop.index }}" {% unless forloop.first %}hidden{% endunless %} {{ block.shopify_attributes }}>{% assign selected_products = block.settings.products | default: group.products %}{% for item in selected_products limit: section.settings.limit %}{% render 'ts-product-card', product: item %}{% else %}<p class="empty-collection">Choose a collection in the theme editor to display your perfumes here.</p>{% endfor %}</div>{% endfor %}</div>
+{% assign tab_count = 0 %}
+{% capture tabs %}{% for block in section.blocks %}
+  {% assign group = block.settings.collection %}{% assign selected_products = block.settings.products | default: group.products %}
+  {% if selected_products != blank and block.settings.label != blank %}
+    <button type="button" role="tab" id="Tab-{{ section.id }}-{{ block.id }}" aria-controls="Panel-{{ section.id }}-{{ block.id }}" aria-selected="{% if tab_count == 0 %}true{% else %}false{% endif %}" tabindex="{% if tab_count == 0 %}0{% else %}-1{% endif %}">{{ block.settings.label | escape }}</button>
+    {% assign tab_count = tab_count | plus: 1 %}
+  {% endif %}
+{% endfor %}{% endcapture %}
+{% if tab_count > 0 %}
+<div class="container section-space best-sellers-section" data-tabs>
+  {% if section.settings.heading != blank %}<h2 class="section-title">{{ section.settings.heading | escape }}</h2>{% endif %}
+  {% if tab_count > 1 %}<div class="product-tabs" role="tablist" aria-label="{{ section.settings.heading | default: 'Featured collections' | escape }}">{{ tabs }}</div>{% endif %}
+  {% assign panel_index = 0 %}
+  {% for block in section.blocks %}{% assign group = block.settings.collection %}{% assign selected_products = block.settings.products | default: group.products %}
+    {% if selected_products != blank and block.settings.label != blank %}<div class="product-grid" {% if tab_count > 1 %}role="tabpanel" aria-labelledby="Tab-{{ section.id }}-{{ block.id }}"{% else %}role="group" aria-label="{{ block.settings.label | escape }}"{% endif %} id="Panel-{{ section.id }}-{{ block.id }}" {% unless panel_index == 0 %}hidden{% endunless %} {{ block.shopify_attributes }}>{% for item in selected_products limit: section.settings.limit %}{% render 'ts-product-card', product: item %}{% endfor %}</div>{% assign panel_index = panel_index | plus: 1 %}{% endif %}
+  {% endfor %}
+</div>
+{% elsif request.design_mode %}<div class="container editor-placeholder">Add a tab with a label and products or a collection.</div>{% endif %}
 {% schema %}
 {
   "name": "Best seller tabs",
@@ -41,12 +57,6 @@
           "type": "collection",
           "id": "collection",
           "label": "Collection"
-        },
-        {
-          "type": "text",
-          "id": "handle",
-          "label": "Default collection handle",
-          "default": "best-sellers"
         },
         {
           "type": "product_list",

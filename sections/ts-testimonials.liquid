@@ -1,4 +1,5 @@
-<div class="testimonials full-width"><div class="container"><h2 class="section-title">{{ section.settings.heading | escape | newline_to_br }}</h2><div class="testimonial-grid">{% for block in section.blocks %}<figure {{ block.shopify_attributes }}><div class="quote-mark" aria-hidden="true">“</div><blockquote>{{ block.settings.quote | escape }}</blockquote><div class="rating" aria-label="5 out of 5 stars"><span aria-hidden="true">★★★★★</span></div><figcaption><strong>{{ block.settings.author | escape }}</strong><small>{{ block.settings.caption | escape }}</small></figcaption></figure>{% endfor %}</div></div></div>
+{% assign card_count = 0 %}{% capture cards %}{% for block in section.blocks %}{% if block.settings.quote != blank %}{% assign card_count = card_count | plus: 1 %}<figure {{ block.shopify_attributes }}><div class="quote-mark" aria-hidden="true">“</div><blockquote>{{ block.settings.quote | escape }}</blockquote>{% if block.settings.rating > 0 %}<div class="rating" aria-label="{{ block.settings.rating }} out of 5 stars"><span aria-hidden="true">{% for star in (1..block.settings.rating) %}★{% endfor %}</span></div>{% endif %}{% if block.settings.author != blank or block.settings.caption != blank %}<figcaption>{% if block.settings.author != blank %}<strong>{{ block.settings.author | escape }}</strong>{% endif %}{% if block.settings.caption != blank %}<small>{{ block.settings.caption | escape }}</small>{% endif %}</figcaption>{% endif %}</figure>{% endif %}{% endfor %}{% endcapture %}{% assign cards = cards | strip %}
+{% if cards != blank %}<div class="testimonials full-width" style="--testimonial-columns:{{ card_count | at_most: 3 }}"><div class="container">{% if section.settings.heading != blank %}<h2 class="section-title">{{ section.settings.heading | escape | newline_to_br }}</h2>{% endif %}<div class="testimonial-grid">{{ cards }}</div></div></div>{% elsif request.design_mode %}<div class="container editor-placeholder">Add a testimonial quote to show this section.</div>{% endif %}
 {% schema %}
 {
   "name": "Testimonials",
@@ -36,6 +37,15 @@
           "id": "caption",
           "label": "Caption",
           "default": "Fragrance enthusiast"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Stars (0 hides rating)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
         }
       ]
     }

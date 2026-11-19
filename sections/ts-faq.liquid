@@ -1,4 +1,6 @@
-<div class="container section-space"><div class="faq-layout"><div><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>{% if request.page_type == 'page' and page.handle == 'faq' %}<h1>{{ section.settings.heading | escape }}</h1>{% else %}<h2>{{ section.settings.heading | escape }}</h2>{% endif %}{% for block in section.blocks %}<details class="faq-item" {% if forloop.first %}open{% endif %} {{ block.shopify_attributes }}><summary>{{ block.settings.question | escape }}</summary><p>{{ block.settings.answer | escape }}</p></details>{% endfor %}</div><aside class="help-card"><h3>Still Have Questions?</h3><p>Our team is here to help you find your signature.</p><a class="button" href="{{ routes.root_url }}pages/contact-us">Here to help</a></aside></div></div>
+{% capture content %}{% if section.settings.eyebrow != blank %}<p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>{% endif %}{% if section.settings.heading != blank %}{% if request.page_type == 'page' and page.handle == 'faq' %}<h1>{{ section.settings.heading | escape }}</h1>{% else %}<h2>{{ section.settings.heading | escape }}</h2>{% endif %}{% endif %}{% assign question_index = 0 %}{% for block in section.blocks %}{% if block.settings.question != blank %}<details class="faq-item" {% if question_index == 0 %}open{% endif %} {{ block.shopify_attributes }}><summary>{{ block.settings.question | escape }}</summary>{% if block.settings.answer != blank %}<p>{{ block.settings.answer | escape }}</p>{% endif %}</details>{% assign question_index = question_index | plus: 1 %}{% endif %}{% endfor %}{% endcapture %}{% assign content = content | strip %}
+{% capture help %}{% if section.settings.show_help %}{% if section.settings.help_heading != blank %}<h3>{{ section.settings.help_heading | escape }}</h3>{% endif %}{% if section.settings.help_text != blank %}<p>{{ section.settings.help_text | escape }}</p>{% endif %}{% if section.settings.help_label != blank %}<a class="button" href="{{ section.settings.help_link | default: '/pages/contact-us' }}">{{ section.settings.help_label | escape }}</a>{% endif %}{% endif %}{% endcapture %}{% assign help = help | strip %}
+{% if content != blank or help != blank %}<div class="container section-space"><div class="faq-layout">{% if content != blank %}<div>{{ content }}</div>{% endif %}{% if help != blank %}<aside class="help-card">{{ help }}</aside>{% endif %}</div></div>{% endif %}
 {% schema %}
 {
   "name": "Fragrance FAQ",
@@ -14,6 +16,35 @@
       "id": "heading",
       "label": "Heading",
       "default": "Some Frequently Asked Questions."
+    },
+    {
+      "type": "checkbox",
+      "id": "show_help",
+      "label": "Show help card",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "help_heading",
+      "label": "Help heading",
+      "default": "Still Have Questions?"
+    },
+    {
+      "type": "textarea",
+      "id": "help_text",
+      "label": "Help text",
+      "default": "Our team is here to help you find your signature."
+    },
+    {
+      "type": "text",
+      "id": "help_label",
+      "label": "Help button text",
+      "default": "Here to help"
+    },
+    {
+      "type": "url",
+      "id": "help_link",
+      "label": "Help button link"
     }
   ],
   "presets": [

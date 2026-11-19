@@ -1,4 +1,9 @@
-{% render 'ts-breadcrumbs', title: page.title %}<div class="container section-space"><div class="about-intro"><div>{% render 'ts-media', image: section.settings.image, fallback: 'ref-259.jpg', alt: 'The Twin Signature fragrance story', width: 1000, height: 900 %}</div><div><p class="eyebrow">{{ section.settings.eyebrow | escape }}</p><h1>{{ section.settings.heading | escape }}</h1><div class="rte">{{ section.settings.text }}</div><a href="{{ routes.all_products_collection_url }}" class="button">Shop now</a></div></div><div class="about-stats">{% for block in section.blocks %}<div {{ block.shopify_attributes }}><strong>{{ block.settings.value | escape }}</strong><span>{{ block.settings.label | escape }}</span></div>{% endfor %}</div></div>
+{% render 'ts-breadcrumbs', title: page.title %}
+{% assign starter_image = '' %}{% if section.settings.use_starter_image %}{% assign starter_image = 'ref-259.jpg' %}{% endif %}
+{% capture image %}{% render 'ts-media', image: section.settings.image, fallback: starter_image, alt: section.settings.heading, width: 1000, height: 900 %}{% endcapture %}{% assign image = image | strip %}
+{% capture content %}{% if section.settings.eyebrow != blank %}<p class="eyebrow">{{ section.settings.eyebrow | escape }}</p>{% endif %}{% if section.settings.heading != blank %}<h1>{{ section.settings.heading | escape }}</h1>{% endif %}{% assign story = section.settings.text | strip_html | strip %}{% if story != blank %}<div class="rte">{{ section.settings.text }}</div>{% endif %}{% if section.settings.label != blank %}<a href="{{ section.settings.link | default: routes.all_products_collection_url }}" class="button">{{ section.settings.label | escape }}</a>{% endif %}{% endcapture %}{% assign content = content | strip %}
+{% capture stats %}{% for block in section.blocks %}{% if block.settings.value != blank or block.settings.label != blank %}<div {{ block.shopify_attributes }}>{% if block.settings.value != blank %}<strong>{{ block.settings.value | escape }}</strong>{% endif %}{% if block.settings.label != blank %}<span>{{ block.settings.label | escape }}</span>{% endif %}</div>{% endif %}{% endfor %}{% endcapture %}{% assign stats = stats | strip %}
+{% if image != blank or content != blank or stats != blank %}<div class="container section-space">{% if image != blank or content != blank %}<div class="about-intro">{% if image != blank %}<div>{{ image }}</div>{% endif %}{% if content != blank %}<div>{{ content }}</div>{% endif %}</div>{% endif %}{% if stats != blank %}<div class="about-stats">{{ stats }}</div>{% endif %}</div>{% endif %}
 {% schema %}
 {
   "name": "Our fragrance story",
@@ -25,6 +30,23 @@
       "type": "image_picker",
       "id": "image",
       "label": "Story image"
+    },
+    {
+      "type": "checkbox",
+      "id": "use_starter_image",
+      "label": "Use included starter image when no image is selected",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Button text",
+      "default": "Shop now"
+    },
+    {
+      "type": "url",
+      "id": "link",
+      "label": "Button link"
     }
   ],
   "presets": [
