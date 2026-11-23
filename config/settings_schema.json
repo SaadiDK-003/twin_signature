@@ -57,6 +57,10 @@
     "name": "t:general.colors",
     "settings": [
       {
+        "type": "header",
+        "content": "Page colors"
+      },
+      {
         "type": "color",
         "id": "background_color",
         "default": "#FFFFFF",
@@ -67,6 +71,10 @@
         "id": "foreground_color",
         "default": "#333333",
         "label": "t:labels.foreground"
+      },
+      {
+        "type": "header",
+        "content": "Form fields"
       },
       {
         "type": "range",
@@ -84,6 +92,10 @@
     "name": "Twin Signature",
     "settings": [
       {
+        "type": "header",
+        "content": "Branding"
+      },
+      {
         "type": "checkbox",
         "id": "client_branding",
         "label": "Use client gold logo and black footer",
@@ -95,6 +107,28 @@
         "id": "accent_color",
         "label": "Accent color",
         "default": "#5d3754"
+      },
+      {
+        "type": "color",
+        "id": "brand_gold_color",
+        "label": "Brand gold highlight",
+        "default": "#dbb66e"
+      },
+      {
+        "type": "color",
+        "id": "brand_header_color",
+        "label": "Branded header background",
+        "default": "#fffdf9"
+      },
+      {
+        "type": "color",
+        "id": "brand_footer_color",
+        "label": "Branded footer background",
+        "default": "#000000"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter popup"
       },
       {
         "type": "checkbox",
@@ -115,12 +149,6 @@
         "default": "Sign up for our newsletter to be the first to learn about new arrivals, special promotions, and online exclusives."
       },
       {
-        "type": "text",
-        "id": "popup_button_label",
-        "label": "Newsletter popup button text",
-        "default": "Subscribe"
-      },
-      {
         "type": "textarea",
         "id": "popup_consent",
         "label": "Newsletter popup consent text",
@@ -128,9 +156,19 @@
       },
       {
         "type": "text",
+        "id": "popup_button_label",
+        "label": "Newsletter popup button text",
+        "default": "Subscribe"
+      },
+      {
+        "type": "text",
         "id": "popup_decline_label",
         "label": "Newsletter popup decline text",
         "default": "No thanks!"
+      },
+      {
+        "type": "header",
+        "content": "Newsletter popup image"
       },
       {
         "type": "checkbox",
@@ -142,30 +180,16 @@
         "type": "image_picker",
         "id": "popup_image",
         "label": "Newsletter popup image"
-      },
-      {
-        "type": "color",
-        "id": "brand_gold_color",
-        "label": "Brand gold highlight",
-        "default": "#dbb66e"
-      },
-      {
-        "type": "color",
-        "id": "brand_header_color",
-        "label": "Branded header background",
-        "default": "#fffdf9"
-      },
-      {
-        "type": "color",
-        "id": "brand_footer_color",
-        "label": "Branded footer background",
-        "default": "#000000"
       }
     ]
   },
   {
     "name": "Cart",
     "settings": [
+      {
+        "type": "header",
+        "content": "Cart behavior"
+      },
       {
         "type": "select",
         "id": "cart_type",

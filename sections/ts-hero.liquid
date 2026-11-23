@@ -17,21 +17,34 @@
     </div>{% assign slide_count = slide_count | plus: 1 %}
   {% endif %}
 {% endfor %}{% endcapture %}
+{% assign show_playback_button = false %}
+{% if section.settings.autoplay and section.settings.show_playback_button %}
+  {% assign show_playback_button = true %}
+{% endif %}
 {% if slide_count > 0 %}
 <div class="hero full-width" data-slideshow data-autoplay="{{ section.settings.autoplay }}" data-slide-interval="{{ section.settings.interval }}" aria-roledescription="carousel" aria-label="Featured fragrances">
   <div class="hero__slides">{{ slides }}</div>
   {% if slide_count > 1 %}
     {% if section.settings.show_navigation %}<button type="button" class="hero-arrow hero-arrow--previous" data-slide-step="-1" aria-label="Previous slide">{% render 'ts-icon', name: 'chevron' %}</button><button type="button" class="hero-arrow hero-arrow--next" data-slide-step="1" aria-label="Next slide">{% render 'ts-icon', name: 'chevron' %}</button>{% endif %}
-    {% if section.settings.show_navigation or section.settings.autoplay %}<div class="hero-dots">
+    {% if section.settings.show_navigation or show_playback_button %}<div class="hero-dots">
       {% if section.settings.show_navigation %}{% for number in (1..slide_count) %}<button type="button" data-slide-to="{{ forloop.index0 }}" aria-label="Go to slide {{ number }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"></button>{% endfor %}{% endif %}
-      {% if section.settings.autoplay %}<button type="button" class="slideshow-pause" data-slideshow-pause aria-label="Pause slideshow"><span data-slideshow-pause-icon>{% render 'ts-icon', name: 'pause' %}</span><span data-slideshow-play-icon hidden>{% render 'ts-icon', name: 'play' %}</span></button>{% endif %}
+      {% if show_playback_button %}<button type="button" class="slideshow-pause" data-slideshow-pause aria-label="Pause slideshow"><span data-slideshow-pause-icon>{% render 'ts-icon', name: 'pause' %}</span><span data-slideshow-play-icon hidden>{% render 'ts-icon', name: 'play' %}</span></button>{% endif %}
     </div>{% endif %}
   {% endif %}
 </div>{% elsif request.design_mode %}<div class="container editor-placeholder">Add an image or text to a slide.</div>{% endif %}
+{% stylesheet %}
+  .hero-dots {
+    min-block-size: 32px;
+  }
+{% endstylesheet %}
 {% schema %}
 {
   "name": "Signature slideshow",
   "settings": [
+    {
+      "type": "header",
+      "content": "Slideshow playback"
+    },
     {
       "type": "checkbox",
       "id": "autoplay",
@@ -46,6 +59,18 @@
       "max": 10,
       "step": 1,
       "default": 6
+    },
+    {
+      "type": "checkbox",
+      "id": "show_playback_button",
+      "label": "Show play/pause button",
+      "info": "Lets visitors pause or resume automatic rotation.",
+      "default": true,
+      "visible_if": "{{ section.settings.autoplay == true }}"
+    },
+    {
+      "type": "header",
+      "content": "Slideshow navigation"
     },
     {
       "type": "checkbox",
@@ -66,6 +91,10 @@
       "name": "Slide",
       "settings": [
         {
+          "type": "header",
+          "content": "Slide text"
+        },
+        {
           "type": "text",
           "id": "eyebrow",
           "label": "Eyebrow",
@@ -76,6 +105,10 @@
           "id": "heading",
           "label": "Heading",
           "default": "Explore Your\nSignature Scent"
+        },
+        {
+          "type": "header",
+          "content": "Slide images"
         },
         {
           "type": "image_picker",
@@ -98,6 +131,10 @@
           "id": "mobile_fallback",
           "label": "Default mobile asset",
           "default": "ref-smx1.jpg"
+        },
+        {
+          "type": "header",
+          "content": "Slide button"
         },
         {
           "type": "text",

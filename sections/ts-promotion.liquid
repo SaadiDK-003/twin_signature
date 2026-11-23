@@ -13,6 +13,10 @@
   "name": "Featured promotion",
   "settings": [
     {
+      "type": "header",
+      "content": "Promotion text"
+    },
+    {
       "type": "text",
       "id": "eyebrow",
       "label": "Eyebrow",
@@ -31,14 +35,32 @@
       "default": "Discover a considered collection of memorable fragrances. Beautifully crafted scents, selected to become a part of your everyday story."
     },
     {
+      "type": "header",
+      "content": "Promotion image"
+    },
+    {
       "type": "image_picker",
       "id": "image",
       "label": "Image"
     },
     {
+      "type": "checkbox",
+      "id": "use_starter_image",
+      "label": "Use included starter image when no image is selected",
+      "default": true
+    },
+    {
+      "type": "header",
+      "content": "Countdown"
+    },
+    {
       "type": "text",
       "id": "end_date",
       "label": "Countdown end (ISO date with timezone)"
+    },
+    {
+      "type": "header",
+      "content": "Promotion button"
     },
     {
       "type": "text",
@@ -50,12 +72,6 @@
       "type": "url",
       "id": "link",
       "label": "Button link"
-    },
-    {
-      "type": "checkbox",
-      "id": "use_starter_image",
-      "label": "Use included starter image when no image is selected",
-      "default": true
     }
   ],
   "presets": [

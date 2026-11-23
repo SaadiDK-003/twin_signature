@@ -36,7 +36,7 @@
             "fallback": "ref-s5.jpg",
             "mobile_fallback": "ref-smx123_copy.jpg",
             "label": "Shop now",
-            "link": "/collections/gift-sets"
+            "link": "/collections/all"
           }
         }
       },
@@ -71,10 +71,10 @@
         "2": {
           "type": "collection",
           "settings": {
-            "title": "Gift Sets",
-            "collection": "gift-sets",
+            "title": "All Perfumes",
+            "collection": "",
             "fallback": "ref-3_4a5e3cd4-c4da-4955-a739-3dcdebf6f303.jpg",
-            "link": "/collections/gift-sets"
+            "link": "/collections/all"
           }
         }
       },
@@ -86,57 +86,32 @@
     },
     "bestsellers": {
       "type": "ts-product-tabs",
-      "settings": {},
+      "settings": {
+        "heading": "Find Your Fragrance"
+      },
       "blocks": {
         "0": {
           "type": "tab",
           "settings": {
             "label": "Women",
-            "products": [
-              "love-edition-for-her",
-              "arome-le-parfum",
-              "aersace-for-men",
-              "million-gold-for-her",
-              "arome-virtual-flower",
-              "black-wild-fragrance",
-              "brown-devotion-man",
-              "essence-pour-home"
-            ],
-            "collection": "best-sellers"
+            "collection": "women-perfumes"
           }
         },
         "1": {
           "type": "tab",
           "settings": {
             "label": "Men",
-            "products": [
-              "eau-de-toilette-for-men",
-              "arome-le-parfum",
-              "black-wild-fragrance",
-              "brown-devotion-man",
-              "aersace-for-men",
-              "million-gold-for-her",
-              "men-caramel-dream",
-              "love-edition-for-her"
-            ],
             "collection": "men-colognes"
           }
         },
         "2": {
           "type": "tab",
           "settings": {
-            "label": "Kid's",
+            "label": "Unisex",
             "products": [
-              "love-edition-for-her",
-              "arome-le-parfum",
-              "aersace-for-men",
-              "million-gold-for-her",
-              "arome-virtual-flower",
-              "black-wild-fragrance",
-              "brown-devotion-man",
-              "essence-pour-home"
+              "ispahan"
             ],
-            "collection": "gift-sets"
+            "collection": ""
           }
         }
       },
@@ -148,22 +123,16 @@
     },
     "film": {
       "type": "ts-video",
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "popular": {
       "type": "ts-featured-collection",
       "settings": {
-        "products": [
-          "aersace-for-men",
-          "black-wild-fragrance",
-          "men-caramel-dream",
-          "klein-women-spray",
-          "arome-le-parfum",
-          "brown-devotion-man",
-          "essence-pour-home",
-          "arome-virtual-flower"
-        ],
-        "collection": "popular-perfumes"
+        "collection": "all",
+        "heading": "The 50 mL Collection",
+        "subtitle": "Eight fragrances, each available in a 50 mL bottle.",
+        "view_all_label": "Shop all perfumes"
       }
     },
     "brands": {
@@ -220,28 +189,33 @@
         "3",
         "4",
         "5"
-      ]
+      ],
+      "disabled": true
     },
     "promotion": {
       "type": "ts-promotion",
       "settings": {
-        "end_date": "2027-07-03T00:00:00+05:00",
-        "label": "Shop now at Rs.9,900",
-        "link": "/products/klein-women-spray",
-        "eyebrow": "Features Product Of This Week",
-        "heading": "Only High Quality is The\nCore Value For Us."
+        "end_date": "",
+        "label": "Shop the collection",
+        "link": "/collections/all",
+        "eyebrow": "TWIN SIGNATURE PERFUMES",
+        "heading": "Find Your Next Signature Scent",
+        "text": "Discover eight perfumes in 50 mL, from familiar inspirations to original compositions."
       }
     },
     "lookbook": {
       "type": "ts-lookbook",
-      "settings": {},
+      "settings": {
+        "heading": "Discover the Collection",
+        "subtitle": "Take a closer look at three perfumes from our 50 mL collection."
+      },
       "blocks": {
         "0": {
           "type": "product",
           "settings": {
             "x": 48,
             "y": 41,
-            "product": "arome-virtual-flower"
+            "product": "dreamy-musk"
           }
         },
         "1": {
@@ -249,7 +223,7 @@
           "settings": {
             "x": 18,
             "y": 78,
-            "product": "arome-le-parfum"
+            "product": "ispahan"
           }
         },
         "2": {
@@ -257,7 +231,7 @@
           "settings": {
             "x": 74,
             "y": 59,
-            "product": "men-caramel-dream"
+            "product": "citrus-cave"
           }
         }
       },
@@ -300,13 +274,15 @@
         "0",
         "1",
         "2"
-      ]
+      ],
+      "disabled": true
     },
     "journal": {
       "type": "ts-blog",
       "settings": {
         "blog": "news"
-      }
+      },
+      "disabled": true
     }
   },
   "order": [

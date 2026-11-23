@@ -11,10 +11,19 @@ function fixture() {
   let blocked = false;
   let typing = false;
   let scheduled = [];
+  const observers = new Map();
   class Clock extends Date { static now() { return now; } }
   const context = {
     HTMLElement: class {}, Date: Clock, Map, JSON, Number, String, Math,
-    customElements: { get() {}, define(name, implementation) { Giveaway = implementation; } },
+    MutationObserver: class {
+      constructor(callback) { this.callback = callback; }
+      observe(target) { this.target = target; observers.set(target, this.callback); }
+      disconnect() { observers.delete(this.target); }
+    },
+    customElements: {
+      get() {}, define(name, implementation) { Giveaway = implementation; },
+      whenDefined: () => Promise.resolve()
+    },
     localStorage: { getItem: key => entries.get(key), setItem: (key, value) => entries.set(key, value) },
     document: {
       visibilityState: 'visible', querySelector: () => blocked,
@@ -39,7 +48,7 @@ function fixture() {
   };
   popup.querySelector = () => null;
   return {
-    popup, entries, scheduled,
+    popup, entries, scheduled, observers,
     setState(state) { entries.set(popup.key, JSON.stringify(state)); },
     advance(milliseconds) { now += milliseconds; },
     block(value) { blocked = value; }, type(value) { typing = value; }, now: () => now
@@ -133,4 +142,39 @@ test('successful signups hide entry copy and decline while exposing the success 
   assert.equal(f.popup.dialog['aria-label'], 'Giveaway signup received');
   assert.equal(f.popup.tab.hidden, true);
   assert.equal(f.popup.shouldShow(), false);
+});
+
+test('Shopify Forms confirmation hides the teaser and remembers the entry after the popup closes', () => {
+  const { popup, entries, observers, now } = fixture();
+  let embed;
+  let banner;
+  const app = { querySelector: () => embed };
+  const shadow = { querySelector: selector => selector === 'style[data-ts-confirmation]' || banner === selector };
+  popup.querySelector = selector => selector === '[data-giveaway-app]' ? app : null;
+  const controller = new AbortController();
+  popup.watchFormsEmbed(controller.signal);
+  popup.open();
+  popup.updateTab();
+  assert.equal(popup.tab.hidden, false);
+
+  embed = { shadowRoot: shadow };
+  observers.get(app)();
+  banner = 'section[data-testid="banner-error"]';
+  observers.get(shadow)();
+  assert.equal(popup.tab.hidden, false);
+  assert.equal(entries.has(popup.key), false);
+
+  banner = 'section[data-testid="banner-success"]';
+  observers.get(shadow)();
+  assert.equal(popup.dialog.open, true);
+  assert.equal(popup.tab.hidden, true);
+  assert.equal(JSON.parse(entries.get(popup.key)).entered, now());
+
+  popup.dialog.close();
+  popup.completed = false;
+  popup.updateTab();
+  assert.equal(popup.tab.hidden, true);
+  assert.equal(popup.shouldShow(), false);
+  controller.abort();
+  assert.equal(observers.size, 0);
 });

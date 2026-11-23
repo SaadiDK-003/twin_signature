@@ -42,9 +42,9 @@ body:has(.giveaway-popup[open]){padding-inline-end:var(--scrollbar-width,0px)}
 .giveaway-success h3{margin:0 0 12px;font:700 28px/1.2 var(--serif)}
 .giveaway-success p{margin:0;color:#756b5d;font-size:14px;line-height:1.8}
 .giveaway-success-action{margin-top:26px}
-.giveaway-popup--app .giveaway-content{padding:48px 32px 30px}
-.giveaway-app{min-width:0;min-height:280px}
-.giveaway-app>.shopify-block{width:100%;margin:0}
+.giveaway-popup--app .giveaway-content{padding:44px 32px}
+.giveaway-app{display:grid;align-items:center;min-width:0;min-height:280px}
+.giveaway-app>.shopify-block{width:100%;min-width:0;margin:0}
 .giveaway-tab{position:fixed;z-index:8;bottom:22px;left:22px;display:flex;align-items:center;gap:10px;max-width:calc(100vw - 44px);min-height:46px;padding:10px 18px;border:1px solid #b99960;border-radius:30px;background:#19150f;color:#e5c891;box-shadow:0 4px 24px #0002;font:500 12px/1.5 var(--sans);cursor:pointer;transition:transform .2s}
 .giveaway-tab:hover{transform:translateY(-2px)}
 .giveaway-tab .icon{width:21px;height:21px;flex:none}
@@ -66,7 +66,8 @@ body:has(.giveaway-popup[open]){padding-inline-end:var(--scrollbar-width,0px)}
   .giveaway-caption{position:absolute;z-index:1;left:24px;bottom:20px;font-size:17px}
   .giveaway-content,.giveaway-popup--text-only .giveaway-content{padding:26px 24px 22px}
   .giveaway-popup--text-only .giveaway-content{padding-top:52px}
-  .giveaway-popup--app .giveaway-content{padding:26px 22px 22px}
+  .giveaway-popup--app .giveaway-content{padding:26px 22px}
+  .giveaway-popup--app.giveaway-popup--text-only .giveaway-content{padding-block:52px 32px}
   .giveaway-content h2{font-size:34px;line-height:1.12;margin-bottom:12px}
   .giveaway-eyebrow{margin-bottom:11px;font-size:9px}
   .giveaway-description{font-size:13px;line-height:1.7;margin-bottom:14px}

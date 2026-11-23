@@ -13,6 +13,48 @@
   const pendingKey = 'twin-signature:giveaway-pending';
   const pending = () => { try { return sessionStorage.getItem(pendingKey); } catch { return null; } };
 
+  // Shopify Forms owns this shadow root. Style its success banner without changing the form or its state.
+  const confirmationStyles = `
+    section[data-testid="banner-success"] {
+      --container-text-alignment: center;
+      display: grid;
+      justify-items: center;
+      gap: 12px;
+      padding-block: 12px;
+      text-align: center;
+    }
+
+    section[data-testid="banner-success"]::before {
+      content: '✓' / '';
+      display: grid;
+      place-items: center;
+      inline-size: 48px;
+      block-size: 48px;
+      margin-block-end: 4px;
+      border: 1px solid #d9b67599;
+      border-radius: 50%;
+      color: #765825;
+      background: #d9b67516;
+      font: 400 24px/1 system-ui, sans-serif;
+    }
+
+    section[data-testid="banner-success"] > h2 {
+      margin: 0;
+      color: var(--giveaway-ink, #201c16);
+      font: 700 clamp(26px, 3.5vw, 35px)/1.18 var(--serif, Georgia, serif);
+      text-align: center;
+      text-wrap: balance;
+    }
+
+    section[data-testid="banner-success"] > div {
+      max-inline-size: 34ch;
+      color: #6c6357;
+      font-size: 14px;
+      line-height: 1.6;
+      text-align: center;
+    }
+  `;
+
   class SignatureGiveaway extends HTMLElement {
     connectedCallback() {
       this.controller = new AbortController();
@@ -24,6 +66,7 @@
       this.end = Date.parse(this.dataset.end);
       this.mobile = matchMedia('(max-width:749px)');
       this.completed = false;
+      this.watchFormsEmbed(signal);
       this.querySelectorAll('[data-giveaway-close]').forEach(button => button.addEventListener('click', () => this.dialog.close(), { signal }));
       this.tab?.addEventListener('click', () => this.open(), { signal });
       this.dialog.addEventListener('click', event => {
@@ -76,9 +119,54 @@
       }
     }
 
-    showSuccess() {
+    watchFormsEmbed(signal) {
+      const app = this.querySelector('[data-giveaway-app]');
+      if (!app) return;
+
+      let watchedShadow;
+      const completeOnConfirmation = () => {
+        if (watchedShadow?.querySelector('section[data-testid="banner-success"]')) this.recordEntry();
+      };
+      const confirmationObserver = new MutationObserver(completeOnConfirmation);
+      const watchConfirmation = () => {
+        const shadow = app.querySelector('shopify-forms-embed')?.shadowRoot;
+        if (shadow === watchedShadow) return;
+        confirmationObserver.disconnect();
+        watchedShadow = shadow;
+        if (!shadow) return;
+
+        if (!shadow.querySelector('style[data-ts-confirmation]')) {
+          const style = document.createElement('style');
+          style.dataset.tsConfirmation = '';
+          style.textContent = confirmationStyles;
+          shadow.append(style);
+        }
+        confirmationObserver.observe(shadow, { childList: true, subtree: true });
+        completeOnConfirmation();
+      };
+
+      // The app can mount after the theme starts or remount in the theme editor.
+      const observer = new MutationObserver(watchConfirmation);
+      observer.observe(app, { childList: true, subtree: true });
+      signal.addEventListener('abort', () => {
+        observer.disconnect();
+        confirmationObserver.disconnect();
+      }, { once: true });
+      customElements.whenDefined('shopify-forms-embed').then(() => {
+        if (!signal.aborted) watchConfirmation();
+      });
+      watchConfirmation();
+    }
+
+    recordEntry() {
+      if (this.completed) return;
       this.completed = true;
       if (!this.editor) write(this.key, { ...read(this.key), entered: Date.now() });
+      this.updateTab();
+    }
+
+    showSuccess() {
+      this.recordEntry();
       ['[data-giveaway-fields]', '[data-giveaway-intro]', '[data-giveaway-decline]'].forEach(selector => {
         const element = this.querySelector(selector);
         if (element) element.hidden = true;
@@ -87,7 +175,6 @@
       if (success) success.hidden = false;
       this.dialog.removeAttribute('aria-labelledby');
       this.dialog.setAttribute('aria-label', 'Giveaway signup received');
-      this.updateTab();
     }
 
     expired() { return Number.isFinite(this.end) && Date.now() >= this.end; }

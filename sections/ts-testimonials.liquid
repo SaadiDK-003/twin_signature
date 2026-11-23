@@ -23,9 +23,26 @@
       "name": "Testimonial",
       "settings": [
         {
+          "type": "header",
+          "content": "Review"
+        },
+        {
           "type": "textarea",
           "id": "quote",
           "label": "Quote"
+        },
+        {
+          "type": "range",
+          "id": "rating",
+          "label": "Stars (0 hides rating)",
+          "min": 0,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "header",
+          "content": "Reviewer"
         },
         {
           "type": "text",
@@ -37,15 +54,6 @@
           "id": "caption",
           "label": "Caption",
           "default": "Fragrance enthusiast"
-        },
-        {
-          "type": "range",
-          "id": "rating",
-          "label": "Stars (0 hides rating)",
-          "min": 0,
-          "max": 5,
-          "step": 1,
-          "default": 5
         }
       ]
     }

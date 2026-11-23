@@ -3,16 +3,13 @@
     "main": {
       "type": "product",
       "settings": {
-        "plain_swatch_products": [
-          "brown-devotion-man",
-          "arome-virtual-flower"
-        ],
         "shipping_page": "shipping-returns",
         "privacy_page": "privacy-policy"
       }
     },
     "film": {
       "type": "ts-video",
+      "disabled": true,
       "settings": {
         "eyebrow": "Why Choose Twin Signature?",
         "heading": "A Fragrance That Feels Like You"
@@ -21,7 +18,7 @@
     "related": {
       "type": "ts-recommendations",
       "settings": {
-        "collection": "popular-perfumes"
+        "collection": "all"
       }
     },
     "faq": {
@@ -44,8 +41,8 @@
         "2": {
           "type": "question",
           "settings": {
-            "question": "What is the difference between perfume sizes?",
-            "answer": "The fragrance stays the same; choose a smaller bottle for travel or a larger bottle for your everyday signature. Available sizes are shown on each product page."
+            "question": "What size are the perfumes?",
+            "answer": "Each perfume in the current Twin Signature collection comes in a 50 mL bottle."
           }
         },
         "3": {

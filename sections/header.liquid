@@ -1,4 +1,6 @@
 {% if section.settings.show_announcement %}{% if section.settings.announcement != blank or section.settings.store_label != blank or section.settings.email != blank %}<div class="announcement full-width"><div class="announcement__inner">{% if section.settings.announcement != blank %}<p>{{ section.settings.announcement | escape }}</p>{% endif %}{% if section.settings.store_label != blank or section.settings.email != blank %}<div>{% if section.settings.store_label != blank %}<a href="{{ section.settings.store_link | default: '/pages/contact-us' }}">{% render 'ts-icon', name: 'pin' %} {{ section.settings.store_label | escape }}</a>{% endif %}{% if section.settings.email != blank %}<a href="mailto:{{ section.settings.email | escape }}">{% render 'ts-icon', name: 'mail' %} {{ section.settings.email | escape }}</a>{% endif %}</div>{% endif %}</div></div>{% endif %}{% endif %}
+{% assign sticky_mode = section.settings.sticky_header | default: 'default' %}
+{% if sticky_mode != 'default' %}<ts-sticky-header class="full-width" data-mode="{{ sticky_mode }}">{% endif %}
 <header class="site-header full-width"><div class="site-header__inner">
 <button type="button" class="icon-button mobile-menu-button" data-open-dialog="MobileMenu" aria-controls="MobileMenu" aria-label="Open menu">{% render 'ts-icon', name: 'menu' %}</button>
 <nav class="desktop-nav" aria-label="Main navigation">{% render 'ts-navigation', menu: section.settings.menu %}</nav>
@@ -6,12 +8,88 @@
 <div class="header-tools"><div class="predictive-search"><form action="{{ routes.search_url }}" method="get" role="search"><label class="visually-hidden" for="HeaderSearch">Search our store</label><input id="HeaderSearch" type="search" name="q" placeholder="Search our store" autocomplete="off" data-predictive-search role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="PredictiveResults"><input type="hidden" name="type" value="product"><button aria-label="Search">{% render 'ts-icon', name: 'search' %}</button></form><div id="PredictiveResults" class="predictive-results" role="region" aria-label="Search suggestions" hidden></div></div>
 <button class="icon-button mobile-search-toggle" data-open-dialog="MobileSearchDialog" aria-label="Open search">{% render 'ts-icon', name: 'search' %}</button><a class="icon-button account-link" href="{{ routes.account_url }}" aria-label="My account">{% render 'ts-icon', name: 'user' %}</a><a class="icon-button counter-link wishlist-link" href="{{ routes.root_url }}pages/wishlist" aria-label="Wishlist">{% render 'ts-icon', name: 'heart' %}<span data-wishlist-count>0</span></a><a class="icon-button counter-link" href="{{ routes.cart_url }}" data-cart-open aria-label="Shopping cart">{% render 'ts-icon', name: 'bag' %}<span data-cart-count>{{ cart.item_count }}</span></a></div>
 </div></header>
+{% if sticky_mode != 'default' %}</ts-sticky-header>{% endif %}
 <dialog class="mobile-search-dialog dialog" id="MobileSearchDialog" aria-label="Search our store"><div class="drawer-heading"><h2>Search our store</h2><button class="icon-button" data-dialog-close aria-label="Close search">{% render 'ts-icon', name: 'close' %}</button></div><div class="predictive-search"><form action="{{ routes.search_url }}" method="get" role="search"><label class="visually-hidden" for="MobilePredictiveSearch">Search our store</label><input id="MobilePredictiveSearch" type="search" name="q" placeholder="Search our store" autocomplete="off" data-predictive-search role="combobox" aria-autocomplete="list" aria-expanded="false" aria-controls="MobilePredictiveResults" autofocus><input type="hidden" name="type" value="product"><button aria-label="Search">{% render 'ts-icon', name: 'search' %}</button></form><div id="MobilePredictiveResults" class="predictive-results" role="region" aria-label="Search suggestions" hidden></div></div></dialog>
 <dialog class="mobile-menu dialog" id="MobileMenu" aria-label="Navigation"><div class="drawer-heading"><h2>Explore Twin Signature</h2><button class="icon-button" data-dialog-close aria-label="Close menu">{% render 'ts-icon', name: 'close' %}</button></div><form action="{{ routes.search_url }}" method="get" role="search" class="mobile-search"><label class="visually-hidden" for="MobileSearch">Search our store</label><input id="MobileSearch" type="search" name="q" placeholder="Search our store" required><button aria-label="Search">{% render 'ts-icon', name: 'search' %}</button></form><nav aria-label="Mobile navigation">{% render 'ts-navigation', menu: section.settings.menu %}</nav><a class="button button--outline" href="{{ routes.account_url }}">My account</a></dialog>
+{% stylesheet %}
+  .signature-header-section:has(> ts-sticky-header) {
+    position: sticky;
+    top: calc(0px - var(--signature-announcement-height, 0px));
+    z-index: 30;
+  }
+
+  .signature-header-section:has(> ts-sticky-header[data-mode='on-scroll-up']) {
+    transition: top 180ms ease-out;
+  }
+
+  .signature-header-section:has(> ts-sticky-header[data-mode='on-scroll-up']:not([data-revealed])):not(:has(> ts-sticky-header :focus-visible, > ts-sticky-header .predictive-search:focus-within)) {
+    top: calc(0px - var(--signature-announcement-height, 0px) - var(--signature-navigation-height, 0px));
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .signature-header-section:has(> ts-sticky-header[data-mode='on-scroll-up']) {
+      transition: none;
+    }
+  }
+{% endstylesheet %}
+
+{% javascript %}
+  if (!customElements.get('ts-sticky-header')) {
+    class SignatureStickyHeader extends HTMLElement {
+      connectedCallback() {
+        const section = this.parentElement;
+        const announcement = section.querySelector(':scope > .announcement');
+        const measure = () => {
+          section.style.setProperty('--signature-announcement-height', `${announcement?.offsetHeight ?? 0}px`);
+          section.style.setProperty('--signature-navigation-height', `${this.offsetHeight}px`);
+        };
+        measure();
+        this.resizeObserver = new ResizeObserver(measure);
+        this.resizeObserver.observe(this);
+        if (announcement) this.resizeObserver.observe(announcement);
+
+        if (this.dataset.mode === 'on-scroll-up') {
+          this.scrollListener = new AbortController();
+          let previousPosition = Math.max(0, window.scrollY);
+          window.addEventListener('scroll', () => {
+            const position = Math.max(0, window.scrollY);
+            const distance = position - previousPosition;
+            // Accumulate small movements to avoid flicker on touch and trackpads.
+            if (position > 0 && Math.abs(distance) < 5) return;
+            previousPosition = position;
+            this.toggleAttribute('data-revealed', position > 0 && distance < 0);
+            if (distance > 0) {
+              this.querySelectorAll('.desktop-nav details[open]:not(:focus-within)').forEach(menu => { menu.open = false; });
+            }
+          }, { passive: true, signal: this.scrollListener.signal });
+        }
+      }
+
+      disconnectedCallback() {
+        this.resizeObserver?.disconnect();
+        this.scrollListener?.abort();
+      }
+    }
+
+    customElements.define('ts-sticky-header', SignatureStickyHeader);
+  }
+{% endjavascript %}
+
 {% schema %}
 {
   "name": "Header and announcement",
+  "class": "signature-header-section",
   "settings": [
+    {
+      "type": "header",
+      "content": "Announcement bar"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_announcement",
+      "label": "Show announcement bar",
+      "default": true
+    },
     {
       "type": "text",
       "id": "announcement",
@@ -20,8 +98,23 @@
     },
     {
       "type": "text",
+      "id": "store_label",
+      "label": "Store link text",
+      "default": "Find a Store"
+    },
+    {
+      "type": "url",
+      "id": "store_link",
+      "label": "Store link"
+    },
+    {
+      "type": "text",
       "id": "email",
       "label": "Contact email"
+    },
+    {
+      "type": "header",
+      "content": "Header"
     },
     {
       "type": "image_picker",
@@ -34,21 +127,15 @@
       "label": "Navigation menu"
     },
     {
-      "type": "checkbox",
-      "id": "show_announcement",
-      "label": "Show announcement bar",
-      "default": true
-    },
-    {
-      "type": "text",
-      "id": "store_label",
-      "label": "Store link text",
-      "default": "Find a Store"
-    },
-    {
-      "type": "url",
-      "id": "store_link",
-      "label": "Store link"
+      "type": "select",
+      "id": "sticky_header",
+      "label": "Sticky header",
+      "options": [
+        { "value": "default", "label": "Default" },
+        { "value": "always", "label": "Always sticky" },
+        { "value": "on-scroll-up", "label": "Sticky on scroll up" }
+      ],
+      "default": "default"
     }
   ]
 }
